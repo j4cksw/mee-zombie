@@ -1,20 +1,23 @@
 describe("Player", function()
-  Player = require("Player")
   
   local playerImageSheet = {}
   
-  display = {
+  graphics = {
     newImageSheet = function()
       return playerImageSheet
     end
   }
-  spy.on(display, "newImageSheet")
+  spy.on(graphics, "newImageSheet")
+  
+  display = {}
   stub(display, "newSprite")
+  
+  Player = require("Player")
   
   it("should create Player's image sheet.", function()
     Player:new()
     
-    assert.stub(display.newImageSheet).was_called_with("img/player.png")
+    assert.stub(graphics.newImageSheet).was_called_with("img/player.png")
   end)
   
   it("should create Player's sprite.", function()
