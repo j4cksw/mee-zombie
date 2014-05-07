@@ -17,7 +17,11 @@ describe("Player", function()
   it("should create Player's image sheet.", function()
     Player:new()
     
-    assert.stub(graphics.newImageSheet).was_called_with("img/player.png")
+    assert.stub(graphics.newImageSheet).
+      was_called_with("img/player.png",
+       {
+        width = 400, height = 400, numFrames = 1
+       })
   end)
   
   it("should create Player's sprite.", function()
