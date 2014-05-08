@@ -1,6 +1,6 @@
 graphics = graphics or require("graphics")
 PlayerImageSheetConfig = PlayerImageSheetConfig or require("config.PlayerImageSheetConfig")
-PlayerSpriteSequenceData = PlayerSpriteSequenceData or require("config.PlayerSpriteSequqnceData")
+PlayerSpriteSequenceData = PlayerSpriteSequenceData or require("config.PlayerSpriteSequenceData")
 
 Player = {
   new = function()
