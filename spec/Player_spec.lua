@@ -26,8 +26,16 @@ describe("Player", function()
     }
     spy.on(graphics, "newImageSheet")
 
-    display = {}
-    stub(display, "newSprite")
+    local playerSprite = {}
+    stub(playerSprite, "setSequence")
+    stub(playerSprite, "play")
+    
+    display = {
+      newSprite = function()
+        return playerSprite
+      end
+    }
+    spy.on(display, "newSprite")
 
     Player = require("Player")
 
@@ -50,6 +58,15 @@ describe("Player", function()
               count=1,
             }
           })
+    end)
+
+    it("should set sequence to run and play when call walk()", function()
+      local player = Player:new()
+
+      player:walk()
+
+      assert.stub(playerSprite.setSequence).was_called_with(playerSprite, "walk")
+      assert.stub(playerSprite.play).was_called_with(playerSprite)
     end)
 
 end)
