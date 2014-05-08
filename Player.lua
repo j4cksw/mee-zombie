@@ -16,6 +16,11 @@ function Player:new()
     playerSprite = playerSprite
   }
 
+  function self:setPosition(x, y)
+    self.playerSprite.x = x
+    self.playerSprite.y = y
+  end
+
   function self:walk()
     self.playerSprite:setSequence("walk")
     self.playerSprite:play()

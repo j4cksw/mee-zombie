@@ -59,6 +59,15 @@ describe("Player", function()
             }
           })
     end)
+    
+    it("should set position to its sprite when call setPosition()", function()
+      local player = Player:new()
+      
+      player:setPosition(50, 200)
+      
+      assert.are.equal(50, playerSprite.x)
+      assert.are.equal(200, playerSprite.y)
+    end)
 
     it("should set sequence to run and play when call walk()", function()
       local player = Player:new()
