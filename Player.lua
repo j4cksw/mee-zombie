@@ -2,7 +2,7 @@ graphics = graphics or require("graphics")
 
 Player = {
   new = function()
-    local playerImageSheet = graphics.newImageSheet("img/player.png", 
+    local playerImageSheet = graphics.newImageSheet("img/sprite/bz_sprite.png", 
     {
       width=400,
       height=400,
