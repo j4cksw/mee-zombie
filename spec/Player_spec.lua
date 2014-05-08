@@ -4,8 +4,16 @@ describe("Player", function()
       path = "img/player.png",
       options = {
         width = 400,
-        height = 400, 
+        height = 400,
         numFrames = 1
+      }
+    }
+
+    PlayerSpriteSequenceData = {
+      {
+        name="run",
+        start=1,
+        count=1,
       }
     }
 
