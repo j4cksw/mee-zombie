@@ -1,13 +1,11 @@
 graphics = graphics or require("graphics")
+PlayerImageSheetConfig = PlayerImageSheetConfig or require("config.PlayerImageSheetConfig")
 
 Player = {
   new = function()
-    local playerImageSheet = graphics.newImageSheet("img/sprite/bz_sprite.png", 
-    {
-      width=400,
-      height=400,
-      numFrames=1
-    })
+    local playerImageSheet = graphics.newImageSheet(PlayerImageSheetConfig.path, 
+      PlayerImageSheetConfig.options)
+      
     local playerSprite = display.newSprite(playerImageSheet, {
       {name="run",
         start=1,

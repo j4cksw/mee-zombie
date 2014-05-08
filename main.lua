@@ -1,3 +1,6 @@
+
+display.setStatusBar( display.HiddenStatusBar )
+
 Player = require("Player")
 
 local player = Player:new()
