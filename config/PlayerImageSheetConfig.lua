@@ -3,7 +3,7 @@ PlayerImageSheetConfig = {
   options = {
     width = 400,
     height = 400,
-    numframes = 17
+    numFrames = 17
   }
 }
 
