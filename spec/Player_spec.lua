@@ -69,12 +69,21 @@ describe("Player", function()
       assert.are.equal(200, playerSprite.y)
     end)
 
-    it("should set sequence to run and play when call walk()", function()
+    it("should set sequence to walk and play when call walk()", function()
       local player = Player:new()
 
       player:walk()
 
       assert.stub(playerSprite.setSequence).was_called_with(playerSprite, "walk")
+      assert.stub(playerSprite.play).was_called_with(playerSprite)
+    end)
+    
+    it("should set sequence to run and play when call run()", function()
+      local player = Player:new()
+
+      player:run()
+
+      assert.stub(playerSprite.setSequence).was_called_with(playerSprite, "run")
       assert.stub(playerSprite.play).was_called_with(playerSprite)
     end)
 
