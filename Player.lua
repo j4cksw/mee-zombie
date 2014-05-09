@@ -22,12 +22,15 @@ function Player:new()
   end
 
   function self:walk()
-    self.playerSprite:setSequence("walk")
-    self.playerSprite:play()
+    self:changeSpriteSequence("walk")
   end
   
   function self:run()
-    self.playerSprite:setSequence("run")
+    self:changeSpriteSequence("run")
+  end
+  
+  function self:changeSpriteSequence(sequenceName)
+    self.playerSprite:setSequence(sequenceName)
     self.playerSprite:play()
   end
   return self
