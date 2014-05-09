@@ -2,7 +2,8 @@ PlayerSpriteSequenceData = {
   {
     name="run",
     start=1,
-    count=8
+    count=8,
+    time=500
   },
   {
     name="walk",
