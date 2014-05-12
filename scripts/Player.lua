@@ -2,7 +2,7 @@ graphics = graphics or require("graphics")
 PlayerImageSheetConfig = PlayerImageSheetConfig or require("config.PlayerImageSheetConfig")
 PlayerSpriteSequenceData = PlayerSpriteSequenceData or require("config.PlayerSpriteSequenceData")
 
-Player = {}
+local Player = {}
 
 function Player:new()
 
@@ -33,6 +33,7 @@ function Player:new()
     self.playerSprite:setSequence(sequenceName)
     self.playerSprite:play()
   end
+  
   return self
 end
 

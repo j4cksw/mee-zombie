@@ -37,7 +37,7 @@ describe("Player", function()
     }
     spy.on(display, "newSprite")
 
-    Player = require("Player")
+    Player = require("scripts.Player")
 
     it("should create Player's image sheet.", function()
       Player:new()

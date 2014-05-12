@@ -1,7 +1,7 @@
 
 display.setStatusBar( display.HiddenStatusBar )
 
-Player = require("Player")
+Player = require("scripts.Player")
 
 local player = Player:new()
 player:walk()
