@@ -2,13 +2,7 @@ describe("ImageSheetFactory", function()
 
     local fakeImageSheet = {}
 
-    ImageSheetFactory = {
-
-        createFromImageSheetData = function(imageSheetData)
-          local result = graphics.newImageSheet(imageSheetData.path, imageSheetData.options)
-          return result
-        end
-    }
+    ImageSheetFactory = require("scripts.ImageSheetFactory")
 
     setup(function()
       graphics = {
