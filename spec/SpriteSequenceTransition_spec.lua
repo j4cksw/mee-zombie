@@ -1,5 +1,10 @@
 describe("SpriteSequenceTransition", function()
+  
+  local fakeSprite = {}
+  
   setup(function()
+    stub(fakeSprite, "setSequence")
+    
     SpriteSequenceTransition = require("scripts.SpriteSequenceTransition")
   end)
   
