@@ -2,8 +2,6 @@ describe("ImageSheetFactory", function()
 
     local fakeImageSheet = {}
 
-    ImageSheetFactory = require("scripts.ImageSheetFactory")
-
     setup(function()
       graphics = {
         newImageSheet = function(...)
@@ -11,7 +9,8 @@ describe("ImageSheetFactory", function()
         end
       }
       spy.on(graphics, "newImageSheet")
-
+      
+      ImageSheetFactory = require("scripts.ImageSheetFactory")
     end)
 
     it("should create image sheet from graphics module", function()
