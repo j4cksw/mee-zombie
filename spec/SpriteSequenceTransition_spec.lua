@@ -1,6 +1,6 @@
 describe("SpriteSequenceTransition", function()
   setup(function()
-    SpriteSequenceTransition = require("SpriteSequenceTransition")
+    SpriteSequenceTransition = require("scripts.SpriteSequenceTransition")
   end)
   
   it("should set sprite sequence with a given sequence name", function()
