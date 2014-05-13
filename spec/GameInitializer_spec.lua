@@ -19,6 +19,8 @@ describe("GameInitializer", function()
         path="path/to/imageSheet",
         options={width=10}
       }
+      
+      PlayerSpriteSequenceData = {}
 
       GameInitializer = require("scripts.GameInitializer")
     end)
@@ -31,6 +33,6 @@ describe("GameInitializer", function()
     it("should create bear sprite", function()
       GameInitializer.initialize()
 
-      assert.stub(SpriteFactory.createFromImageSheet).was_called_with(fakeBearImageSheet)
+      assert.stub(SpriteFactory.createFromImageSheet).was_called_with(fakeBearImageSheet, PlayerSpriteSequenceData)
     end)
 end)
