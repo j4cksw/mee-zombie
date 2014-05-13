@@ -4,6 +4,7 @@ describe("SpriteSequenceTransition", function()
   
   setup(function()
     stub(fakeSprite, "setSequence")
+    stub(fakeSprite, "play")
     
     SpriteSequenceTransition = require("scripts.SpriteSequenceTransition")
   end)
@@ -12,5 +13,11 @@ describe("SpriteSequenceTransition", function()
     SpriteSequenceTransition.toSequence(fakeSprite, "walk")
     
     assert.stub(fakeSprite.setSequence).was_called_with(fakeSprite, "walk")
+  end)
+  
+  it("should play sprite after set sequence name", function()
+    SpriteSequenceTransition.toSequence(fakeSprite, "walk")
+    
+    assert.stub(fakeSprite.play).was_called_with(fakeSprite)
   end)
 end)
