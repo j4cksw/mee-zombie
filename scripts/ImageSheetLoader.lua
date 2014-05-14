@@ -4,7 +4,11 @@ ImageSheetFactory = ImageSheetFactory or require("scripts.ImageSheetFactory")
 ImageSheetsData = ImageSheetsData or require("scripts.ImageSheetsData")
 
 function ImageSheetLoader.loadByNames(names)
-  ImageSheetFactory.createFromImageSheetData(ImageSheetsData[names[1]])
+  ImageSheetsTable = {}
+  
+  for key, value in pairs(names) do
+    ImageSheetsTable[value] = ImageSheetFactory.createFromImageSheetData(ImageSheetsData[value])
+  end
 end
 
 return ImageSheetLoader

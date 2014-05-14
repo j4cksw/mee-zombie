@@ -11,6 +11,14 @@ describe("ImageSheetLoader", function()
             height=400,
             numFrames=17
           }
+        },
+        ["floor"] = {
+          path="img/sprite/floor.png",
+          options={
+            width=128,
+            height=128,
+            numFrames=2
+          }
         }
       }
 
@@ -37,7 +45,22 @@ describe("ImageSheetLoader", function()
       })
     end)
     
-    it("should create a global ImageSheetsTable")
+    it("should create a global ImageSheetsTable", function()
+      ImageSheetLoader.loadByNames({"bear_zombie"})
+      
+      assert.are_not.Nil(ImageSheetsTable)
+    end)
     
-    it("should have imageSheet with a given name")
+    it("should have imageSheet with a given name", function()
+      ImageSheetLoader.loadByNames({"bear_zombie"})
+      
+      assert.are_not.Nil(ImageSheetsTable["bear_zombie"])
+    end)
+    
+    it("should have imageSheet with all given names", function()
+      ImageSheetLoader.loadByNames({"bear_zombie", "floor"})
+      
+      assert.are_not.Nil(ImageSheetsTable["bear_zombie"])
+      assert.are_not_Nil(ImageSheetsTable["floor"])
+    end)
 end)
