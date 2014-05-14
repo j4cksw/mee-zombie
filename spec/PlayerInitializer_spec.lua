@@ -47,5 +47,13 @@ describe("PlayerInitializer", function()
     assert.stub(SpritePositioner.setPosition)
       .was_called_with(fakeBearSprite, 10, 20)
   end)
+  
+  it("should transition animate sequence to walk", function()
+    PlayerInitializer.initialize()
+    
+    assert.stub(SpriteSequenceTransition.toSequence)
+      .was_called_with(fakeBearSprite,
+        "walk")
+  end)
 
 end)
