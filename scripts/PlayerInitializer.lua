@@ -1,0 +1,2 @@
+local PlayerInitializer = {}
+return PlayerInitializer
