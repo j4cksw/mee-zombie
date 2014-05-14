@@ -15,7 +15,10 @@ describe("FloorInitializer", function()
       SpriteSequenceData = {
         ["floor"] = {}
       }
-
+      
+      SpritePositioner = {}
+      stub(SpritePositioner, "setPosition")
+      
       FloorInitializer = require("scripts.FloorInitializer")
   end)
 
@@ -25,5 +28,14 @@ describe("FloorInitializer", function()
     assert.stub(SpriteFactory.createFromImageSheet)
       .was_called_with(ImageSheetsTable["floor"],
         SpriteSequenceData["floor"])
+  end)
+  
+  it("should set sequence of floor to top", function()
+    FloorInitializer.initialize()
+    
+    assert.stub(SpritePositioner.setPosition)
+      .was_called_with(fakeFloorSprite, 
+      10,
+      1364)
   end)
 end)
