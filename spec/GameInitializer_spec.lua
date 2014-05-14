@@ -1,7 +1,4 @@
 describe("GameInitializer", function()
-
-    local fakeBearImageSheet = {}
-    local fakeBearSprite = {}
     
     setup(function()
       ImageSheetLoader = {
@@ -24,6 +21,6 @@ describe("GameInitializer", function()
     it("should initialize player", function()
       GameInitializer.initialize()
 
-      assert.stub(PlayerInitializer.intialize).was_called()
+      assert.stub(PlayerInitializer.initialize).was_called()
     end)
 end)
