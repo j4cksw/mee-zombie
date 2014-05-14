@@ -4,12 +4,10 @@ describe("GameInitializer", function()
     local fakeBearSprite = {}
     
     setup(function()
-      ImageSheetFactory = {
-        createFromImageSheetData = function(...)
-          return fakeBearImageSheet
-        end
+      ImageSheetLoader = {
+        loadByNames = function(...) end
       }
-      spy.on(ImageSheetFactory, "createFromImageSheetData")
+      stub(ImageSheetLoader, "loadByNames")
 
       SpriteFactory = {
         createFromImageSheet = function(...)
@@ -39,10 +37,10 @@ describe("GameInitializer", function()
       GameInitializer = require("scripts.GameInitializer")
     end)
 
-    it("should create bear zombie imageSheet", function()
+    it("should load image sheets which will be use in game", function()
       GameInitializer.initialize()
       
-      assert.stub(ImageSheetFactory.createFromImageSheetData).was_called_with(PlayerImageSheetConfig)
+      assert.stub(ImageSheetLoader.loadByNames).was_called_with({"bear_zombie", "floor"})
     end)
 
     it("should create bear sprite", function()
