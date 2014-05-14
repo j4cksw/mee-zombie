@@ -1,7 +1,7 @@
 local ImageSheetLoader = {}
 
 ImageSheetFactory = ImageSheetFactory or require("scripts.ImageSheetFactory")
-ImageSheetsData = ImageSheetsData or require("scripts.ImageSheetsData")
+ImageSheetsData = ImageSheetsData or require("config.ImageSheetsData")
 
 function ImageSheetLoader.loadByNames(names)
   ImageSheetsTable = {}

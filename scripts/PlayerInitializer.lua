@@ -2,7 +2,8 @@ local PlayerInitializer = {}
 
 SpriteFactory = SpriteFactory or require("scripts.SpriteFactory")
 SpritePositioner = SpritePositioner or require("scripts.SpritePositioner")
-SpriteSequenceData = SpriteSequenceData or require("scripts.SpriteSequenceData")
+SpriteSequenceTransition = SpriteSequenceTransition or require("scripts.SpriteSequenceTransition")
+SpriteSequenceData = SpriteSequenceData or require("config.SpriteSequenceData")
 
 local PLAYER_SPRITE = "bear_zombie"
 

@@ -1,6 +1,6 @@
-ImageSheetsData = {
+local ImageSheetsData = {
   ["bear_zombie"] = {
-    path="img/sprite/bear_zombie.png",
+    path="img/sprite/bz.png",
     options={
       width=400,
       height=400,
@@ -16,3 +16,4 @@ ImageSheetsData = {
     }
   }
 }
+return ImageSheetsData
