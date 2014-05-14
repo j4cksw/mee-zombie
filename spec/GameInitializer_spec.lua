@@ -8,6 +8,9 @@ describe("GameInitializer", function()
 
       PlayerInitializer = {}
       stub(PlayerInitializer, "initialize")
+      
+      FloorInitializer = {}
+      stub(FloorInitializer, "initialize")
 
       GameInitializer = require("scripts.GameInitializer")
     end)
@@ -22,5 +25,11 @@ describe("GameInitializer", function()
       GameInitializer.initialize()
 
       assert.stub(PlayerInitializer.initialize).was_called()
+    end)
+    
+    it("should initialize floor", function()
+      GameInitializer.initialize()
+      
+      assert.stub(FloorInitializer.initialize).was_called()
     end)
 end)
