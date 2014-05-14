@@ -12,6 +12,12 @@ function GameInitializer.initialize()
   local playerSprite = SpriteFactory.createFromImageSheet(playerImageSheet, PlayerSpriteSequenceData)
   SpritePositioner.setPosition(playerSprite, display.contentCenterX, display.contentCenterY)
   SpriteSequenceTransition.toSequence(playerSprite, "walk")
+  
+  ImageSheetFactory.createFromImageSheetData("img/sprite/floor.png", {
+    width=128,
+    height=128,
+    numFrames=2
+  })
 end
 
 return GameInitializer

@@ -41,6 +41,7 @@ describe("GameInitializer", function()
 
     it("should create bear zombie imageSheet", function()
       GameInitializer.initialize()
+      
       assert.stub(ImageSheetFactory.createFromImageSheetData).was_called_with(PlayerImageSheetConfig)
     end)
 
@@ -60,5 +61,15 @@ describe("GameInitializer", function()
       GameInitializer.initialize()
       
       assert.stub(SpriteSequenceTransition.toSequence(fakeBearSprite, "walk"))
+    end)
+    
+    it("should create floor imageSheet", function()
+      GameInitializer.initialize()
+      
+      assert.stub(ImageSheetFactory.createFromImageSheetData).was_called_with("img/sprite/floor.png", {
+        width=128,
+        height=128,
+        numFrames=2
+      })
     end)
 end)
