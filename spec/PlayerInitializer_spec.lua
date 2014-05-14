@@ -23,8 +23,8 @@ describe("PlayerInitializer", function()
     stub(SpritePositioner, "setPosition")
 
     display = {
-      contentCenterX=500,
-      contentCenterY=500
+      contentCenterX=10,
+      contentCenterY=20
     }
 
     SpriteSequenceTransition = {}
@@ -41,6 +41,11 @@ describe("PlayerInitializer", function()
         SpriteSequenceData["bear_zombie"])
   end)
 
-
+  it("should set position to center of screen", function()
+    PlayerInitializer.initialize()
+    
+    assert.stub(SpritePositioner.setPosition)
+      .was_called_with(fakeBearSprite, 10, 20)
+  end)
 
 end)
