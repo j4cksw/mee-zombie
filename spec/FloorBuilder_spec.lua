@@ -4,7 +4,11 @@ describe("FloorBuilder", function()
   setup(function()
     FloorChunkBuilder = {}
     stub(FloorChunkBuilder, "buildFromPatternAndVerticalOffset")
-    
+
+    FloorPatterns = {
+      {"body", "top"}
+    }
+
     FloorBuilder = require("scripts.FloorBuilder")
   end)
 
