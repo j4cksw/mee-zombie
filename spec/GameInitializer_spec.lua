@@ -15,7 +15,7 @@ describe("GameInitializer", function()
       }
       
       FloorChunkBuilder = {}
-      stub(FloorChunkBuilder, "build")
+      stub(FloorChunkBuilder, "buildFromPatternAndVerticalOffset")
 
       GameInitializer = require("scripts.GameInitializer")
     end)
@@ -35,6 +35,8 @@ describe("GameInitializer", function()
     it("should initialize floor", function()
       GameInitializer.initialize()
       
-      assert.stub(FloorChunkBuilder.build).was_called()
+      assert.stub(FloorChunkBuilder.buildFromPatternAndVerticalOffset)
+        .was_called_with({"body", "top"},
+          1)
     end)
 end)

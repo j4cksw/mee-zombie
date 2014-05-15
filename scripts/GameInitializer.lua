@@ -8,7 +8,7 @@ GameInitializeData = GameInitializeData or require("config.GameInitializeData")
 function GameInitializer.initialize()
   ImageSheetLoader.loadByNames({"bear_zombie", "floor"})
   SpriteInitializer.initializeByData(GameInitializeData["bear_zombie"])
-  FloorChunkBuilder.build()
+  FloorChunkBuilder.buildFromPatternAndVerticalOffset({"body", "top"}, 1)
 end
 
 return GameInitializer
