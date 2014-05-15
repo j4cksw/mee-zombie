@@ -4,10 +4,7 @@ ImageSheetsData = ImageSheetsData or require("config.ImageSheetsData")
 SpriteInitializer = SpriteInitializer or require("scripts.Spriteinitializer")
 
 function FloorBuilder.build()
-  
-  local floorSpriteOptions = ImageSheetsData["floor"].options 
-  local floorPieceWidth = floorSpriteOptions.width
-  local floorPieceHeight = floorSpriteOptions.height
+  local floorPieceWidth, floorPieceHeight = getFloorSpriteWidthHeight()
 
   local floorChunkPattern = {"body", "top"}
 
@@ -20,6 +17,13 @@ function FloorBuilder.build()
     })
   end
 
+end
+
+function getFloorSpriteWidthHeight()
+  local floorSpriteOptions = ImageSheetsData["floor"].options 
+  local floorPieceWidth = floorSpriteOptions.width
+  local floorPieceHeight = floorSpriteOptions.height
+  return floorPieceWidth, floorPieceHeight
 end
 
 return FloorBuilder
