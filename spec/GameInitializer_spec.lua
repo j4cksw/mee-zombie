@@ -5,12 +5,14 @@ describe("GameInitializer", function()
         loadByNames = function(...) end
       }
       stub(ImageSheetLoader, "loadByNames")
-
-      PlayerInitializer = {}
-      stub(PlayerInitializer, "initialize")
       
-      FloorInitializer = {}
-      stub(FloorInitializer, "initialize")
+      SpriteInitializer = {}
+      stub(SpriteInitializer, "initializeByData")
+      
+      GameInitializeData = {
+        ["bear_zombie"] = {},
+        ["floor"] = {}
+      }
 
       GameInitializer = require("scripts.GameInitializer")
     end)
@@ -24,12 +26,12 @@ describe("GameInitializer", function()
     it("should initialize player", function()
       GameInitializer.initialize()
 
-      assert.stub(PlayerInitializer.initialize).was_called()
+      assert.stub(SpriteInitializer.initializeByData).was_called_with(GameInitializeData["bear_zombie"])
     end)
     
     it("should initialize floor", function()
       GameInitializer.initialize()
       
-      assert.stub(FloorInitializer.initialize).was_called()
+      assert.stub(SpriteInitializer.initializeByData).was_called_with(GameInitializeData["floor"])
     end)
 end)
