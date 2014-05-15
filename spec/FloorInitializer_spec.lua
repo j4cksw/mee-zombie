@@ -12,6 +12,9 @@ describe("FloorInitializer", function()
       SpritePositioner = {}
       stub(SpritePositioner, "setPosition")
       
+      SpriteSequenceTransition = {}
+      stub(SpriteSequenceTransition, "toSequence")
+      
       FloorInitializer = require("scripts.FloorInitializer")
   end)
 
@@ -29,5 +32,11 @@ describe("FloorInitializer", function()
       .was_called_with(fakeFloorSprite, 
       10,
       1364)
+  end)
+  
+  it("should set sequence of floor", function()
+    FloorInitializer.initialize()
+    
+    assert.stub(SpriteSequenceTransition.toSequence).was_called_with(fakeFloorSprite, "top")
   end)
 end)
