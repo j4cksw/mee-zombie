@@ -20,10 +20,8 @@ function FloorBuilder.build()
 end
 
 function getFloorSpriteWidthHeight()
-  local floorSpriteOptions = ImageSheetsData["floor"].options 
-  local floorPieceWidth = floorSpriteOptions.width
-  local floorPieceHeight = floorSpriteOptions.height
-  return floorPieceWidth, floorPieceHeight
+  local floorSpriteOptions = ImageSheetsData["floor"].options
+  return floorSpriteOptions.width, floorSpriteOptions.height
 end
 
 return FloorBuilder
