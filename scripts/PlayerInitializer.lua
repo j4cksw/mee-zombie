@@ -8,8 +8,7 @@ SpriteSequenceData = SpriteSequenceData or require("config.SpriteSequenceData")
 local PLAYER_SPRITE = "bear_zombie"
 
 function PlayerInitializer.initialize()
-  local playerSprite = SpriteFactory.createFromImageSheet(ImageSheetsTable[PLAYER_SPRITE],
-    SpriteSequenceData[PLAYER_SPRITE])
+  local playerSprite = SpriteFactory.createFromImageSheetName(PLAYER_SPRITE)
   
   SpritePositioner.setPosition(playerSprite,
     display.contentCenterX,

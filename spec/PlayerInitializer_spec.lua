@@ -3,21 +3,11 @@ describe("PlayerInitializer", function()
   
   setup(function()
     SpriteFactory = {
-      createFromImageSheet = function(...)
+      createFromImageSheetName = function(...)
         return fakeBearSprite
       end
     }
-    spy.on(SpriteFactory, "createFromImageSheet")
-
-    ImageSheetsTable = {
-      ["bear_zombe"] = {}
-    }
-    
-    SpriteSequenceData = {
-      ["bear-zombie"] = {
-        {name="walk"}
-      }
-    }
+    spy.on(SpriteFactory, "createFromImageSheetName")
 
     SpritePositioner = {}
     stub(SpritePositioner, "setPosition")
@@ -36,9 +26,8 @@ describe("PlayerInitializer", function()
   it("should create  bear sprite", function()
     PlayerInitializer.initialize()
 
-    assert.stub(SpriteFactory.createFromImageSheet)
-      .was_called_with(ImageSheetsTable["bear_zombie"],
-        SpriteSequenceData["bear_zombie"])
+    assert.stub(SpriteFactory.createFromImageSheetName)
+      .was_called_with("bear_zombie")
   end)
 
   it("should set position to center of screen", function()

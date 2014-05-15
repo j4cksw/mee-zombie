@@ -3,18 +3,11 @@ describe("FloorInitializer", function()
   
   setup(function()
       SpriteFactory = {
-        createFromImageSheet = function(...)
+        createFromImageSheetName = function(...)
           return fakeFloorSprite
         end
       }
-      spy.on(SpriteFactory, "createFromImageSheet")
-      
-      ImageSheetsTable = {
-        ["floor"] = {}
-      }
-      SpriteSequenceData = {
-        ["floor"] = {}
-      }
+      spy.on(SpriteFactory, "createFromImageSheetName")
       
       SpritePositioner = {}
       stub(SpritePositioner, "setPosition")
@@ -25,12 +18,11 @@ describe("FloorInitializer", function()
   it("should create floor piece sprite", function()
     FloorInitializer.initialize()
 
-    assert.stub(SpriteFactory.createFromImageSheet)
-      .was_called_with(ImageSheetsTable["floor"],
-        SpriteSequenceData["floor"])
+    assert.stub(SpriteFactory.createFromImageSheetName)
+      .was_called_with("floor")
   end)
   
-  it("should set sequence of floor to top", function()
+  it("should set position of floor", function()
     FloorInitializer.initialize()
     
     assert.stub(SpritePositioner.setPosition)
