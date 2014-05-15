@@ -14,8 +14,8 @@ describe("GameInitializer", function()
         ["floor"] = {}
       }
       
-      FloorBuilder = {}
-      stub(FloorBuilder, "build")
+      FloorChunkBuilder = {}
+      stub(FloorChunkBuilder, "build")
 
       GameInitializer = require("scripts.GameInitializer")
     end)
@@ -35,6 +35,6 @@ describe("GameInitializer", function()
     it("should initialize floor", function()
       GameInitializer.initialize()
       
-      assert.stub(FloorBuilder.build).was_called()
+      assert.stub(FloorChunkBuilder.build).was_called()
     end)
 end)

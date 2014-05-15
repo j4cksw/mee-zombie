@@ -1,5 +1,5 @@
-describe("FloorBuilder", function()
-  local FloorBuilder
+describe("FloorChunkBuilder", function()
+  local FloorChunkBuilder
 
   setup(function()
     SpriteInitializer = {}
@@ -18,11 +18,11 @@ describe("FloorBuilder", function()
       }
     }
 
-    FloorBuilder = require("scripts.FloorBuilder")
+    FloorChunkBuilder = require("scripts.FloorChunkBuilder")
   end)
 
   it("should create the first floor", function()
-    FloorBuilder.build()
+    FloorChunkBuilder.build()
 
     assert.stub(SpriteInitializer.initializeByData).was_called_with({
       name="floor",
@@ -33,7 +33,7 @@ describe("FloorBuilder", function()
   end)
 
   it("should create the second floor", function()
-    FloorBuilder.build()
+    FloorChunkBuilder.build()
 
     assert.stub(SpriteInitializer.initializeByData).was_called_with({
       name="floor",
