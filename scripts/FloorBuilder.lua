@@ -9,6 +9,12 @@ function FloorBuilder.build()
     y=1364,
     sequence="top"
   })
+  SpriteInitializer.initializeByData({
+    name="floor",
+    x=10,
+    y=1492,
+    sequence="body"
+  })
 end
 
 return FloorBuilder

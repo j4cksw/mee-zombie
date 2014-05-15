@@ -18,4 +18,15 @@ describe("FloorBuilder", function()
       sequence="top"
     })
   end)
+  
+  it("should create the second floor", function()
+    FloorBuilder.build()
+    
+    assert.stub(SpriteInitializer.initializeByData).was_called_with({
+      name="floor",
+      x=10,
+      y=1492,
+      sequence="body"
+    })
+  end)
 end)
