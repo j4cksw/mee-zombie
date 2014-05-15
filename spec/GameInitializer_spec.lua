@@ -13,6 +13,9 @@ describe("GameInitializer", function()
         ["bear_zombie"] = {},
         ["floor"] = {}
       }
+      
+      FloorBuilder = {}
+      stub(FloorBuilder, "build")
 
       GameInitializer = require("scripts.GameInitializer")
     end)
@@ -32,6 +35,6 @@ describe("GameInitializer", function()
     it("should initialize floor", function()
       GameInitializer.initialize()
       
-      assert.stub(SpriteInitializer.initializeByData).was_called_with(GameInitializeData["floor"])
+      assert.stub(FloorBuilder.build).was_called()
     end)
 end)
