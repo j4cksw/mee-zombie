@@ -3,10 +3,8 @@ local FloorChunkBuilder = {}
 ImageSheetsData = ImageSheetsData or require("config.ImageSheetsData")
 SpriteInitializer = SpriteInitializer or require("scripts.Spriteinitializer")
 
-function FloorChunkBuilder.build()
+function FloorChunkBuilder.buildFromPattern(floorChunkPattern)
   local floorPieceWidth, floorPieceHeight = getFloorSpriteWidthHeight()
-
-  local floorChunkPattern = {"body", "top"}
 
   for key, value in pairs(floorChunkPattern) do
     SpriteInitializer.initializeByData({
