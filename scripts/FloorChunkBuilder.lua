@@ -4,6 +4,7 @@ ImageSheetsData = ImageSheetsData or require("config.ImageSheetsData")
 SpriteInitializer = SpriteInitializer or require("scripts.Spriteinitializer")
 
 function FloorChunkBuilder.buildFromPattern(floorChunkPattern)
+  
   local floorPieceWidth, floorPieceHeight = getFloorSpriteWidthHeight()
 
   for key, value in pairs(floorChunkPattern) do
@@ -14,7 +15,6 @@ function FloorChunkBuilder.buildFromPattern(floorChunkPattern)
       sequence=value
     })
   end
-
 end
 
 function getFloorSpriteWidthHeight()
