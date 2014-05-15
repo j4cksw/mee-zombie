@@ -3,7 +3,7 @@ describe("FloorBuilder", function()
 
   setup(function()
     FloorChunkBuilder = {}
-    stub(FloorChunkBuilder, "createFromPatternAndVerticalOffset")
+    stub(FloorChunkBuilder, "buildFromPatternAndVerticalOffset")
     
     FloorBuilder = require("scripts.FloorBuilder")
   end)
@@ -12,7 +12,7 @@ describe("FloorBuilder", function()
     FloorBuilder.build()
 
     for expectedOffset = 1,16 do
-      FloorChunkBuilder.createFromPatternAndVerticalOffset({"body", "top"}, expectedOffset)
+      FloorChunkBuilder.buildFromPatternAndVerticalOffset({"body", "top"}, expectedOffset)
     end
   end)
 end)
