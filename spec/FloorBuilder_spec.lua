@@ -5,6 +5,10 @@ describe("FloorBuilder", function()
     SpriteInitializer = {}
     stub(SpriteInitializer, "initializeByData")
     
+    display = {
+      viewableContentHeight=1536
+    }
+    
     FloorBuilder = require("scripts.FloorBuilder")
   end)
   
@@ -13,8 +17,8 @@ describe("FloorBuilder", function()
     
     assert.stub(SpriteInitializer.initializeByData).was_called_with({
       name="floor",
-      x=10,
-      y=1364,
+      x=64,
+      y=1344,
       sequence="top"
     })
   end)
@@ -24,9 +28,10 @@ describe("FloorBuilder", function()
     
     assert.stub(SpriteInitializer.initializeByData).was_called_with({
       name="floor",
-      x=10,
-      y=1492,
+      x=64,
+      y=1472,
       sequence="body"
     })
   end)
+
 end)
