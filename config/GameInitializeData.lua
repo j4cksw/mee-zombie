@@ -1,8 +1,8 @@
 local GameInitializeData = {
   ["bear_zombie"] = {
     name="bear_zombie",
-    x=display.contentCenterX,
-    y=display.contentCenterY,
+    x=512,
+    y=1150,
     sequence="walk"
   },
   ["floor"] = {
