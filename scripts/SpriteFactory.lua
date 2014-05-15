@@ -1,7 +1,9 @@
 local SpriteFactory = {}
 
-function SpriteFactory.createFromImageSheet(imageSheet, sequenceData)
-  return display.newSprite(imageSheet, sequenceData)
+SpriteSequenceData = SpriteSequenceData or require("config.SpriteSequenceData")
+
+function SpriteFactory.createFromImageSheetName(imageSheetName)
+  return display.newSprite(ImageSheetsTable[imageSheetName], SpriteSequenceData[imageSheetName])
 end
 
 return SpriteFactory
