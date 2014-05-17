@@ -16,6 +16,12 @@ describe("GameInitializer", function()
       
       FloorBuilder = {}
       stub(FloorBuilder, "build")
+      
+      Runtime = {}
+      stub(Runtime, "addEventListener")
+      
+      FloorRoller = {}
+      stub(FloorRoller, "roll")
 
       GameInitializer = require("scripts.GameInitializer")
     end)
@@ -36,5 +42,11 @@ describe("GameInitializer", function()
       GameInitializer.initialize()
       
       assert.stub(FloorBuilder.build).was_called()
+    end)
+    
+    it("should add enterframe to Runtime", function()
+      GameInitializer.initialize()
+      
+      assert.stub(Runtime.addEventListener).was_called_with(Runtime, "enterFrame", FloorRoller.roll)
     end)
 end)
