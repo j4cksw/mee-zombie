@@ -2,6 +2,7 @@ local FloorBuilder = {}
 
 FloorChunkBuilder = FloorChunkBuilder or require("scripts.FloorChunkBuilder")
 FloorPatterns = FloorPatterns or require("config.FloorPatterns")
+FloorRepository = FloorRepository or require("config.FloorRepository")
 
 function FloorBuilder.build()
   local floorGroup = display.newGroup()
@@ -10,6 +11,8 @@ function FloorBuilder.build()
     floorGroup:insert(FloorChunkBuilder.buildFromPatternAndVerticalOffset(FloorPatterns[1],
       horizontalOffset))
   end
+  
+  FloorRepository.setFloorGroup(floorGroup)
 end
 
 return FloorBuilder

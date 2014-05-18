@@ -26,6 +26,9 @@ describe("FloorBuilder", function()
     FloorPatterns = {
       {"body", "top"}
     }
+    
+    FloorRepository = {}
+    stub(FloorRepository, "setFloorGroup")
 
     FloorBuilder = require("scripts.FloorBuilder")
   end)
