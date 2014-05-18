@@ -1,33 +1,41 @@
 describe("FloorRoller", function()
   local FloorRoller
   
-  local Floor = {
-    {{},{}}
-  }
+  local Floor 
   
   setup(function()
-    FloorRepositiory = {
+    FloorRepository = {
       getChunkByIndex = function(index)
-        return Floor[1]
+        return Floor[index]
       end
     }
-    spy.on(FloorRepositiory, "getChunkByIndex")
+    spy.on(FloorRepository, "getChunkByIndex")
     
     FloorRoller = require("scripts.FloorRoller")
   end)
   
+  function setupFloorData()
+    Floor = {
+      {
+        {x=10}
+      }
+    }
+  end
+  
   it("should acquire floor piece from FloorRepository", function()
+    setupFloorData()
+    
     FloorRoller.roll()
     
-    assert.stub(FloorRepositiory.getChunkByIndex).was_called_with(1)
+    assert.stub(FloorRepository.getChunkByIndex).was_called_with(1)
   end)
   
   it("should move floor piece -5 pixels", function()
-    Floor[1][1].x = 10
+    setupFloorData()
     
     FloorRoller.roll()
     
-    FloorRepository.get[1][1].x = 5
+    assert.are.equal(Floor[1][1].x, 5)
   end)
   
   it("should remove floor piece when roll out of screen")
