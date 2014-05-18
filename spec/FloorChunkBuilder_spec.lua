@@ -1,31 +1,42 @@
 describe("FloorChunkBuilder", function()
   local FloorChunkBuilder
-
+  
   local floorChunkPattern = {"body", "top"}
+  
+  local fakeGroup = {}
+
+  local fakeFloorPiece = {}
 
   setup(function()
-    SpriteInitializer = {}
-    stub(SpriteInitializer, "initializeByData")
 
-    display = {
-      viewableContentHeight=1536,
-      newGroup = function()
-        return fakeGroup
-      end
-    }
-    spy.on(display, "newGroup")
+      stub(fakeGroup, "insert")
+
+      SpriteInitializer = {
+        initializeByData = function()
+          return fakeFloorPiece
+        end
+      }
+      spy.on(SpriteInitializer, "initializeByData")
+
+      display = {
+        viewableContentHeight=1536,
+        newGroup = function()
+          return fakeGroup
+        end
+      }
+      spy.on(display, "newGroup")
 
 
-    ImageSheetsData = {
-      ["floor"] = {
-        options={
-          width=128,
-          height=128
+      ImageSheetsData = {
+        ["floor"] = {
+          options={
+            width=128,
+            height=128
+          }
         }
       }
-    }
 
-    FloorChunkBuilder = require("scripts.FloorChunkBuilder")
+      FloorChunkBuilder = require("scripts.FloorChunkBuilder")
   end)
 
   local testData = {
@@ -90,5 +101,11 @@ describe("FloorChunkBuilder", function()
     FloorChunkBuilder.buildFromPatternAndVerticalOffset(testData[1], 1)
 
     assert.stub(display.newGroup).was_called()
+  end)
+
+  it("should insert floor piece into floor chunk's group", function()
+    FloorChunkBuilder.buildFromPatternAndVerticalOffset(testData[1], 1)
+
+    assert.stub(fakeGroup.insert).was_called_with(fakeGroup, fakeFloorPiece)
   end)
 end)
