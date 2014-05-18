@@ -1,0 +1,3 @@
+local FloorRepository = {}
+
+return FloorRepository
