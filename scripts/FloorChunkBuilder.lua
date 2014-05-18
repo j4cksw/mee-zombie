@@ -5,6 +5,8 @@ SpriteInitializer = SpriteInitializer or require("scripts.SpriteInitializer")
 
 function FloorChunkBuilder.buildFromPatternAndVerticalOffset(floorChunkPattern, verticalOffset)
   
+  local floorChunkGroup = display.newGroup()
+  
   local floorPieceWidth, floorPieceHeight = getFloorSpriteWidthHeight()
 
   for key, value in pairs(floorChunkPattern) do

@@ -8,8 +8,13 @@ describe("FloorChunkBuilder", function()
     stub(SpriteInitializer, "initializeByData")
 
     display = {
-      viewableContentHeight=1536
+      viewableContentHeight=1536,
+      newGroup = function()
+        return fakeGroup
+      end
     }
+    spy.on(display, "newGroup")
+
 
     ImageSheetsData = {
       ["floor"] = {
@@ -80,4 +85,10 @@ describe("FloorChunkBuilder", function()
       assert.stub(SpriteInitializer.initializeByData).was_called_with(expected[2])
     end)
   end
+
+  it("should create group of floor chunk", function()
+    FloorChunkBuilder.buildFromPatternAndVerticalOffset(testData[1], 1)
+
+    assert.stub(display.newGroup).was_called()
+  end)
 end)
