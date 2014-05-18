@@ -49,4 +49,10 @@ describe("FloorBuilder", function()
 
     assert.stub(fakeFloorGroup.insert).was_called_with(fakeFloorGroup, fakeCreatedFloorChunk)
   end)
+  
+  it("should set floor group to FloorRepository", function()
+    FloorBuilder.build()
+    
+    assert.stub(FloorRepository.setFloorGroup).was_called_with(fakeFloorGroup)
+  end)
 end)
