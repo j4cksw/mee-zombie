@@ -2,7 +2,24 @@ describe("FloorRoller", function()
   local FloorRoller
 
   local Floor
-
+  
+    local function addSamples(numberOfSamples)
+    for i = 1, numberOfSamples do
+      table.insert(Floor, {
+        {x=10},
+        {x=10},
+        numChildren=2
+      })
+    end
+  end
+  
+  local function setupFloorData()
+    Floor = {
+      numChildren=5
+    }
+    addSamples(5)
+  end
+  
   setup(function()
     FloorRepository = {
       getFloorGroup = function()
@@ -47,20 +64,4 @@ describe("FloorRoller", function()
 
   it("should add new floor chunk after removed")
 
-  function setupFloorData()
-    Floor = {
-      numChildren=5
-    }
-    addSamples(5)
-  end
-
-  function addSamples(numberOfSamples)
-    for i = 1, numberOfSamples do
-      table.insert(Floor, {
-        {x=10},
-        {x=10},
-        numChildren=2
-      })
-    end
-  end
 end)
