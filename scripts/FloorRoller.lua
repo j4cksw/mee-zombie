@@ -11,6 +11,7 @@ function FloorRoller.roll()
   
   for chunkIndex=1, floorGroup.numChildren do
     floorChunk = floorGroup[chunkIndex]
+    print(floorChunk.x)
     for pieceIndex=1, floorChunk.numChildren do
       floorChunk[pieceIndex].x = floorChunk[pieceIndex].x - ROLL_SPEED
     end
