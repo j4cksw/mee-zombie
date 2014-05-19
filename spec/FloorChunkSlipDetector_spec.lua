@@ -61,7 +61,4 @@ describe("FloorChunkSlipDetector", function()
     assert.stub(Floor.remove).was_called_with(Floor, 1)
   end)
 
-  it("should add new chunk to floor")
-
-
 end)

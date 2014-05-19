@@ -27,6 +27,9 @@ describe("FloorRoller", function()
       end
     }
     spy.on(FloorRepository, "getFloorGroup")
+    
+    FloorChunkSlipDetector = {}
+    stub(FloorChunkSlipDetector, "detect")
 
     FloorRoller = require("scripts.FloorRoller")
   end)
@@ -51,17 +54,12 @@ describe("FloorRoller", function()
     end
   end)
 
-  it("should remove the first chunk when roll out of screen", function()
+  it("should detect chunk which slip off the screen", function()
     setupFloorData()
-
-    local firstChunkBefore = Floor[1]
 
     FloorRoller.roll()
 
-    assert.are_not.equal(firstChunkBefore, Floor[1])
-
+    assert.stub(FloorChunkSlipDetector.detect).was_called()
   end)
-
-  it("should add new floor chunk after removed")
 
 end)

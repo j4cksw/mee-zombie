@@ -1,6 +1,7 @@
 local FloorRoller = {}
 
 FloorRepository = FloorRepository or require("scripts.FloorRepository")
+FloorChunkSlipDetector = FloorChunkSlipDetector or require("scripts.FloorChunkSlipDetector")
 
 local ROLL_SPEED = 8
 
@@ -14,6 +15,8 @@ function FloorRoller.roll()
       floorChunk[pieceIndex].x = floorChunk[pieceIndex].x - ROLL_SPEED
     end
   end
+  
+  FloorChunkSlipDetector.detect()
 end
 
 return FloorRoller
