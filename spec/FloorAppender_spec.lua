@@ -19,6 +19,10 @@ describe("FloorAppender", function()
       end
     }
     spy.on(FloorChunkBuilder, "buildFromPatternAndVerticalOffset")
+    
+    FloorPatterns = {
+      {"body", "top"}
+    }
 
     FloorAppender = require("scripts.FloorAppender")
   end)
@@ -38,7 +42,7 @@ describe("FloorAppender", function()
 
     FloorAppender.append()
 
-    assert.stub(FloorChunkBuilder.buildFromPatternAndVerticalOffset).was_called_with({"body", "top"}, 5)
+    assert.stub(FloorChunkBuilder.buildFromPatternAndVerticalOffset).was_called_with({"body", "top"}, 6)
   end)
 
   it("should append new floor chunk to the floor", function()
