@@ -1,24 +1,7 @@
 describe("FloorRoller", function()
   local FloorRoller
-
-  local Floor
   
-    local function addSamples(numberOfSamples)
-    for i = 1, numberOfSamples do
-      table.insert(Floor, {
-        {x=10},
-        {x=10},
-        numChildren=2
-      })
-    end
-  end
-  
-  local function setupFloorData()
-    Floor = {
-      numChildren=5
-    }
-    addSamples(5)
-  end
+  local FloorDataGenerator = require("spec.lib.FloorDataGenerator")
   
   setup(function()
     FloorRepository = {
@@ -35,7 +18,7 @@ describe("FloorRoller", function()
   end)
 
   it("should acquire every floor piece from Repository ", function()
-    setupFloorData()
+    FloorDataGenerator.setupFloorData(5)
 
     FloorRoller.roll()
 
@@ -43,7 +26,7 @@ describe("FloorRoller", function()
   end)
 
   it("should move every floor piece -8 pixels", function()
-    setupFloorData()
+    FloorDataGenerator.setupFloorData(5)
 
     FloorRoller.roll()
 
@@ -55,7 +38,7 @@ describe("FloorRoller", function()
   end)
 
   it("should detect chunk which slip off the screen", function()
-    setupFloorData()
+    FloorDataGenerator.setupFloorData(5)
 
     FloorRoller.roll()
 
