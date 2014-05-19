@@ -7,9 +7,7 @@ local GameInitializeData = {
   },
   ["floor"] = {
     name="floor",
-    x=10,
-    y=1364,
-    sequence="top"
+    initializeChunks=18
   }
 }
 return GameInitializeData
