@@ -2,7 +2,7 @@ local FloorBuilder = {}
 
 FloorChunkBuilder = FloorChunkBuilder or require("scripts.FloorChunkBuilder")
 FloorPatterns = FloorPatterns or require("config.FloorPatterns")
-FloorRepository = FloorRepository or require("config.FloorRepository")
+FloorRepository = FloorRepository or require("scripts.FloorRepository")
 
 function FloorBuilder.build()
   local floorGroup = display.newGroup()

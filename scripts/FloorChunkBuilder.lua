@@ -17,6 +17,8 @@ function FloorChunkBuilder.buildFromPatternAndVerticalOffset(floorChunkPattern, 
       sequence = value
     }))
   end
+  
+  return floorChunkGroup
 end
 
 function getFloorSpriteWidthHeight()

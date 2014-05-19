@@ -14,26 +14,6 @@ describe("FloorRoller", function()
     FloorRoller = require("scripts.FloorRoller")
   end)
 
-  function setupFloorData()
-    Floor = {
-      {
-        {x=10},{x=10}
-      },
-      {
-        {x=10},{x=10}
-      },
-      {
-        {x=10},{x=10}
-      },
-      {
-        {x=10},{x=10}
-      },
-      {
-        {x=10},{x=10}
-      }
-    }
-  end
-
   it("should acquire every floor piece from Repository ", function()
     setupFloorData()
 
@@ -42,19 +22,45 @@ describe("FloorRoller", function()
     assert.stub(FloorRepository.getFloorGroup).was_called(1)
   end)
 
-  it("should move every floor piece -5 pixels", function()
+  it("should move every floor piece -8 pixels", function()
     setupFloorData()
 
     FloorRoller.roll()
 
-    for chunkIndex, floorChunk in pairs(Floor) do
-      for pieceIndex, floorPiece in pairs(floorChunk) do
-        assert.are.equal(floorPiece.x, 5)
+    for i=1,5 do
+      for j=1,2 do
+        assert.are.equal(Floor[i][j].x, 2)
       end
     end
   end)
 
-  it("should remove floor piece when roll out of screen")
+  it("should remove the first chunk when roll out of screen", function()
+    setupFloorData()
 
-  it("should add new floor piece")
+    local firstChunkBefore = Floor[1]
+
+    FloorRoller.roll()
+
+    assert.are_not.equal(firstChunkBefore, Floor[1])
+
+  end)
+
+  it("should add new floor chunk after removed")
+
+  function setupFloorData()
+    Floor = {
+      numChildren=5
+    }
+    addSamples(5)
+  end
+
+  function addSamples(numberOfSamples)
+    for i = 1, numberOfSamples do
+      table.insert(Floor, {
+        {x=10},
+        {x=10},
+        numChildren=2
+      })
+    end
+  end
 end)
