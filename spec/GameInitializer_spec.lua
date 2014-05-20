@@ -17,6 +17,9 @@ describe("GameInitializer", function()
       
       PlayerInitializer = {}
       stub(PlayerInitializer, "initialize")
+      
+      EnemyInitializer = {}
+      stub(EnemyInitializer, "initialize")
 
       GameInitializer = require("scripts.GameInitializer")
     end)
@@ -24,7 +27,7 @@ describe("GameInitializer", function()
     it("should load image sheets which will be use in game", function()
       GameInitializer.initialize()
       
-      assert.stub(ImageSheetLoader.loadByNames).was_called_with({"bear_zombie", "floor"})
+      assert.stub(ImageSheetLoader.loadByNames).was_called_with({"bear_zombie", "floor", "enemy"})
     end)
 
     it("should initialize player", function()
@@ -37,6 +40,12 @@ describe("GameInitializer", function()
       GameInitializer.initialize()
       
       assert.stub(FloorBuilder.build).was_called()
+    end)
+    
+    it("should initialize enemy", function()
+      GameInitializer.initialize()
+      
+      assert.stub(EnemyInitializer.initialize).was_called()
     end)
     
     it("should add enterframe to Runtime", function()

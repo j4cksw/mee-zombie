@@ -5,6 +5,12 @@ local GameInitializeData = {
     y=1150,
     sequence="walk"
   },
+  ["enemy"] = {
+    name="enemy",
+    x=2000,
+    y=1150,
+    sequence="walk"
+  },
   ["floor"] = {
     name="floor",
     initializeChunks=18

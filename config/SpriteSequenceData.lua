@@ -31,6 +31,14 @@ local SpriteSequenceData = {
       start=2,
       count=1
     }
+  },
+  ["enemy"] ={
+    {
+      name="walk",
+      start=1,
+      count=8,
+      time=500
+    }
   }
 }
 return SpriteSequenceData
