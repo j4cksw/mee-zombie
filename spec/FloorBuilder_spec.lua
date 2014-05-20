@@ -15,20 +15,12 @@ describe("FloorBuilder", function()
       end
     }
     spy.on(display, "newGroup")
-
-    FloorChunkBuilder = {
-      buildFromPatternAndVerticalOffset = function()
-        return fakeCreatedFloorChunk
-      end
-    }
-    spy.on(FloorChunkBuilder, "buildFromPatternAndVerticalOffset")
-
-    FloorPatterns = {
-      {"body", "top"}
-    }
     
     FloorRepository = {}
     stub(FloorRepository, "setFloorGroup")
+    
+    FloorAppender = {}
+    stub(FloorAppender, "append")
 
     FloorBuilder = require("scripts.FloorBuilder")
   end)
@@ -39,18 +31,12 @@ describe("FloorBuilder", function()
     assert.stub(display.newGroup).was_called()
   end)
 
-  it("should create floor chunk for 16 times", function()
+  it("should append floor for configured initialize times", function()
+    stub(FloorAppender, "append")
+    
     FloorBuilder.build()
 
-    for expectedOffset = 1,16 do
-      FloorChunkBuilder.buildFromPatternAndVerticalOffset({"body", "top"}, expectedOffset)
-    end
-  end)
-
-  it("should insert created floor chunk into floor group", function()
-    FloorBuilder.build()
-
-    assert.stub(fakeFloorGroup.insert).was_called_with(fakeFloorGroup, fakeCreatedFloorChunk)
+    assert.stub(FloorAppender.append).was_called(18)
   end)
   
   it("should set floor group to FloorRepository", function()

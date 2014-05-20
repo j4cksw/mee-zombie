@@ -1,19 +1,16 @@
 local FloorBuilder = {}
 
-FloorChunkBuilder = FloorChunkBuilder or require("scripts.FloorChunkBuilder")
-FloorPatterns = FloorPatterns or require("config.FloorPatterns")
 FloorRepository = FloorRepository or require("scripts.FloorRepository")
 GameInitializeData = GameInitializeData or require("config.GameInitializeData")
+FloorAppender = FloorAppender or require("scripts.FloorAppender")
 
 function FloorBuilder.build()
   local floorGroup = display.newGroup()
+  FloorRepository.setFloorGroup(floorGroup)
   
   for horizontalOffset = 1, GameInitializeData["floor"].initializeChunks do
-    floorGroup:insert(FloorChunkBuilder.buildFromPatternAndVerticalOffset(FloorPatterns[1],
-      horizontalOffset))
+    FloorAppender.append()
   end
-  
-  FloorRepository.setFloorGroup(floorGroup)
 end
 
 return FloorBuilder
