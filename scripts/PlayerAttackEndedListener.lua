@@ -1,0 +1,2 @@
+local PlayerAttackEndedListener = {}
+return PlayerAttackEndedListener
