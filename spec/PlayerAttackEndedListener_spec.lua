@@ -17,14 +17,8 @@ describe("PlayerAttackEndedListener", function()
     
     stub(fakePlayerSprite, "removeEventListener")
     
-    SpriteSequenceTransition = {}
-    stub(SpriteSequenceTransition, "toSequence")
-    
-    Runtime = {}
-    stub(Runtime, "addEventListener")
-    
-    PlayerAttackCommand = {}
-    stub(PlayerAttackCommand, "execute")
+    PlayerWalkCommand = {}
+    stub(PlayerWalkCommand, "execute")
     
     PlayerAttackEndedListener = require("scripts.PlayerAttackEndedListener")
   end)
@@ -41,15 +35,10 @@ describe("PlayerAttackEndedListener", function()
     assert.stub(fakePlayerSprite.removeEventListener).was_called_with(fakePlayerSprite, "sprite", PlayerAttackEndedListener.actionPerformed)
   end)
   
-  it("should transit player sequence to walk", function()
+  it("should execute PlayerWalkCommand", function()
     PlayerAttackEndedListener.actionPerformed(event)
     
-    assert.stub(SpriteSequenceTransition.toSequence).was_called_with(fakePlayerSprite, "walk")
+    assert.stub(PlayerWalkCommand.execute).was_called()
   end)
   
-  it("should add PlayerAttackCommand back to Runtime tap listener", function()
-    PlayerAttackEndedListener.actionPerformed(event)
-    
-    assert.stub(Runtime.addEventListener).was_called_with(Runtime, "tap", PlayerAttackCommand.execute)
-  end)
 end)

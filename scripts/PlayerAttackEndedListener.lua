@@ -1,8 +1,7 @@
 local PlayerAttackEndedListener = {}
 
 PlayerRepository = PlayerRepository or require("scripts.PlayerRepository")
-SpriteSequenceTransition = SpriteSequenceTransition or require("scripts.SpriteSequenceTransition")
-PlaterAttackCommand = PlayerAttackCommand or require("scripts.PlayerAttackCommand")
+PlayerWalkCommand = PlayerWalkCommand or require("scripts.PlayerWalkCommand")
 
 function PlayerAttackEndedListener.actionPerformed(event)
 
@@ -13,9 +12,7 @@ function PlayerAttackEndedListener.actionPerformed(event)
   local playerSprite = PlayerRepository.getPlayerSprite()
   playerSprite:removeEventListener("sprite", PlayerAttackEndedListener.actionPerformed)
 
-  SpriteSequenceTransition.toSequence(playerSprite, "walk")
-  
-  Runtime:addEventListener("tap", PlaterAttackCommand.execute)
+  PlayerWalkCommand.execute()
 end
 
 return PlayerAttackEndedListener
