@@ -1,0 +1,2 @@
+PlayerWalkCommand = {}
+return PlayerWalkCommand
