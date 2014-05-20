@@ -25,6 +25,9 @@ describe("GameInitializer", function()
       
       PlayerAttackCommand = {}
       stub(PlayerAttackCommand, "execute")
+      
+      PlayerWalkCommand = {}
+      stub(PlayerWalkCommand, "execute")
 
       GameInitializer = require("scripts.GameInitializer")
     end)
@@ -53,9 +56,9 @@ describe("GameInitializer", function()
       assert.stub(Runtime.addEventListener).was_called_with(Runtime, "enterFrame", FloorRoller.roll)
     end)
     
-    it("should add tap to Runtime", function()
+    it("should execute PlayerWalkCommand", function()
       GameInitializer.initialize()
       
-      assert.stub(Runtime.addEventListener).was_called_with(Runtime, "tap", PlayerAttackCommand.execute)
+      assert.stub(PlayerWalkCommand.execute).was_called()
     end)
 end)
