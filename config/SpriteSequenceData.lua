@@ -16,7 +16,8 @@ local SpriteSequenceData = {
       name="attack",
       start=18,
       count=10,
-      time=1000
+      time=1000,
+      loopCount=1
     }
   },
   ["floor"] = {

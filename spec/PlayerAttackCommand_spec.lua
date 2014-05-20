@@ -1,33 +1,44 @@
 describe("PlayerAttackCommand", function()
   local PlayerAttackCommand
-  
+
   local fakePlayerSprite = {}
-  
+
   setup(function()
+    stub(fakePlayerSprite, "addEventListener")
+
     PlayerRepository = {
       getPlayerSprite = function()
         return fakePlayerSprite
       end
     }
     spy.on(PlayerRepository, "getPlayerSprite")
-    
+
     SpriteSequenceTransition = {}
     stub(SpriteSequenceTransition, "toSequence")
     
+    PlayerAttackEndedListener = {}
+    stub(PlayerAttackEndedListener, "actionPerformed")
+
     PlayerAttackCommand = require("scripts.PlayerAttackCommand")
   end)
-  
+
   it("should acquire player from repository", function()
     PlayerAttackCommand.execute()
-    
+
     assert.stub(PlayerRepository.getPlayerSprite).was_called()
   end)
-  
+
   it("should change player sequence to 'attack'", function()
     PlayerAttackCommand.execute()
-    
+
     assert.stub(SpriteSequenceTransition.toSequence).was_called_with(fakePlayerSprite, "attack")
   end)
-  
-  it("should add sprite event listener to player sprite")
+
+  it("should add sprite event listener to player sprite", function()
+    PlayerAttackCommand.execute()
+
+    assert.stub(fakePlayerSprite.addEventListener).was_called_with(fakePlayerSprite, "sprite", PlayerAttackEndedListener.actionPerformed)
+  end)
+
+  it("should remove tap event listener from Runtime")
 end)
