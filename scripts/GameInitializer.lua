@@ -6,7 +6,7 @@ FloorRoller = FloorRoller or require("scripts.FloorRoller")
 PlayerInitializer = PlayerInitializer or require("scripts.PlayerInitializer")
 
 function GameInitializer.initialize()
-  ImageSheetLoader.loadByNames({"bear_zombie", "floor"})
+  ImageSheetLoader.loadByNames({"bear_zombie", "floor", "enemy"})
   
   FloorBuilder.build()
   PlayerInitializer.initialize()

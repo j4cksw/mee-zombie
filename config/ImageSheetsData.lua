@@ -14,6 +14,14 @@ local ImageSheetsData = {
       height=128,
       numFrames=2
     }
+  },
+  ["enemy"] = {
+    path="img/sprite/bz.png",
+    options={
+      width=400,
+      height=400,
+      numFrames=37
+    }
   }
 }
 return ImageSheetsData
