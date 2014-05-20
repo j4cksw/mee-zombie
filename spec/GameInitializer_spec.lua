@@ -6,14 +6,6 @@ describe("GameInitializer", function()
       }
       stub(ImageSheetLoader, "loadByNames")
       
-      SpriteInitializer = {}
-      stub(SpriteInitializer, "initializeByData")
-      
-      GameInitializeData = {
-        ["bear_zombie"] = {},
-        ["floor"] = {}
-      }
-      
       FloorBuilder = {}
       stub(FloorBuilder, "build")
       
@@ -23,11 +15,8 @@ describe("GameInitializer", function()
       FloorRoller = {}
       stub(FloorRoller, "roll")
       
-      PlayerAttackCommand = {}
-      stub(PlayerAttackCommand, "execute")
-      
-      PlayerWalkCommand = {}
-      stub(PlayerWalkCommand, "execute")
+      PlayerInitializer = {}
+      stub(PlayerInitializer, "initialize")
 
       GameInitializer = require("scripts.GameInitializer")
     end)
@@ -41,7 +30,7 @@ describe("GameInitializer", function()
     it("should initialize player", function()
       GameInitializer.initialize()
 
-      assert.stub(SpriteInitializer.initializeByData).was_called_with(GameInitializeData["bear_zombie"])
+      assert.stub(PlayerInitializer.initialize).was_called()
     end)
     
     it("should initialize floor", function()
@@ -54,11 +43,5 @@ describe("GameInitializer", function()
       GameInitializer.initialize()
       
       assert.stub(Runtime.addEventListener).was_called_with(Runtime, "enterFrame", FloorRoller.roll)
-    end)
-    
-    it("should execute PlayerWalkCommand", function()
-      GameInitializer.initialize()
-      
-      assert.stub(PlayerWalkCommand.execute).was_called()
     end)
 end)
