@@ -4,7 +4,7 @@ local ImageSheetsData = {
     options={
       width=400,
       height=400,
-      numFrames=17
+      numFrames=43
     }
   },
   ["floor"] = {
