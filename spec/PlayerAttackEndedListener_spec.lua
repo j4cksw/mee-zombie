@@ -15,6 +15,8 @@ describe("PlayerAttackEndedListener", function()
     }
     spy.on(PlayerRepository, "getPlayerSprite")
     
+    stub(fakePlayerSprite, "removeEventListener")
+    
     PlayerAttackEndedListener = require("scripts.PlayerAttackEndedListener")
   end)
   
@@ -24,7 +26,11 @@ describe("PlayerAttackEndedListener", function()
     assert.stub(PlayerRepository.getPlayerSprite).was_called()
   end)
   
-  it("should remove itself from player sprite event listener")
+  it("should remove itself from player sprite event listener", function()
+    PlayerAttackEndedListener.actionPerformed(event)
+    
+    assert.stub(fakePlayerSprite.removeEventListener).was_called_with(fakePlayerSprite, "sprite", PlayerAttackEndedListener.actionPerformed)
+  end)
   
   it("should transit player sequence to walk")
   
