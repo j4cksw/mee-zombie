@@ -8,6 +8,7 @@ function PlayerAttackCommand.execute()
   local playerSprite = PlayerRepository.getPlayerSprite()
   SpriteSequenceTransition.toSequence(playerSprite, "attack")
   playerSprite:addEventListener("sprite", PlayerAttackEndedListener.actionPerformed)
+  Runtime:removeEventListener("tap", PlayerAttackCommand.execute)
 end
 
 return PlayerAttackCommand

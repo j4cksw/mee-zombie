@@ -18,6 +18,9 @@ describe("PlayerAttackCommand", function()
     
     PlayerAttackEndedListener = {}
     stub(PlayerAttackEndedListener, "actionPerformed")
+    
+    Runtime = {}
+    stub(Runtime, "removeEventListener")
 
     PlayerAttackCommand = require("scripts.PlayerAttackCommand")
   end)
@@ -40,5 +43,9 @@ describe("PlayerAttackCommand", function()
     assert.stub(fakePlayerSprite.addEventListener).was_called_with(fakePlayerSprite, "sprite", PlayerAttackEndedListener.actionPerformed)
   end)
 
-  it("should remove tap event listener from Runtime")
+  it("should remove tap event listener from Runtime", function()
+    PlayerAttackCommand.execute()
+    
+    assert.stub(Runtime.removeEventListener).was_called_with(Runtime, "tap", PlayerAttackCommand.execute)
+  end)
 end)
