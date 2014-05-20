@@ -21,6 +21,12 @@ describe("FloorBuilder", function()
     
     FloorAppender = {}
     stub(FloorAppender, "append")
+    
+    GameInitializeData = {
+      ["floor"] = {
+        initializeChunks = 18
+      }
+    }
 
     FloorBuilder = require("scripts.FloorBuilder")
   end)
