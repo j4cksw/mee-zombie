@@ -2,7 +2,8 @@ describe("PlayerAttackEndedListener", function()
   local PlayerAttackEndedListener
   
   local event = {
-    phase="ended"
+    phase="ended",
+    target = {}
   }
   
   local fakePlayerSprite = {}
@@ -20,6 +21,9 @@ describe("PlayerAttackEndedListener", function()
     PlayerWalkCommand = {}
     stub(PlayerWalkCommand, "execute")
     
+    physics = {}
+    stub(physics, "removeBody")
+    
     PlayerAttackEndedListener = require("scripts.PlayerAttackEndedListener")
   end)
   
@@ -33,6 +37,12 @@ describe("PlayerAttackEndedListener", function()
     PlayerAttackEndedListener.actionPerformed(event)
     
     assert.stub(fakePlayerSprite.removeEventListener).was_called_with(fakePlayerSprite, "sprite", PlayerAttackEndedListener.actionPerformed)
+  end)
+  
+  it("should remove physics body from player", function()
+    PlayerAttackEndedListener.actionPerformed(event)
+    
+    assert.stub(physics.removeBody).was_called_with(event.target)
   end)
   
   it("should execute PlayerWalkCommand", function()

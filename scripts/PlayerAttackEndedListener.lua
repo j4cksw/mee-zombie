@@ -2,6 +2,7 @@ local PlayerAttackEndedListener = {}
 
 PlayerRepository = PlayerRepository or require("scripts.PlayerRepository")
 PlayerWalkCommand = PlayerWalkCommand or require("scripts.PlayerWalkCommand")
+physics = physics or require("physics")
 
 function PlayerAttackEndedListener.actionPerformed(event)
 
@@ -12,6 +13,8 @@ function PlayerAttackEndedListener.actionPerformed(event)
   local playerSprite = PlayerRepository.getPlayerSprite()
   playerSprite:removeEventListener("sprite", PlayerAttackEndedListener.actionPerformed)
 
+  physics.removeBody(event.target)
+  
   PlayerWalkCommand.execute()
 end
 
