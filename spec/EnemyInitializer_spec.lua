@@ -19,6 +19,9 @@ describe("EnemyInitializer", function()
       }
     }
     
+    physics = {}
+    stub(physics, "addBody")
+    
     EnemyInitializer = require("scripts.EnemyInitializer")
   end)
 
@@ -30,6 +33,12 @@ describe("EnemyInitializer", function()
       x=512,
       y=1150,
       sequence="walk"})
+  end)
+  
+  it("should add physics body to an enemy", function()
+    EnemyInitializer.initialize()
+    
+    assert.stub(physics.addBody).was_called_with(fakeEnemySprite, "dynamic")
   end)
 
   it("should create enemy group")
