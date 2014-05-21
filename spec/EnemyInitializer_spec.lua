@@ -18,10 +18,16 @@ describe("EnemyInitializer", function()
         sequence="walk"
       }
     }
-    
+
     physics = {}
     stub(physics, "addBody")
     
+    stub(fakeEnemySprite, "addEventListener")
+    
+    EnemySpriteCollisionListener = {
+      actionPerformed = function()end
+    }
+
     EnemyInitializer = require("scripts.EnemyInitializer")
   end)
 
@@ -34,14 +40,20 @@ describe("EnemyInitializer", function()
       y=1150,
       sequence="walk"})
   end)
-  
+
   it("should add physics body to an enemy", function()
     EnemyInitializer.initialize()
-    
+
     assert.stub(physics.addBody).was_called_with(fakeEnemySprite, "dynamic")
   end)
 
+  it("should add collision listener to enemy", function()
+    EnemyInitializer.initialize()
+
+    assert.stub(fakeEnemySprite.addEventListener).was_called_with(fakeEnemySprite, "collision", EnemySpriteCollisionListener.actionPerformed)
+  end)
+
   it("should create enemy group")
-  
+
   it("should insert enemy into group")
 end)
