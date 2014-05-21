@@ -7,6 +7,7 @@ function EnemyInitializer.initialize()
   local enemySprite = SpriteInitializer.initializeByData(GameInitializeData["enemy"])
   
   physics.addBody(enemySprite, "dynamic")
+  enemySprite.isSleepingAllowed = false
 end
 
 return EnemyInitializer

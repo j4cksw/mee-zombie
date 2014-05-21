@@ -12,6 +12,14 @@ describe("FloorPhysicsInitializer", function()
     }
     spy.on(display, "newRect")
     
+    GameInitializeData  = {
+      ["floor_physics"] = {
+        y=1460,
+        height=152
+      }
+    }
+    
+    
     FloorPhysicsInitializer = require("scripts.FloorPhysicsInitializer")
   end)
 

@@ -11,11 +11,12 @@ FloorPhysicsInitializer = FloorPhysicsInitializer or require("scripts.FloorPhysi
 function GameInitializer.initialize()
   ImageSheetLoader.loadByNames({"bear_zombie", "floor", "enemy"})
   
-  physics.start()
+  physics.start(false)
   physics.setDrawMode( "hybrid" )
   
-  FloorBuilder.build()
   FloorPhysicsInitializer.initialize()
+  FloorBuilder.build()
+  
   PlayerInitializer.initialize()
   EnemyInitializer.initialize()
   

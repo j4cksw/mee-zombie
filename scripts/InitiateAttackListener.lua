@@ -7,7 +7,7 @@ function InitiateAttackListener.actionPerformed(event)
     return
   end
   
-  physics.addBody(event.target, "static")
+  physics.addBody(event.target, "dynamic")
   event.target:removeEventListener("sprite", InitiateAttackListener.actionPerformed)
 end
 

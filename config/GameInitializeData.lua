@@ -14,6 +14,10 @@ local GameInitializeData = {
   ["floor"] = {
     name="floor",
     initializeChunks=18
+  },
+  ["floor_physics"] = {
+    y=1460,
+    height=268
   }
 }
 return GameInitializeData
