@@ -12,7 +12,8 @@ function EnemyInitializer.initialize()
   
   enemySprite:addEventListener("collision", EnemySpriteCollisionListener.actionPerformed)
   
-  display.newGroup()
+  local enemyGroup = display.newGroup()
+  enemyGroup:insert(enemySprite)
 end
 
 return EnemyInitializer

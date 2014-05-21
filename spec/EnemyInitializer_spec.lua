@@ -2,7 +2,9 @@ describe("EnemyInitializer", function()
   local EnemyInitializer
 
   local fakeEnemySprite = {}
-
+  
+  local fakeEnemyGroup = {}
+  
   setup(function()
     SpriteInitializer = {
       initializeByData = function(...)
@@ -27,7 +29,9 @@ describe("EnemyInitializer", function()
     EnemySpriteCollisionListener = {
       actionPerformed = function()end
     }
-
+    
+    stub(fakeEnemyGroup, "insert")
+    
     display = {
       newGroup = function()
         return fakeEnemyGroup
@@ -66,7 +70,11 @@ describe("EnemyInitializer", function()
     assert.stub(display.newGroup).was_called()
   end)
 
-  it("should insert enemy into group")
+  it("should insert enemy into group", function()
+    EnemyInitializer.initialize()
+
+    assert.stub(fakeEnemyGroup.insert).was_called_with(fakeEnemyGroup, fakeEnemySprite)
+  end)
 
   it("should set group to EnemyRepository")
 end)
