@@ -38,6 +38,9 @@ describe("EnemyInitializer", function()
       end
     }
     spy.on(display, "newGroup")
+    
+    EnemyRepository = {}
+    stub(EnemyRepository, "setEnemyGroup")
 
     EnemyInitializer = require("scripts.EnemyInitializer")
   end)
@@ -76,5 +79,9 @@ describe("EnemyInitializer", function()
     assert.stub(fakeEnemyGroup.insert).was_called_with(fakeEnemyGroup, fakeEnemySprite)
   end)
 
-  it("should set group to EnemyRepository")
+  it("should set group to EnemyRepository", function()
+    EnemyInitializer.initialize()
+    
+    assert.stub(EnemyRepository.setEnemyGroup).was_called_with(fakeEnemyGroup)
+  end)
 end)
