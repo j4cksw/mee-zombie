@@ -7,7 +7,7 @@ local GameInitializeData = {
   },
   ["enemy"] = {
     name="enemy",
-    x=850,
+    x=2000,
     y=1125,
     sequence="walk"
   },

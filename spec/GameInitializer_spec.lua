@@ -27,6 +27,10 @@ describe("GameInitializer", function()
       
       FloorPhysicsInitializer = {}
       stub(FloorPhysicsInitializer, "initialize")
+      
+      EnemiesRoller = {
+        roll = function()end
+      }
 
       GameInitializer = require("scripts.GameInitializer")
     end)
@@ -67,15 +71,21 @@ describe("GameInitializer", function()
       assert.stub(EnemyInitializer.initialize).was_called()
     end)
     
-    it("should add enterframe to Runtime", function()
+    it("should initialize physics of floor", function()
+      GameInitializer.initialize()
+      
+      assert.stub(FloorPhysicsInitializer.initialize).was_called()
+    end)
+    
+    it("should add FloorRoller as an enterframe listener of Runtime", function()
       GameInitializer.initialize()
       
       assert.stub(Runtime.addEventListener).was_called_with(Runtime, "enterFrame", FloorRoller.roll)
     end)
     
-    it("should initialize physics of floor", function()
+    it("should add EnemiesRoller as an enterframe listener of Runtime", function()
       GameInitializer.initialize()
       
-      assert.stub(FloorPhysicsInitializer.initialize).was_called()
+      assert.stub(Runtime.addEventListener).was_called_with(Runtime, "enterFrame", EnemiesRoller.roll)
     end)
 end)
