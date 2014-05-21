@@ -20,7 +20,7 @@ local ImageSheetsData = {
     options={
       width=400,
       height=400,
-      numFrames=37
+      numFrames=45
     }
   }
 }

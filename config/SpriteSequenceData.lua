@@ -38,6 +38,13 @@ local SpriteSequenceData = {
       start=1,
       count=8,
       time=500
+    },
+    {
+      name="dead",
+      start=38,
+      count=8,
+      time=500,
+      loopCount=1
     }
   }
 }

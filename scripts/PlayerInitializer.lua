@@ -6,6 +6,7 @@ PlayerWalkCommand = PlayerWalkCommand or require("scripts.PlayerWalkCommand")
 
 function PlayerInitializer.initialize()
   local playerSprite = SpriteInitializer.initializeByData(GameInitializeData["bear_zombie"])
+  playerSprite.type = "player"
   PlayerRepository.setPlayerSprite(playerSprite)
   PlayerWalkCommand.execute()
 end

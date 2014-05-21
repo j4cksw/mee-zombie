@@ -3,7 +3,7 @@ describe("InitiateAttackListener", function()
   
   local event = {
     target={
-      frame=4
+      frame=5
     }
   }
   
