@@ -11,6 +11,8 @@ function EnemyInitializer.initialize()
   enemySprite.isSleepingAllowed = false
   
   enemySprite:addEventListener("collision", EnemySpriteCollisionListener.actionPerformed)
+  
+  display.newGroup()
 end
 
 return EnemyInitializer

@@ -21,12 +21,19 @@ describe("EnemyInitializer", function()
 
     physics = {}
     stub(physics, "addBody")
-    
+
     stub(fakeEnemySprite, "addEventListener")
-    
+
     EnemySpriteCollisionListener = {
       actionPerformed = function()end
     }
+
+    display = {
+      newGroup = function()
+        return fakeEnemyGroup
+      end
+    }
+    spy.on(display, "newGroup")
 
     EnemyInitializer = require("scripts.EnemyInitializer")
   end)
@@ -53,7 +60,13 @@ describe("EnemyInitializer", function()
     assert.stub(fakeEnemySprite.addEventListener).was_called_with(fakeEnemySprite, "collision", EnemySpriteCollisionListener.actionPerformed)
   end)
 
-  it("should create enemy group")
+  it("should create enemy group", function()
+    EnemyInitializer.initialize()
+
+    assert.stub(display.newGroup).was_called()
+  end)
 
   it("should insert enemy into group")
+
+  it("should set group to EnemyRepository")
 end)
