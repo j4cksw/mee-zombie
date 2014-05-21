@@ -9,7 +9,9 @@ describe("InitiateAttackListener", function()
   
   setup(function()
     physics = {}
-    stub(physics, "addbody")
+    stub(physics, "addBody")
+    
+    stub(event.target, "removeEventListener")
   
     InitiateAttackListener = require("scripts.InitiateAttackListener")
   end)
@@ -17,8 +19,12 @@ describe("InitiateAttackListener", function()
   it("should add physics body when reach the 4th frame", function()
     InitiateAttackListener.actionPerformed(event)
     
-    assert.stub(physics.addbody).was_called_with(event.target)
+    assert.stub(physics.addBody).was_called_with(event.target, "static")
   end)
   
-  it("should remove itself from player sprite event listener")
+  it("should remove itself from player sprite event listener", function()
+    InitiateAttackListener.actionPerformed(event)
+    
+    assert.stub(event.target.removeEventListener).was_called_with(event.target, "sprite", InitiateAttackListener.actionPerformed)
+  end)
 end)

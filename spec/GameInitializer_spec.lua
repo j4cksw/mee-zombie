@@ -6,6 +6,10 @@ describe("GameInitializer", function()
       }
       stub(ImageSheetLoader, "loadByNames")
       
+      physics = {}
+      stub(physics, "start")
+      stub(physics, "setDrawMode")
+      
       FloorBuilder = {}
       stub(FloorBuilder, "build")
       
@@ -28,6 +32,18 @@ describe("GameInitializer", function()
       GameInitializer.initialize()
       
       assert.stub(ImageSheetLoader.loadByNames).was_called_with({"bear_zombie", "floor", "enemy"})
+    end)
+    
+    it("should start physics", function()
+      GameInitializer.initialize()
+      
+      assert.stub(physics.start).was_called()
+    end)
+    
+    it("should set physics drawmode to hybrid", function()
+      GameInitializer.initialize()
+      
+      assert.stub(physics.setDrawMode).was_called_with("hybrid")
     end)
 
     it("should initialize player", function()
