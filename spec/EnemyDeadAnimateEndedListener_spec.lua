@@ -14,6 +14,6 @@ describe("EnemyDeadAnimateEndedListener", function()
     
     EnemyDeadAnimateEndedListener.actionPerformed(event)
     
-    assert.stub(event.target.removeSelf).was_called()
+    assert.stub(event.target.removeSelf).was_called_with(event.target)
   end)
 end)
