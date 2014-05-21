@@ -16,7 +16,7 @@ local ImageSheetsData = {
     }
   },
   ["enemy"] = {
-    path="img/sprite/bz.png",
+    path="img/sprite/enemy.png",
     options={
       width=400,
       height=400,

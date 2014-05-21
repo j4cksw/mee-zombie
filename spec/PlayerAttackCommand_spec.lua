@@ -16,8 +16,13 @@ describe("PlayerAttackCommand", function()
     SpriteSequenceTransition = {}
     stub(SpriteSequenceTransition, "toSequence")
     
-    PlayerAttackEndedListener = {}
-    stub(PlayerAttackEndedListener, "actionPerformed")
+    InitiateAttackListener = {
+      actionPerformed = function()end
+    }
+    
+    PlayerAttackEndedListener = {
+      actionPerformed = function()end
+    }
     
     Runtime = {}
     stub(Runtime, "removeEventListener")
@@ -36,8 +41,14 @@ describe("PlayerAttackCommand", function()
 
     assert.stub(SpriteSequenceTransition.toSequence).was_called_with(fakePlayerSprite, "attack")
   end)
+  
+  it("should add InitiateAttackListener to sprite event listeners of player sprite", function()
+    PlayerAttackCommand.execute()
 
-  it("should add sprite event listener to player sprite", function()
+    assert.stub(fakePlayerSprite.addEventListener).was_called_with(fakePlayerSprite, "sprite", InitiateAttackListener.actionPerformed)
+  end)
+  
+  it("should add PlayerAttackEndedListener to sprite event listeners of player sprite", function()
     PlayerAttackCommand.execute()
 
     assert.stub(fakePlayerSprite.addEventListener).was_called_with(fakePlayerSprite, "sprite", PlayerAttackEndedListener.actionPerformed)
