@@ -21,5 +21,9 @@ describe("FloorPhysicsInitializer", function()
     assert.stub(display.newRect).was_called_with(display.contentCenterX, 1460, display.viewableContentWidth, 152)
   end)
 
-  it("should add physics body to rectangle")
+  it("should add physics body to rectangle", function()
+    FloorPhysicsInitializer.initialize()
+    
+    assert.stub(physics.addBody).was_called_with(fakeRect, "static")
+  end)
 end)
