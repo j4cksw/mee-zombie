@@ -5,8 +5,8 @@ physics = physics or require("physics")
 EnemySpriteCollisionListener = EnemySpriteCollisionListener or require("scripts.EnemySpriteCollisionListener")
 EnemyRepository = EnemyRepository or require("scripts.EnemyRepository")
 
-function EnemyInitializer.initialize()
-  local enemySprite = SpriteInitializer.initializeByData(GameInitializeData["enemy"])
+function EnemyInitializer.initialize(enemyName)
+  local enemySprite = SpriteInitializer.initializeByData(GameInitializeData[enemyName])
   
   physics.addBody(enemySprite, "static")
   enemySprite.isSleepingAllowed = false

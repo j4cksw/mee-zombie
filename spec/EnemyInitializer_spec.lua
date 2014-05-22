@@ -43,7 +43,7 @@ describe("EnemyInitializer", function()
   end)
 
   it("should create a sprite of enemy", function()
-    EnemyInitializer.initialize()
+    EnemyInitializer.initialize("enemy")
 
     assert.stub(SpriteInitializer.initializeByData).was_called_with({
       name="enemy",
