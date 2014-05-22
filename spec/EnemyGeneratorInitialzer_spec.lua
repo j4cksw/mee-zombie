@@ -11,7 +11,7 @@ describe("EnemyGenerateTimerInitializer", function()
     
     EnemyGenerateTimerInitializer.initialize()
     
-    assert.stub(timer.performWithDelay).was_called_with(500, EnemyInitializer.initialize, 1)
+    assert.stub(timer.performWithDelay).was_called_with(500, EnemyInitializer.initialize, 0)
   end)
   
   it("should create enemy group")
