@@ -1,13 +1,13 @@
-RandomChanceEnemyInitializer = {}
+RandomChanceRandomPickEnemyInitializer = {}
 
-EnemyInitializer = EnemyInitializer or require("scripts.EnemyInitializer")
+RandomPickEnemyInitializer = RandomPickEnemyInitializer or require("scripts.RandomPickEnemyInitializer")
 
-function RandomChanceEnemyInitializer.initialize()
+function RandomChanceRandomPickEnemyInitializer.initialize()
   local randomedResult = math.random(0, 100)
 
   if randomedResult <= 30 then
-    EnemyInitializer.initialize()
+    RandomPickEnemyInitializer.initialize()
   end
 end
 
-return RandomChanceEnemyInitializer
+return RandomChanceRandomPickEnemyInitializer

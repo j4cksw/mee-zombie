@@ -34,8 +34,26 @@ local SpriteSequenceData = {
   },
   ["enemy"] ={
     {
-      name="walk",
+      name="enemy1_walk",
       start=1,
+      count=8,
+      time=500
+    },
+    {
+      name="enemy2_walk",
+      start=9,
+      count=8,
+      time=500
+    },
+    {
+      name="enemy3_walk",
+      start=17,
+      count=8,
+      time=500
+    },
+    {
+      name="enemy4_walk",
+      start=25,
       count=8,
       time=500
     },

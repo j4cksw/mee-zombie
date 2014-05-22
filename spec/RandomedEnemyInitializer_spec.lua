@@ -11,8 +11,8 @@ describe("RandomChanceEnemyInitializer", function()
     }
     spy.on(math, "random")
     
-    EnemyInitializer = {}
-    stub(EnemyInitializer, "initialize")
+    RandomPickEnemyInitializer = {}
+    stub(RandomPickEnemyInitializer, "initialize")
 
     RandomChanceEnemyInitializer = require("scripts.RandomChanceEnemyInitializer")
 
@@ -28,15 +28,15 @@ describe("RandomChanceEnemyInitializer", function()
     
     RandomChanceEnemyInitializer.initialize()
     
-    assert.stub(EnemyInitializer.initialize).was_called()
+    assert.stub(RandomPickEnemyInitializer.initialize).was_called()
   end)
 
   it("should not create enemy sprite if random result greaterthan 30", function()
     randomResult = 31
-    stub(EnemyInitializer, "initialize")
+    stub(RandomPickEnemyInitializer, "initialize")
     
     RandomChanceEnemyInitializer.initialize()
     
-    assert.stub(EnemyInitializer.initialize).was_not_called()
+    assert.stub(RandomPickEnemyInitializer.initialize).was_not_called()
   end)
 end)

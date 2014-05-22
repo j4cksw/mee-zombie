@@ -5,11 +5,29 @@ local GameInitializeData = {
     y=1125,
     sequence="walk"
   },
-  ["enemy"] = {
+  ["enemy1"] = {
     name="enemy",
     x=2000,
     y=1125,
-    sequence="walk"
+    sequence="enemy1_walk"
+  },
+  ["enemy2"] = {
+    name="enemy",
+    x=2000,
+    y=1125,
+    sequence="enemy2_walk"
+  },
+  ["enemy3"] = {
+    name="enemy",
+    x=2000,
+    y=1125,
+    sequence="enemy3_walk"
+  },
+  ["enemy4"] = {
+    name="enemy",
+    x=2000,
+    y=1125,
+    sequence="enemy4_walk"
   },
   ["floor"] = {
     name="floor",
