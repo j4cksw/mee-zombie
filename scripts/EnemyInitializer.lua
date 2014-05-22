@@ -8,15 +8,13 @@ EnemyRepository = EnemyRepository or require("scripts.EnemyRepository")
 function EnemyInitializer.initialize()
   local enemySprite = SpriteInitializer.initializeByData(GameInitializeData["enemy"])
   
-  physics.addBody(enemySprite, "dynamic")
+  physics.addBody(enemySprite, "static")
   enemySprite.isSleepingAllowed = false
   
   enemySprite:addEventListener("collision", EnemySpriteCollisionListener.actionPerformed)
   
-  local enemyGroup = display.newGroup()
+  local enemyGroup = EnemyRepository.getEnemyGroup()
   enemyGroup:insert(enemySprite)
-  
-  EnemyRepository.setEnemyGroup(enemyGroup)
 end
 
 return EnemyInitializer

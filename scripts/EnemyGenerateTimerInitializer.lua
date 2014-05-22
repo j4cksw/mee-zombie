@@ -7,7 +7,7 @@ function EnemyGenerateTimerInitializer.initialize()
   local enemyGroup = display.newGroup()
   EnemyRepository.setEnemyGroup(enemyGroup)
   
-  timer.performWithDelay(500, EnemyInitializer.initialize, 0)
+  timer.performWithDelay(1000, EnemyInitializer.initialize, 0)
 end
 
 return EnemyGenerateTimerInitializer

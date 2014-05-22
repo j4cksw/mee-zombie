@@ -5,7 +5,7 @@ physics = physics or require("physics")
 FloorBuilder = FloorBuilder or require("scripts.FloorBuilder")
 FloorRoller = FloorRoller or require("scripts.FloorRoller")
 PlayerInitializer = PlayerInitializer or require("scripts.PlayerInitializer")
-EnemyInitializer = EnemyInitializer or require("scripts.EnemyInitializer")
+EnemyGenerateTimerInitializer = EnemyGenerateTimerInitializer or require("scripts.EnemyGenerateTimerInitializer")
 FloorPhysicsInitializer = FloorPhysicsInitializer or require("scripts.FloorPhysicsInitializer")
 EnemiesRoller = EnemiesRoller or require("scripts.EnemiesRoller")
 
@@ -19,7 +19,7 @@ function GameInitializer.initialize()
   FloorBuilder.build()
   
   PlayerInitializer.initialize()
-  EnemyInitializer.initialize()
+  EnemyGenerateTimerInitializer.initialize()
   
   Runtime:addEventListener("enterFrame", FloorRoller.roll)
   Runtime:addEventListener("enterFrame", EnemiesRoller.roll)

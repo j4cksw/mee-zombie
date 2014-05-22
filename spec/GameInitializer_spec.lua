@@ -22,8 +22,8 @@ describe("GameInitializer", function()
       PlayerInitializer = {}
       stub(PlayerInitializer, "initialize")
       
-      EnemyInitializer = {}
-      stub(EnemyInitializer, "initialize")
+      EnemyGenerateTimerInitializer = {}
+      stub(EnemyGenerateTimerInitializer, "initialize")
       
       FloorPhysicsInitializer = {}
       stub(FloorPhysicsInitializer, "initialize")
@@ -68,7 +68,7 @@ describe("GameInitializer", function()
     it("should initialize enemy", function()
       GameInitializer.initialize()
       
-      assert.stub(EnemyInitializer.initialize).was_called()
+      assert.stub(EnemyGenerateTimerInitializer.initialize).was_called()
     end)
     
     it("should initialize physics of floor", function()
