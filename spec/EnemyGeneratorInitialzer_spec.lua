@@ -6,7 +6,7 @@ describe("EnemyGenerateTimerInitializer", function()
     timer = {}
     stub(timer, "performWithDelay")
 
-    EnemyInitializer = {
+    RandomChanceEnemyInitializer = {
       initialize = function()end
     }
 
@@ -26,7 +26,7 @@ describe("EnemyGenerateTimerInitializer", function()
   it("should start timer for generating enemies", function()
     EnemyGenerateTimerInitializer.initialize()
 
-    assert.stub(timer.performWithDelay).was_called_with(1000, EnemyInitializer.initialize, 0)
+    assert.stub(timer.performWithDelay).was_called_with(1000, RandomChanceEnemyInitializer.initialize, 0)
   end)
 
   it("should create enemy group", function()
