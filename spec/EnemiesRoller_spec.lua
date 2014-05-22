@@ -3,7 +3,8 @@ describe("EnemiesRoller", function()
 
   setup(function()
     EnemiesGroup = {
-      {x=10}
+      {x=10},
+      numChildren=1
     }
 
     EnemyRepository = {
@@ -23,7 +24,8 @@ describe("EnemiesRoller", function()
   end)
   it("should move enemy to the left by 1 pixel", function()
     EnemiesGroup = {
-      {x=10}
+      {x=10},
+      numChildren=1
     }
     
     EnemiesRoller.roll()
