@@ -28,6 +28,6 @@ describe("EnemiesRoller", function()
     
     EnemiesRoller.roll()
 
-    assert.are.equal(EnemiesGroup[1].x, 9)
+    assert.are.equal(EnemiesGroup[1].x, 3)
   end)
 end)

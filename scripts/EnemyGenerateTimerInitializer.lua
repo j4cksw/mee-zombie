@@ -1,0 +1,2 @@
+EnemyGenerateTimerInitializer = {}
+return EnemyGenerateTimerInitializer
