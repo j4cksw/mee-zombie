@@ -1,6 +1,6 @@
 EnemyGenerateTimerInitializer = {}
 
-RandomChanceRandomChanceEnemyInitializer = RandomChanceEnemyInitializer or require("scripts.RandomChanceEnemyInitializer")
+RandomChanceEnemyInitializer = RandomChanceEnemyInitializer or require("scripts.RandomChanceEnemyInitializer")
 EnemyRepository = EnemyRepository or require("scripts.EnemyRepository")
 
 function EnemyGenerateTimerInitializer.initialize()
