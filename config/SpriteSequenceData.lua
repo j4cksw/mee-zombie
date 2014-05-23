@@ -58,6 +58,18 @@ local SpriteSequenceData = {
       time=500
     },
     {
+      name="swat",
+      start=33,
+      count=1,
+    },
+    {
+      name="swat_shoot",
+      start=34,
+      count=4,
+      time=200,
+      loopCount=1
+    },
+    {
       name="dead",
       start=38,
       count=8,

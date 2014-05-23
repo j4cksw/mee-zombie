@@ -8,6 +8,7 @@ PlayerInitializer = PlayerInitializer or require("scripts.PlayerInitializer")
 EnemyGenerateTimerInitializer = EnemyGenerateTimerInitializer or require("scripts.EnemyGenerateTimerInitializer")
 FloorPhysicsInitializer = FloorPhysicsInitializer or require("scripts.FloorPhysicsInitializer")
 EnemiesRoller = EnemiesRoller or require("scripts.EnemiesRoller")
+EnemySwatInitializer = EnemySwatInitializer or require("scripts.EnemySwatInitializer")
 
 function GameInitializer.initialize()
   ImageSheetLoader.loadByNames({"bear_zombie", "floor", "enemy"})
@@ -19,7 +20,8 @@ function GameInitializer.initialize()
   FloorBuilder.build()
   
   PlayerInitializer.initialize()
-  EnemyGenerateTimerInitializer.initialize()
+  EnemySwatInitializer.initialize()
+  --EnemyGenerateTimerInitializer.initialize()
   
   Runtime:addEventListener("enterFrame", FloorRoller.roll)
   Runtime:addEventListener("enterFrame", EnemiesRoller.roll)

@@ -29,6 +29,12 @@ local GameInitializeData = {
     y=1125,
     sequence="enemy4_walk"
   },
+  ["swat"] = {
+    name="enemy",
+    x=1800,
+    y=1125,
+    sequence="swat"
+  },
   ["floor"] = {
     name="floor",
     initializeChunks=18

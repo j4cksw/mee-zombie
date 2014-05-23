@@ -15,6 +15,8 @@ function EnemyInitializer.initialize(enemyName)
   
   local enemyGroup = EnemyRepository.getEnemyGroup()
   enemyGroup:insert(enemySprite)
+  
+  return enemySprite
 end
 
 return EnemyInitializer
