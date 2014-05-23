@@ -7,7 +7,7 @@ describe("EnemySwatInitializer", function()
     
     EnemySwatInitializer = require("scripts.EnemySwatInitializer")
     
-    EnemySwatInitializer.initalize()
+    EnemySwatInitializer.initialize()
     
     assert.stub(EnemyInitializer.initialize).was_called_with("swat")
   end)
