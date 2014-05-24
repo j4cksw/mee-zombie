@@ -76,6 +76,13 @@ local SpriteSequenceData = {
       time=500,
       loopCount=1
     }
-  }
+  },
+  ["bullet"] = {
+    {
+      name="bullet",
+      start=1,
+      count=1
+    }
+  },
 }
 return SpriteSequenceData

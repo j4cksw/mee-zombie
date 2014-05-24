@@ -38,7 +38,7 @@ describe("GameInitializer", function()
     it("should load image sheets which will be use in game", function()
       GameInitializer.initialize()
       
-      assert.stub(ImageSheetLoader.loadByNames).was_called_with({"bear_zombie", "floor", "enemy"})
+      assert.stub(ImageSheetLoader.loadByNames).was_called_with({"bear_zombie", "floor", "enemy", "bullet"})
     end)
     
     it("should start physics", function()

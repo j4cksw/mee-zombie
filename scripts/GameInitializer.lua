@@ -11,7 +11,7 @@ EnemiesRoller = EnemiesRoller or require("scripts.EnemiesRoller")
 EnemySwatInitializer = EnemySwatInitializer or require("scripts.EnemySwatInitializer")
 
 function GameInitializer.initialize()
-  ImageSheetLoader.loadByNames({"bear_zombie", "floor", "enemy"})
+  ImageSheetLoader.loadByNames({"bear_zombie", "floor", "enemy", "bullet"})
   
   physics.start(false)
   physics.setDrawMode( "hybrid" )
