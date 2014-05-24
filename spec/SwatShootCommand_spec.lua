@@ -14,12 +14,23 @@ describe("SwatShootCommand", function()
     }
   }
 
+  local fakeBulletSprite = {}
+
   setup(function()
     SpriteSequenceTransition = {}
     stub(SpriteSequenceTransition, "toSequence")
+
+    SpriteInitializer = {
+      initializeByData = function()
+        return fakeBulletSprite
+      end
+    }
+    spy.on(SpriteInitializer, "initializeByData")
+
+    physics = {}
+    stub(physics, "addBody")
     
-    SpriteInitializer = {}
-    stub(SpriteInitializer, "initializeByData")
+    stub(fakeBulletSprite, "setLinearVelocity")
 
     SwatShootCommand = require("scripts.SwatShootCommand")
   end)
@@ -39,5 +50,17 @@ describe("SwatShootCommand", function()
       y=1040,
       sequence="bullet"
     })
+  end)
+
+  it("should add physics body to bullet", function()
+    SwatShootCommand.execute(event)
+
+    assert.stub(physics.addBody).was_called_with(fakeBulletSprite)
+  end)
+
+  it("should set linear velocity to bullet", function()
+    SwatShootCommand.execute(event)
+
+    assert.stub(fakeBulletSprite.setLinearVelocity).was_called_with(fakeBulletSprite, 1000, 0)
   end)
 end)
