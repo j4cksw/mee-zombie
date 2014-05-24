@@ -7,7 +7,7 @@ function SwatShootCommand.execute(event)
   local swatSprite = event.source.params.swatSprite
   
   SpriteSequenceTransition.toSequence(swatSprite, "swat_shoot")
-  SpriteInitializer.initialize({
+  SpriteInitializer.initializeByData({
     name="bullet",
     x=swatSprite.x-60,
     y=swatSprite.y+40,

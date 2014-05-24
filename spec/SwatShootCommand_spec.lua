@@ -19,7 +19,7 @@ describe("SwatShootCommand", function()
     stub(SpriteSequenceTransition, "toSequence")
     
     SpriteInitializer = {}
-    stub(SpriteInitializer, "initialize")
+    stub(SpriteInitializer, "initializeByData")
 
     SwatShootCommand = require("scripts.SwatShootCommand")
   end)
@@ -33,7 +33,7 @@ describe("SwatShootCommand", function()
   it("should create bullet sprite", function()
     SwatShootCommand.execute(event)
 
-    assert.stub(SpriteInitializer.initialize).was_called_with({
+    assert.stub(SpriteInitializer.initializeByData).was_called_with({
       name="bullet",
       x=1940,
       y=1040,
