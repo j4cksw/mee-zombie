@@ -6,6 +6,9 @@ EnemyDeadAnimateEndedListener = EnemyDeadAnimateEndedListener or require("script
 function EnemySpriteCollisionListener.actionPerformed(event)
   if event.other.type == "player" then
     SpriteSequenceTransition.toSequence(event.target, "dead")
+    if event.target.shootTimer then
+      timer.cancel(event.target.shootTimer)
+    end
     event.target:addEventListener("sprite", EnemyDeadAnimateEndedListener.actionPerformed)
   end
 end

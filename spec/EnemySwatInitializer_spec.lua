@@ -23,9 +23,6 @@ describe("EnemySwatInitializer", function()
     SwatShootCommand = {
       execute = function()end
     }
-    
-    SwatTimerTable = {}
-    stub(SwatTimerTable, "addEntry")
 
     EnemySwatInitializer = require("scripts.EnemySwatInitializer")
   end)
@@ -46,11 +43,5 @@ describe("EnemySwatInitializer", function()
     EnemySwatInitializer.initialize()
     
     assert.are.same(fakeSwatTimer.params, {swatSprite=fakeSwatSprite})
-  end)
-  
-  it("should add timer to SwatTimerTable with swat sprite as a key", function()
-    EnemySwatInitializer.initialize()
-    
-    assert.stub(SwatTimerTable.addEntry).was_called_with(fakeSwatSprite, fakeSwatTimer)
   end)
 end)

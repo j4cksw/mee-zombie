@@ -2,7 +2,7 @@ EnemySwatInitializer = {}
 
 EnemyInitializer = EnemyInitializer or require("scripts.EnemyInitializer")
 SwatShootCommand = SwatShootCommand or require("scripts.SwatShootCommand")
-SwatTimerTable = SwatTimerTable or require("scripts.SwatTimerTable")
+--SwatTimerTable = SwatTimerTable or require("scripts.SwatTimerTable")
 
 EnemyRepository = EnemyRepository or require("scripts.EnemyRepository")
 
@@ -16,7 +16,7 @@ function EnemySwatInitializer.initialize()
     swatSprite=swatSprite
   }
   
-  SwatTimerTable.addEntry(swatSprite, swatShootTimer)
+  swatSprite.shootTimer = swatShootTimer
 end
 
 return EnemySwatInitializer

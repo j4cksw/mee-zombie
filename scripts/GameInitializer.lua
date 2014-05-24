@@ -8,7 +8,7 @@ PlayerInitializer = PlayerInitializer or require("scripts.PlayerInitializer")
 EnemyGenerateTimerInitializer = EnemyGenerateTimerInitializer or require("scripts.EnemyGenerateTimerInitializer")
 FloorPhysicsInitializer = FloorPhysicsInitializer or require("scripts.FloorPhysicsInitializer")
 EnemiesRoller = EnemiesRoller or require("scripts.EnemiesRoller")
---EnemySwatInitializer = EnemySwatInitializer or require("scripts.EnemySwatInitializer")
+EnemySwatInitializer = EnemySwatInitializer or require("scripts.EnemySwatInitializer")
 
 function GameInitializer.initialize()
   ImageSheetLoader.loadByNames({"bear_zombie", "floor", "enemy"})

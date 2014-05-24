@@ -18,6 +18,9 @@ describe("EnemySpriteCollisionListener", function()
       actionPerformed = function()end
     }
     
+    timer = {}
+    stub(timer, "cancel")
+    
     EnemySpriteCollisionListener = require("scripts.EnemySpriteCollisionListener")
   end)
   
@@ -25,6 +28,14 @@ describe("EnemySpriteCollisionListener", function()
     EnemySpriteCollisionListener.actionPerformed(event)
     
     assert.stub(SpriteSequenceTransition.toSequence).was_called_with(event.target, "dead")
+  end)
+  
+  it("should cancel the timer if it was attached to sprite", function()
+    event.target.shootTimer = {}
+  
+    EnemySpriteCollisionListener.actionPerformed(event)
+    
+    assert.stub(timer.cancel).was_called_with(event.target.shootTimer)
   end)
   
   it("should add dead animate ended event listener to target", function()
