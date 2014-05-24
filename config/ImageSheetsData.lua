@@ -22,6 +22,14 @@ local ImageSheetsData = {
       height=400,
       numFrames=45
     }
+  },
+  ["bullet"] = {
+    path="img/sprite/bullet.png",
+    options={
+      width=150,
+      height=100,
+      numFrames=1
+    }
   }
 }
 return ImageSheetsData

@@ -1,9 +1,18 @@
 SwatShootCommand = {}
 
 SpriteSequenceTransition = SpriteSequenceTransition or require("scripts.SpriteSequenceTransition")
+SpriteInitializer = SpriteInitializer or require("scripts.SpriteInitializer")
 
 function SwatShootCommand.execute(event)
-  SpriteSequenceTransition.toSequence(event.source.params.swatSprite, "swat_shoot")
+  local swatSprite = event.source.params.swatSprite
+  
+  SpriteSequenceTransition.toSequence(swatSprite, "swat_shoot")
+  SpriteInitializer.initialize({
+    name="bullet",
+    x=swatSprite.x-60,
+    y=swatSprite.y+40,
+    sequence="bullet"
+  })
 end
 
 return SwatShootCommand
