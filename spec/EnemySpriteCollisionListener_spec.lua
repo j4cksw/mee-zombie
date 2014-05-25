@@ -4,7 +4,7 @@ describe("EnemySpriteCollisionListener", function()
   local event = {
     target = {},
     other = {
-      type="player"
+      type="slash"
     }
   }
   

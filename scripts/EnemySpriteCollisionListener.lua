@@ -4,7 +4,7 @@ SpriteSequenceTransition = SpriteSequenceTransition or require("scripts.SpriteSe
 EnemyDeadAnimateEndedListener = EnemyDeadAnimateEndedListener or require("scripts.EnemyDeadAnimateEndedListener")
 
 function EnemySpriteCollisionListener.actionPerformed(event)
-  if event.other.type == "player" then
+  if event.other.type == "slash" then
     SpriteSequenceTransition.toSequence(event.target, "dead")
     if event.target.shootTimer then
       timer.cancel(event.target.shootTimer)

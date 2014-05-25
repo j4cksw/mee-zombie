@@ -35,7 +35,7 @@ describe("InitiateAttackListener", function()
   it("should add physics body when reach the 4th frame", function()
     InitiateAttackListener.actionPerformed(event)
     
-    assert.stub(physics.addBody).was_called_with(fakeSlashRect, "dynamic")
+    assert.stub(physics.addBody).was_called_with(fakeSlashRect, "dynamic", {isSensor=true})
   end)
    
   it("should remove itself from player sprite event listener", function()

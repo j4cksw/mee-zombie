@@ -13,7 +13,8 @@ function PlayerAttackEndedListener.actionPerformed(event)
   local playerSprite = PlayerRepository.getPlayerSprite()
   playerSprite:removeEventListener("sprite", PlayerAttackEndedListener.actionPerformed)
 
-  physics.removeBody(event.target)
+  --physics.removeBody(event.target.slash)
+  event.target.slash:removeSelf()
   
   PlayerWalkCommand.execute()
 end
