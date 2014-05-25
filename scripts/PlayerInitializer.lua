@@ -14,6 +14,7 @@ function PlayerInitializer.initialize()
   physics.addBody(playerSprite,
     playerPhysicsData.type,
     playerPhysicsData.options)
+  playerSprite.gravityScale = 0
 
   PlayerRepository.setPlayerSprite(playerSprite)
   PlayerWalkCommand.execute()
