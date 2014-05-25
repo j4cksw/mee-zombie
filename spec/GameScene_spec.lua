@@ -2,7 +2,23 @@ describe("GameScene", function()
   
   local gameScene
   
+  local scene = { 
+    addEventListener = function ( ... )
+      -- body
+    end,
+    view = {}
+  }
+  
   setup(function()
+    storyboard = {
+      newScene = function ( ... )
+        return scene
+      end
+    }
+    
+    GameInitializer = {}
+    stub(GameInitializer, "initialize")
+    
     gameScene = require("scripts.scene.GameScene")
   end) 
   
