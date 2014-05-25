@@ -2,11 +2,12 @@ describe("BulletHitPlayerListener", function()
   local BulletHitPlayerListener
 
   local fakeTargetBulletSprite = {}
-
+  local fakePlayerSprite = {
+    type = "player",
+  }
+  
   local event = {
-    other = {
-      type = "player"
-    },
+    other = fakePlayerSprite,
     target = fakeTargetBulletSprite
   }
   
@@ -15,6 +16,12 @@ describe("BulletHitPlayerListener", function()
     
     SpriteSequenceTransition = {}
     stub(SpriteSequenceTransition, "toSequence")
+    
+    PlayerDeadAnimateEndedListener = {
+      actionPerformed = function()end
+    }
+    
+    stub(fakePlayerSprite, "addEventListener")
 
     BulletHitPlayerListener = require("scripts.BulletHitPlayerListener")
   end)
@@ -29,5 +36,13 @@ describe("BulletHitPlayerListener", function()
     BulletHitPlayerListener.actionPerformed(event)
     
     assert.stub(SpriteSequenceTransition.toSequence).was_called_with(event.other, "dead")
+  end)
+  
+  it("should add PlayerDeadAnimateEndedListener to player sprite", function()
+    BulletHitPlayerListener.actionPerformed(event)
+    
+    assert.stub(fakePlayerSprite.addEventListener).was_called_with(fakePlayerSprite, 
+    "sprite",
+    PlayerDeadAnimateEndedListener.actionPerformed)
   end)
 end)
