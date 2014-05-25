@@ -2,7 +2,7 @@ BulletHitPlayerListener = {}
 
 function BulletHitPlayerListener.actionPerformed(event)
   if event.other.type == "player" then
-    event.target.removeSelf()
+    event.target:removeSelf()
   end
 end
 

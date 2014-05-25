@@ -17,6 +17,6 @@ describe("BulletHitPlayerListener", function()
 
     BulletHitPlayerListener.actionPerformed(event)
 
-    assert.stub(fakeTargetBulletSprite.removeSelf).was_called()
+    assert.stub(fakeTargetBulletSprite.removeSelf).was_called_with(fakeTargetBulletSprite)
   end)
 end)
