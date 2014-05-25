@@ -62,7 +62,7 @@ describe("BulletInitializer", function()
   it("should set linear velocity to bullet", function()
     BulletInitializer.initialize(fakeSwatSprite)
 
-    assert.stub(fakeBulletSprite.setLinearVelocity).was_called_with(fakeBulletSprite, -1000, 0)
+    assert.stub(fakeBulletSprite.setLinearVelocity).was_called_with(fakeBulletSprite, -500, 0)
   end)
 
   it("should add collision with player listener", function()

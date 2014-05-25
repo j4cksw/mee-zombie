@@ -18,7 +18,7 @@ function BulletInitializer.initialize(swatSprite)
     
   bulletSprite:addEventListener("collision", BulletHitPlayerListener.actionPerformed)
 
-  bulletSprite:setLinearVelocity(-1000, 0)
+  bulletSprite:setLinearVelocity(-500, 0)
 end
 
 return BulletInitializer
