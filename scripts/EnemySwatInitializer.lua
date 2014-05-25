@@ -2,12 +2,8 @@ EnemySwatInitializer = {}
 
 EnemyInitializer = EnemyInitializer or require("scripts.EnemyInitializer")
 SwatShootCommand = SwatShootCommand or require("scripts.SwatShootCommand")
---SwatTimerTable = SwatTimerTable or require("scripts.SwatTimerTable")
-
-EnemyRepository = EnemyRepository or require("scripts.EnemyRepository")
 
 function EnemySwatInitializer.initialize()  
-  EnemyRepository.setEnemyGroup(display.newGroup())
   
   local swatSprite = EnemyInitializer.initialize("swat")
   
