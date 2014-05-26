@@ -1,5 +1,6 @@
 storyboard = storyboard or require("storyboard")
 GameInitializer = GameInitializer or require("scripts.GameInitializer")
+GameStarter = GameStarter or require("scripts.GameStarter")
 
 local scene = storyboard.newScene("game")
 
@@ -8,11 +9,7 @@ function scene:createScene(event)
 end
 
 function scene:enterScene(event)
-
-end
-
-function scene:exitScene(event)
-  self.view:removeSelf()
+  GameStarter.start()
 end
 
 scene:addEventListener( "createScene", scene )

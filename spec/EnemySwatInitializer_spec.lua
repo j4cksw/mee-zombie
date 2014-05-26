@@ -23,6 +23,9 @@ describe("EnemySwatInitializer", function()
     SwatShootCommand = {
       execute = function()end
     }
+    
+    SwatShootTimerRepository = {}
+    stub(SwatShootTimerRepository, "insert")
 
     EnemySwatInitializer = require("scripts.EnemySwatInitializer")
   end)
@@ -43,5 +46,11 @@ describe("EnemySwatInitializer", function()
     EnemySwatInitializer.initialize()
     
     assert.are.same(fakeSwatTimer.params, {swatSprite=fakeSwatSprite})
+  end)
+  
+  it("should insert timer to repository", function()
+    EnemySwatInitializer.initialize()
+    
+    assert.stub(SwatShootTimerRepository.insert).was_called_with(fakeSwatTimer)
   end)
 end)

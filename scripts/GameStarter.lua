@@ -8,6 +8,7 @@ FloorPhysicsInitializer = FloorPhysicsInitializer or require("scripts.FloorPhysi
 EnemiesRoller = EnemiesRoller or require("scripts.EnemiesRoller")
 
 function GameStarter.start()
+print("Game start")
   FloorPhysicsInitializer.initialize()
   FloorBuilder.build()
 

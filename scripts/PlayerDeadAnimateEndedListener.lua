@@ -1,6 +1,7 @@
 PlayerDeadAnimateEndedListener = {}
 
 GameDestroyer = GameDestroyer or require("scripts.GameDestroyer")
+GameStarter = GameStarter or require("scripts.GameStarter")
 storyboard = storyboard or require("storyboard")
 
 function PlayerDeadAnimateEndedListener.actionPerformed(event)
