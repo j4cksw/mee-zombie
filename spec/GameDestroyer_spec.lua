@@ -1,6 +1,8 @@
 describe("GameDestroyer", function()
-  it("should remove enemies", function()
-    local fakeEnemyGroup = {}
+  local fakeEnemyGroup = {}
+  local fakeFloorGroup = {}
+  
+  setup(function()
     stub(fakeEnemyGroup, "removeSelf")
     
     EnemyRepository = {
@@ -10,12 +12,27 @@ describe("GameDestroyer", function()
     }
     spy.on(EnemyRepository, "getEnemyGroup")
     
-    GameDestroyer = require("scripts.GameDestroyer")
+    stub(fakeFloorGroup, "removeSelf")
     
+    FloorRepository = {
+      getFloorGroup = function()
+      return fakeFloorGroup
+      end
+    }
+    spy.on(FloorRepository, "getFloorGroup")
+    
+    GameDestroyer = require("scripts.GameDestroyer")
+  end)
+  
+  it("should remove enemies", function()
     GameDestroyer.destroy()
     
     assert.stub(fakeEnemyGroup.removeSelf).was_called_with(fakeEnemyGroup)
   end)
   
-  it("should remove floor")
+  it("should remove floor", function()
+     GameDestroyer.destroy()
+    
+    assert.stub(fakeFloorGroup.removeSelf).was_called_with(fakeFloorGroup)
+  end)
 end)

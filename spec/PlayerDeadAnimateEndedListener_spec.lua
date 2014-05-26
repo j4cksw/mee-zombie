@@ -2,6 +2,9 @@ describe("PlayerDeadAnimateEndedListener", function()
   local PlayerDeadAnimateEndedListener
   
   setup(function()
+    GameDestroyer = {}
+    stub(GameDestroyer, "destroy")
+    
     storyboard = {}
     stub(storyboard, "reloadScene")
     
