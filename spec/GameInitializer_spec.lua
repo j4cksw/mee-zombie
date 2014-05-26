@@ -9,28 +9,6 @@ describe("GameInitializer", function()
       physics = {}
       stub(physics, "start")
       stub(physics, "setDrawMode")
-      
-      FloorBuilder = {}
-      stub(FloorBuilder, "build")
-      
-      Runtime = {}
-      stub(Runtime, "addEventListener")
-      
-      FloorRoller = {}
-      stub(FloorRoller, "roll")
-      
-      PlayerInitializer = {}
-      stub(PlayerInitializer, "initialize")
-      
-      EnemyGenerateTimerInitializer = {}
-      stub(EnemyGenerateTimerInitializer, "initialize")
-      
-      FloorPhysicsInitializer = {}
-      stub(FloorPhysicsInitializer, "initialize")
-      
-      EnemiesRoller = {
-        roll = function()end
-      }
 
       GameInitializer = require("scripts.GameInitializer")
     end)
@@ -51,41 +29,5 @@ describe("GameInitializer", function()
       GameInitializer.initialize()
       
       assert.stub(physics.setDrawMode).was_called_with("hybrid")
-    end)
-
-    it("should initialize player", function()
-      GameInitializer.initialize()
-
-      assert.stub(PlayerInitializer.initialize).was_called()
-    end)
-    
-    it("should initialize floor", function()
-      GameInitializer.initialize()
-      
-      assert.stub(FloorBuilder.build).was_called()
-    end)
-    
-    it("should initialize enemy", function()
-      GameInitializer.initialize()
-      
-      assert.stub(EnemyGenerateTimerInitializer.initialize).was_called()
-    end)
-    
-    it("should initialize physics of floor", function()
-      GameInitializer.initialize()
-      
-      assert.stub(FloorPhysicsInitializer.initialize).was_called()
-    end)
-    
-    it("should add FloorRoller as an enterframe listener of Runtime", function()
-      GameInitializer.initialize()
-      
-      assert.stub(Runtime.addEventListener).was_called_with(Runtime, "enterFrame", FloorRoller.roll)
-    end)
-    
-    it("should add EnemiesRoller as an enterframe listener of Runtime", function()
-      GameInitializer.initialize()
-      
-      assert.stub(Runtime.addEventListener).was_called_with(Runtime, "enterFrame", EnemiesRoller.roll)
     end)
 end)
