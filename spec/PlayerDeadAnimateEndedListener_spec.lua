@@ -2,6 +2,9 @@ describe("PlayerDeadAnimateEndedListener", function()
   local PlayerDeadAnimateEndedListener
   
   setup(function()
+    storyboard = {}
+    stub(storyboard, "reloadScene")
+    
     PlayerDeadAnimateEndedListener = require("scripts.PlayerDeadAnimateEndedListener")
   end)
   

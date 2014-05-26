@@ -1,5 +1,5 @@
 
 display.setStatusBar( display.HiddenStatusBar )
 
-GameInitializer = require("scripts.GameInitializer")
-GameInitializer.initialize()
+storyboard = require("storyboard")
+storyboard.gotoScene("scripts.scene.GameScene")
