@@ -19,13 +19,29 @@ describe("EnemySwatInitializer", function()
       end
     }
     spy.on(timer, "performWithDelay")
+    stub(timer, "cancel")
     
     SwatShootCommand = {
       execute = function()end
     }
     
-    SwatShootTimerRepository = {}
+    SwatShootTimerRepository = {
+      getAll = function()
+        return {}
+      end
+    }
     stub(SwatShootTimerRepository, "insert")
+    spy.on(SwatShootTimerRepository, "getAll")
+    
+    
+    
+    FloorRoller = {
+      roll = function()end
+    }
+    
+    EnemyRoller = {
+      roll = function()end
+    }
 
     EnemySwatInitializer = require("scripts.EnemySwatInitializer")
   end)

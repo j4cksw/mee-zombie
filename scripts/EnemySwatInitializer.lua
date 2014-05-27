@@ -3,6 +3,7 @@ EnemySwatInitializer = {}
 EnemyInitializer = EnemyInitializer or require("scripts.EnemyInitializer")
 SwatShootCommand = SwatShootCommand or require("scripts.SwatShootCommand")
 SwatShootTimerRepository = SwatShootTimerRepository or require("scripts.SwatShootTimerRepository")
+timer = timer
 
 function EnemySwatInitializer.initialize()  
   
