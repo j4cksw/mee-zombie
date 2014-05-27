@@ -12,6 +12,7 @@ describe("BulletRepository", function()
       spy.on(display, "newGroup")
       
       stub(fakeGroup, "insert")
+      stub(fakeGroup, "removeSelf")
       
       BulletRepository = require("scripts.BulletRepository")
     end)
@@ -28,5 +29,9 @@ describe("BulletRepository", function()
       assert.stub(fakeGroup.insert).was_called_with(fakeGroup, fakeBullet)
     end)
 
-    it("should remove group when removeAll")
+    it("should remove group when removeAll", function()
+      BulletRepository.removeAll()
+      
+      assert.stub(fakeGroup.removeSelf).was_called_with(fakeGroup)
+    end)
 end)

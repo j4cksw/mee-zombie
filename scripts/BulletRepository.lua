@@ -9,4 +9,10 @@ function BulletRepository.insert(bulletSprite)
   end
 end
 
+function BulletRepository.removeAll()
+  if BulletRepository.bulletGroup then
+    BulletRepository.bulletGroup:removeSelf()
+  end
+end
+
 return BulletRepository
