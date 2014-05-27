@@ -6,6 +6,7 @@ describe("BulletRepository", function()
           return fakeGroup
         end
       }
+      spy.on(display, "newGroup")
     end)
 
     it("should create group if not available when insert", function()
