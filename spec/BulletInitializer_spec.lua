@@ -38,6 +38,8 @@ describe("BulletInitializer", function()
       actionPerformed = function()end
     }
     
+    BulletRepository = {}
+    stub(BulletRepository, "insert")
     
     BulletInitializer = require("scripts.BulletInitializer")
   end)
@@ -71,5 +73,11 @@ describe("BulletInitializer", function()
     assert.stub(fakeBulletSprite.addEventListener).was_called_with(fakeBulletSprite,
       "collision",
       BulletHitPlayerListener.actionPerformed)
+  end)
+  
+  it("should add bullet sprite to BulletRepository", function()
+    BulletInitializer.initialize(fakeSwatSprite)
+
+    assert.stub(BulletRepository.insert).was_called_with(fakeBulletSprite)
   end)
 end)

@@ -2,6 +2,7 @@ BulletInitializer = {}
 
 PhysicsData = PhysicsData or require("config.PhysicsData")
 BulletHitPlayerListener = BulletHitPlayerListener or require("scripts.BulletHitPlayerListener")
+BulletRepository = BulletRepository or require("scripts.BulletRepository")
 
 function BulletInitializer.initialize(swatSprite)
   local bulletSprite = SpriteInitializer.initializeByData({
@@ -19,6 +20,8 @@ function BulletInitializer.initialize(swatSprite)
   bulletSprite:addEventListener("collision", BulletHitPlayerListener.actionPerformed)
 
   bulletSprite:setLinearVelocity(-500, 0)
+  
+  BulletRepository.insert(bulletSprite)
 end
 
 return BulletInitializer
