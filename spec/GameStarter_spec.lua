@@ -16,9 +16,6 @@ describe("GameStarter", function()
       EnemyGenerateTimerInitializer = {}
       stub(EnemyGenerateTimerInitializer, "initialize")
 
-      FloorPhysicsInitializer = {}
-      stub(FloorPhysicsInitializer, "initialize")
-
       EnemiesRoller = {
         roll = function()end
       }
@@ -42,12 +39,6 @@ describe("GameStarter", function()
       GameStarter.start()
 
       assert.stub(EnemyGenerateTimerInitializer.initialize).was_called()
-    end)
-
-    it("should start physics of floor", function()
-      GameStarter.start()
-
-      assert.stub(FloorPhysicsInitializer.initialize).was_called()
     end)
 
     it("should add FloorRoller as an enterframe listener of Runtime", function()

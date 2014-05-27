@@ -10,6 +10,9 @@ describe("GameInitializer", function()
       stub(physics, "start")
       stub(physics, "setDrawMode")
 
+      FloorPhysicsInitializer = {}
+      stub(FloorPhysicsInitializer, "initialize")
+      
       GameInitializer = require("scripts.GameInitializer")
     end)
 
@@ -25,9 +28,15 @@ describe("GameInitializer", function()
       assert.stub(physics.start).was_called()
     end)
     
-    it("should set physics drawmode to hybrid", function()
+    it("should set physics draw mode to hybrid", function()
       GameInitializer.initialize()
       
       assert.stub(physics.setDrawMode).was_called_with("hybrid")
+    end)
+    
+    it("should start physics of floor", function()
+      GameInitializer.initialize()
+
+      assert.stub(FloorPhysicsInitializer.initialize).was_called()
     end)
 end)
