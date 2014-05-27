@@ -15,11 +15,13 @@ describe("ItemInitializer", function()
     assert.stub(SpriteInitializer.initializeByData).was_called_with({
       name="item",
       x=1000,
-      y=1650,
+      y=1750,
       sequence="item"
     })
   end)
-
+  
+  it("should insert to ItemRepository")
+  
   it("should add physics body to item")
   
   it("should fly the item")
