@@ -12,9 +12,7 @@ end
 
 function BulletRepository.removeAll()
   if BulletRepository.bulletGroup then
-    for i=1,BulletRepository.bulletGroup.numChildren do
-      BulletRepository.bulletGroup[i]:removeSelf()
-    end
+    display.remove(BulletRepository.bulletGroup)
   end
 end
 
