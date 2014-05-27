@@ -30,6 +30,14 @@ local ImageSheetsData = {
       height=100,
       numFrames=1
     }
+  },
+  ["item"] = {
+    path="img/sprite/item.png",
+    options={
+      width=150,
+      height=100,
+      numFrames=1
+    }
   }
 }
 return ImageSheetsData

@@ -91,5 +91,12 @@ local SpriteSequenceData = {
       count=1
     }
   },
+  ["item"] = {
+    {
+      name="item",
+      start=1,
+      count=1
+    }
+  },
 }
 return SpriteSequenceData
