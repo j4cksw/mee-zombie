@@ -2,6 +2,7 @@ EnemySpriteCollisionListener = {}
 
 SpriteSequenceTransition = SpriteSequenceTransition or require("scripts.SpriteSequenceTransition")
 EnemyDeadAnimateEndedListener = EnemyDeadAnimateEndedListener or require("scripts.EnemyDeadAnimateEndedListener")
+ItemInitializer = ItemInitializer or require("scripts.ItemInitializer")
 
 function EnemySpriteCollisionListener.actionPerformed(event)
   if event.other.type == "slash" then
@@ -10,6 +11,8 @@ function EnemySpriteCollisionListener.actionPerformed(event)
       timer.cancel(event.target.shootTimer)
     end
     event.target:addEventListener("sprite", EnemyDeadAnimateEndedListener.actionPerformed)
+    
+    ItemInitializer.initialize(event.target)
   end
 end
 

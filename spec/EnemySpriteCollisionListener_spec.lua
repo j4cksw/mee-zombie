@@ -21,6 +21,9 @@ describe("EnemySpriteCollisionListener", function()
     timer = {}
     stub(timer, "cancel")
     
+    ItemInitializer = {}
+    stub(ItemInitializer, "initialize")
+    
     EnemySpriteCollisionListener = require("scripts.EnemySpriteCollisionListener")
   end)
   
@@ -43,4 +46,5 @@ describe("EnemySpriteCollisionListener", function()
     
     assert.stub(event.target.addEventListener).was_called_with(event.target, "sprite", EnemyDeadAnimateEndedListener.actionPerformed)
   end)
+  
 end)

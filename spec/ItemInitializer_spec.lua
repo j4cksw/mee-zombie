@@ -1,9 +1,12 @@
 describe("ItemInitializer", function()
   it("should create item sprite at top of dead enemy", function()
-    local fakeEnymySprite = {
+    local fakeEnemySprite = {
       x=1000,
       y=2000
     }
+    
+    SpriteInitializer = {}
+    stub(SpriteInitializer, "initializeByData")
     
     ItemInitializer = require("scripts.ItemInitializer")
 
@@ -18,6 +21,8 @@ describe("ItemInitializer", function()
   end)
 
   it("should add physics body to item")
+  
+  it("should fly the item")
 
   it("should add PlayerHitItemListener to item")
 end)
