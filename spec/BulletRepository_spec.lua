@@ -1,11 +1,11 @@
 describe("BulletRepository", function()
-    
+
     local fakeGroup = {
       numChildren = 1,
       {}
     }
     local fakeBullet = {}
-    
+
     setup(function()
       display = {
         newGroup = function()
@@ -13,10 +13,11 @@ describe("BulletRepository", function()
         end
       }
       spy.on(display, "newGroup")
-      
+      stub(display, "remove")
+
       stub(fakeGroup, "insert")
       stub(fakeGroup[1], "removeSelf")
-      
+
       BulletRepository = require("scripts.BulletRepository")
     end)
 
@@ -28,13 +29,13 @@ describe("BulletRepository", function()
 
     it("should insert given bullet sprite to group when insert", function()
       BulletRepository.insert(fakeBullet)
-      
+
       assert.stub(fakeGroup.insert).was_called_with(fakeGroup, fakeBullet)
     end)
 
     it("should remove group when removeAll", function()
       BulletRepository.removeAll()
-      
-      assert.stub(fakeGroup[1].removeSelf).was_called_with(fakeGroup[1])
+
+      assert.stub(display.remove).was_called_with(fakeGroup)
     end)
 end)
