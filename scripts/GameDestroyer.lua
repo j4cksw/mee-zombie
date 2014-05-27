@@ -3,10 +3,12 @@ GameDestroyer = {}
 EnemyRepository = EnemyRepository or require("scripts.EnemyRepository")
 FloorRepository = FloorRepository or require("scripts.FloorRepository")
 SwatShootTimerRepository = SwatShootTimerRepository or require("scripts.SwatShootRepository")
+BulletRepository = BulletRepository or require("scripts.BulletRepository")
 
 function GameDestroyer.destroy()
   EnemyRepository.getEnemyGroup():removeSelf()
   FloorRepository.getFloorGroup():removeSelf()
+  BulletRepository.removeAll()
 
   local swatShootTimers = SwatShootTimerRepository.getAll()
 

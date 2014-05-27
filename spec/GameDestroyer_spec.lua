@@ -21,6 +21,9 @@ describe("GameDestroyer", function()
     }
     spy.on(FloorRepository, "getFloorGroup")
     
+    BulletRepository = {}
+    stub(BulletRepository, "removeAll")
+    
     GameDestroyer = require("scripts.GameDestroyer")
   end)
   
@@ -34,5 +37,11 @@ describe("GameDestroyer", function()
      GameDestroyer.destroy()
     
     assert.stub(fakeFloorGroup.removeSelf).was_called_with(fakeFloorGroup)
+  end)
+  
+  it("should remove bullets", function()
+    GameDestroyer.destroy()
+    
+    assert.stub(BulletRepository.removeAll).was_called()
   end)
 end)
