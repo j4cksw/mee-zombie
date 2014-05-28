@@ -7,11 +7,6 @@ BulletRepository = BulletRepository or require("scripts.BulletRepository")
 ItemRepository = ItemRepository or require("scripts.ItemRepository")
 
 function GameDestroyer.destroy()
-  EnemyRepository.getEnemyGroup():removeSelf()
-  FloorRepository.getFloorGroup():removeSelf()
-  BulletRepository.removeAll()
-  ItemRepository.removeAll()
-  
   local swatShootTimers = SwatShootTimerRepository.getAll()
 
   for key, timerId in pairs(swatShootTimers) do
@@ -20,6 +15,11 @@ function GameDestroyer.destroy()
   end
   
   timer.cancel(EnemyGenerateTimer)
+  
+  EnemyRepository.getEnemyGroup():removeSelf()
+  FloorRepository.getFloorGroup():removeSelf()
+  BulletRepository.removeAll()
+  ItemRepository.removeAll()
   
   Runtime:removeEventListener("enterFrame", FloorRoller.roll)
   Runtime:removeEventListener("enterFrame", EnemiesRoller.roll)

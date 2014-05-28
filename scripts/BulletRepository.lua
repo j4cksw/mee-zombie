@@ -14,6 +14,7 @@ function BulletRepository.removeAll()
   if BulletRepository.bulletGroup then
     display.remove(BulletRepository.bulletGroup)
   end
+  BulletRepository.bulletGroup = nil
 end
 
 return BulletRepository

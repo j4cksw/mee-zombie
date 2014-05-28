@@ -1,19 +1,20 @@
 ItemRepository = {}
 
-ItemRepository.bulletGroup = nil
+ItemRepository.itemGroup = nil
 
 function ItemRepository.insert(bulletSprite)
-  if not ItemRepository.bulletGroup then
-    ItemRepository.bulletGroup = display.newGroup()
+  if not ItemRepository.itemGroup then
+    ItemRepository.itemGroup = display.newGroup()
   end
   
-  ItemRepository.bulletGroup:insert(bulletSprite)
+  ItemRepository.itemGroup:insert(bulletSprite)
 end
 
 function ItemRepository.removeAll()
-  if ItemRepository.bulletGroup then
-    display.remove(ItemRepository.bulletGroup)
+  if ItemRepository.itemGroup then
+    display.remove(ItemRepository.itemGroup)
   end
+  ItemRepository.itemGroup = nil
 end
 
 return ItemRepository
