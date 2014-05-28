@@ -24,6 +24,9 @@ describe("GameDestroyer", function()
     BulletRepository = {}
     stub(BulletRepository, "removeAll")
     
+    ItemRepository = {}
+    stub(ItemRepository, "removeAll")
+    
     GameDestroyer = require("scripts.GameDestroyer")
   end)
   
@@ -43,5 +46,11 @@ describe("GameDestroyer", function()
     GameDestroyer.destroy()
     
     assert.stub(BulletRepository.removeAll).was_called()
+  end)
+  
+  it("should remove items", function()
+    GameDestroyer.destroy()
+    
+    assert.stub(ItemRepository.removeAll).was_called()
   end)
 end)
