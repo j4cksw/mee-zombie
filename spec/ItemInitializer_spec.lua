@@ -17,6 +17,9 @@ describe("ItemInitializer", function()
       
       ItemRepository = {}
       stub(ItemRepository, "insert")
+      
+      physics = {}
+      stub(physics, "addBody")
 
       ItemInitializer = require("scripts.ItemInitializer")
     end)
@@ -38,7 +41,11 @@ describe("ItemInitializer", function()
       assert.stub(ItemRepository.insert).was_called_with(fakeItemSprite)
     end)
 
-    it("should add physics body to item")
+    it("should add physics body to item", function()
+      ItemInitializer.initialize(fakeEnemySprite)
+      
+      assert.stub(physics.addBody).was_called_with(fakeItemSprite, "dynamic", {isSensor=true})
+    end)
 
     it("should fly the item")
 
