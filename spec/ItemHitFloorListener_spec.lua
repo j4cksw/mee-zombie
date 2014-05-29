@@ -5,7 +5,8 @@ describe("ItemHitFloorListener", function()
 
       local fakeTarget = {}
       stub(fakeTarget, "setLinearVelocity")
-
+      stub(fakeTarget, "removeEventListener")
+      
       local event = {
         target=fakeTarget,
         other = {

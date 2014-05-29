@@ -9,6 +9,7 @@ function FloorPhysicsInitializer.initialize()
    display.viewableContentWidth, 
    GameInitializeData["floor_physics"].height)
   physics.addBody(floorRect, "static")
+  floorRect.type = "floor"
 end
 
 return FloorPhysicsInitializer
