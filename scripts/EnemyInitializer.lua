@@ -8,7 +8,7 @@ EnemyRepository = EnemyRepository or require("scripts.EnemyRepository")
 function EnemyInitializer.initialize(enemyName)
   local enemySprite = SpriteInitializer.initializeByData(GameInitializeData[enemyName])
   
-  physics.addBody(enemySprite, "static")
+  physics.addBody(enemySprite, "static", {filter={groupIndex=-1}})
   enemySprite.isSleepingAllowed = false
   
   enemySprite:addEventListener("collision", EnemySpriteCollisionListener.actionPerformed)

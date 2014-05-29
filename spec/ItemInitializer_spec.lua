@@ -20,6 +20,8 @@ describe("ItemInitializer", function()
       
       physics = {}
       stub(physics, "addBody")
+      
+      stub(fakeItemSprite, "setLinearVelocity")
 
       ItemInitializer = require("scripts.ItemInitializer")
     end)
@@ -44,10 +46,14 @@ describe("ItemInitializer", function()
     it("should add physics body to item", function()
       ItemInitializer.initialize(fakeEnemySprite)
       
-      assert.stub(physics.addBody).was_called_with(fakeItemSprite, "dynamic")
+      assert.stub(physics.addBody).was_called_with(fakeItemSprite, "dynamic", {filter={groupIndex=-1}, bounce=0.0, friction=0.0, density=0.0})
     end)
 
-    it("should fly the item")
+    it("should fly the item", function()
+      ItemInitializer.initialize(fakeEnemySprite)
+      
+      assert.stub(fakeItemSprite.setLinearVelocity).was_called_with(fakeItemSprite, 250, -600)
+    end)
 
     it("should add PlayerHitItemListener to item")
 end)

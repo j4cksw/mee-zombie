@@ -14,7 +14,8 @@ function ItemInitializer.initialize(sourceSprite)
   
   ItemRepository.insert(itemSprite)
   
-  physics.addBody(itemSprite, "dynamic")
+  physics.addBody(itemSprite, "dynamic", {filter={groupIndex=-1}, bounce=0.0, friction=0.0, density=0.0})
+  itemSprite:setLinearVelocity(250,-600)
 end
 
 return ItemInitializer
