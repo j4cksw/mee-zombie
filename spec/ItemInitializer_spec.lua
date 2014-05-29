@@ -22,6 +22,8 @@ describe("ItemInitializer", function()
       stub(physics, "addBody")
       
       stub(fakeItemSprite, "setLinearVelocity")
+      
+      ItemHitFloorListener = require("scripts.ItemHitFloorListener")
 
       ItemInitializer = require("scripts.ItemInitializer")
     end)
@@ -55,5 +57,9 @@ describe("ItemInitializer", function()
       assert.stub(fakeItemSprite.setLinearVelocity).was_called_with(fakeItemSprite, 250, -600)
     end)
 
-    it("should add PlayerHitItemListener to item")
+    it("should add ItemHitFloorListener to item", function()
+      ItemInitializer.initialize(fakeEnemySprite)
+      
+      assert.stub(fakeItemSprite.addEventListener).was_called_with("collision", ItemHitFloorListener.actionPerformed)
+    end)
 end)
