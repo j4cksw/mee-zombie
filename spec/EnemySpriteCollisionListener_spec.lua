@@ -20,6 +20,7 @@ describe("EnemySpriteCollisionListener", function()
     
     timer = {}
     stub(timer, "cancel")
+    stub(timer, "performWithDelay")
     
     ItemInitializer = {}
     stub(ItemInitializer, "initialize")

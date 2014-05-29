@@ -11,8 +11,10 @@ function EnemySpriteCollisionListener.actionPerformed(event)
       timer.cancel(event.target.shootTimer)
     end
     event.target:addEventListener("sprite", EnemyDeadAnimateEndedListener.actionPerformed)
-    
-    ItemInitializer.initialize(event.target)
+
+    timer.performWithDelay(0, function()
+      ItemInitializer.initialize(event.target)
+    end)
   end
 end
 

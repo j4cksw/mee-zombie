@@ -8,13 +8,13 @@ function ItemInitializer.initialize(sourceSprite)
   local itemSprite = SpriteInitializer.initializeByData({
     name="item",
     x=sourceSprite.x,
-    y=sourceSprite.y-250,
+    y=sourceSprite.y-100,
     sequence="item"
   })
   
   ItemRepository.insert(itemSprite)
   
-  physics.addBody(itemSprite, "dynamic", {isSensor=true})
+  physics.addBody(itemSprite, "dynamic")
 end
 
 return ItemInitializer

@@ -30,7 +30,7 @@ describe("ItemInitializer", function()
       assert.stub(SpriteInitializer.initializeByData).was_called_with({
         name="item",
         x=1000,
-        y=1750,
+        y=1900,
         sequence="item"
       })
     end)
@@ -44,7 +44,7 @@ describe("ItemInitializer", function()
     it("should add physics body to item", function()
       ItemInitializer.initialize(fakeEnemySprite)
       
-      assert.stub(physics.addBody).was_called_with(fakeItemSprite, "dynamic", {isSensor=true})
+      assert.stub(physics.addBody).was_called_with(fakeItemSprite, "dynamic")
     end)
 
     it("should fly the item")
