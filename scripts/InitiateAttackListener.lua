@@ -13,7 +13,7 @@ function InitiateAttackListener.actionPerformed(event)
     400)
   slashRect.alpha = 0
   slashRect.type = "slash"
-  physics.addBody(slashRect, "dynamic", {isSensor=true, filter={groupIndex=1}})
+  physics.addBody(slashRect, "dynamic", {isSensor=true})
   
   event.target.slash = slashRect
   

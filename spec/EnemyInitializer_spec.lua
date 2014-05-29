@@ -55,7 +55,7 @@ describe("EnemyInitializer", function()
   it("should add physics body to an enemy", function()
     EnemyInitializer.initialize()
 
-    assert.stub(physics.addBody).was_called_with(fakeEnemySprite, "static")
+    assert.stub(physics.addBody).was_called_with(fakeEnemySprite, "static", {filter={groupIndex=-1}})
   end)
 
   it("should add collision listener to enemy", function()
