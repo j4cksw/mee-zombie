@@ -18,7 +18,7 @@ function ItemInitializer.initialize(sourceSprite)
   physics.addBody(itemSprite, "dynamic", {filter={groupIndex=-1}, bounce=0.0, friction=0.0, density=0.0})
   itemSprite:setLinearVelocity(250,-600)
   
-  itemSprite:addEventListener(ItemHitFloorListener.actionPerformed)
+  itemSprite:addEventListener("collision", ItemHitFloorListener.actionPerformed)
 end
 
 return ItemInitializer
