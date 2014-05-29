@@ -17,4 +17,11 @@ function ItemRepository.removeAll()
   ItemRepository.itemGroup = nil
 end
 
+function ItemRepository.getAll()
+  if not ItemRepository.itemGroup then
+    ItemRepository.itemGroup = display.newGroup()
+  end
+  return ItemRepository.itemGroup
+end
+
 return ItemRepository
