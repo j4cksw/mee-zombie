@@ -28,8 +28,8 @@ local SpriteSequenceData = {
     },
     {
       name="berserk",
-      start=18,
-      count=18,
+      start=28,
+      count=8,
       time=1000,
     }
   },
