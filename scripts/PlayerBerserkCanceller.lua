@@ -7,6 +7,8 @@ function PlayerBerserkCanceller.cancel()
   
   local playerSprite = PlayerRepository.getPlayerSprite()
   SpriteSequenceTransition.toSequence(playerSprite, "walk")
+  
+  GameRule.speed = GameRule.speed/2
 end
 
 return PlayerBerserkCanceller

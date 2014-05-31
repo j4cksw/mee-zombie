@@ -4,6 +4,11 @@ describe("PlayerBerserkCanceller", function()
   local fakePlayerSprite = {}
   
   setup(function()
+    
+    GameRule = {
+      speed=0
+    }
+    
     AttackRect = {}
     stub(AttackRect, "removeSelf")
     
@@ -38,5 +43,11 @@ describe("PlayerBerserkCanceller", function()
     assert.stub(SpriteSequenceTransition.toSequence).was_called_with(fakePlayerSprite, "walk")
   end)
   
-  it("should set game speed back to previous speed")
+  it("should set game speed back to previous speed", function()
+    GameRule.speed = 16
+    
+    PlayerBerserkCanceller.cancel()
+    
+    assert.are.equal(GameRule.speed, 8)
+  end)
 end)
