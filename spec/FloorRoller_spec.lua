@@ -13,6 +13,10 @@ describe("FloorRoller", function()
     
     FloorChunkSlipDetector = {}
     stub(FloorChunkSlipDetector, "detect")
+    
+    GameRule = {
+      speed = 8
+    }
 
     FloorRoller = require("scripts.FloorRoller")
   end)
