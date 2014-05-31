@@ -13,6 +13,9 @@ describe("ItemHitPlayerListener", function()
     setup(function()
       PlayerBerserkActivator = {}
       stub(PlayerBerserkActivator, "activate")
+      
+      PlayerBerserkCanceller = {}
+      stub(PlayerBerserkCanceller, "cancel")
 
       ItemHitPlayerListener = require("scripts.ItemHitPlayerListener")
     end)
@@ -22,5 +25,10 @@ describe("ItemHitPlayerListener", function()
 
       assert.stub(fakeItemSprite.removeSelf).was_called_with(fakeItemSprite)
     end)
-
+  
+  it("should start timer for cancel berserk", function()
+    ItemHitPlayerListener.actionPerformed(event)
+    
+    assert.stub(timer.performWithDelay).was_called_with(1000, PlayerBerserkCanceller.cancel)
+  end)
 end)
