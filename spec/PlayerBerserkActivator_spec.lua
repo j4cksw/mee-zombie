@@ -24,4 +24,10 @@ describe("PlayerBerserkActivator", function()
 
       assert.stub(SpriteSequenceTransition.toSequence).was_called_with(fakePlayerSprite, "berserk")
     end)
+    
+    it("should create attack rectangle", function()
+      PlayerBerserkActivator.activate()
+      
+      assert.stub(AttackRectInitializer.initialize).was_called_with(fakePlayerSprite)
+    end)
 end)

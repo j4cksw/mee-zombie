@@ -10,6 +10,8 @@ function AttackRectInitializer.initialize(source)
   slashRect.alpha = 0
   slashRect.type = "slash"
   physics.addBody(slashRect, "dynamic", {isSensor=true})
+  
+  return slashRect
 end
 
 return AttackRectInitializer
