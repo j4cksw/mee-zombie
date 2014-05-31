@@ -2,7 +2,7 @@ describe("PlayerBerserkActivator", function()
 
     it("should get player from PlayerRepository", function()
       PlayerRepository = {}
-      stub(PlayerBerserkActivator, "getPlayerSprite")
+      stub(PlayerRepository, "getPlayerSprite")
       
       PlayerBerserkActivator = require("scripts.PlayerBerserkActivator")
 
