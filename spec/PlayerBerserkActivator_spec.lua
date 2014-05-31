@@ -9,6 +9,10 @@ describe("PlayerBerserkActivator", function()
         end
       }
       spy.on(PlayerRepository, "getPlayerSprite")
+      
+      GameRule = {
+        speed = 0
+      }
 
       PlayerBerserkActivator = require("scripts.PlayerBerserkActivator")
     end)
@@ -29,5 +33,13 @@ describe("PlayerBerserkActivator", function()
       PlayerBerserkActivator.activate()
       
       assert.stub(AttackRectInitializer.initialize).was_called_with(fakePlayerSprite)
+    end)
+    
+    it("should multiple game speed by 2", function()
+      GameRule.speed = 8
+      
+      PlayerBerserkActivator.activate()
+      
+      assert.are.equal(GameRule.speed, 16)
     end)
 end)
