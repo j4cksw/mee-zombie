@@ -25,6 +25,7 @@ describe("ItemInitializer", function()
       stub(fakeItemSprite, "addEventListener")
       
       ItemHitFloorListener = require("scripts.ItemHitFloorListener")
+      ItemHitPlayerListener = require("scripts.ItemHitPlayerListener")
 
       ItemInitializer = require("scripts.ItemInitializer")
     end)
@@ -62,5 +63,11 @@ describe("ItemInitializer", function()
       ItemInitializer.initialize(fakeEnemySprite)
       
       assert.stub(fakeItemSprite.addEventListener).was_called_with(fakeItemSprite, "collision", ItemHitFloorListener.actionPerformed)
+    end)
+    
+    it("should add ItemHitPlayerListener to collision event listeners", function()
+      ItemInitializer.initialize(fakeEnemySprite)
+      
+      assert.stub(fakeItemSprite.addEventListener).was_called_with(fakeItemSprite, "collision", ItemHitPlayerListener.actionPerformed)
     end)
 end)
