@@ -1,23 +1,16 @@
 InitiateAttackListener = {}
 
-physics = physics or require("physics")
+AttackRectInitializer = AttackRectInitializer or require("scripts.AttackRectInitializer")
 
 function InitiateAttackListener.actionPerformed(event)
   if event.target.frame < 5 then
     return
   end
-
-  local slashRect = display.newRect(event.target.x+100,
-    event.target.y,
-    200,
-    400)
-  slashRect.alpha = 0
-  slashRect.type = "slash"
-  physics.addBody(slashRect, "dynamic", {isSensor=true})
-  
-  event.target.slash = slashRect
-  
   event.target:removeEventListener("sprite", InitiateAttackListener.actionPerformed)
+  
+  local slashRect = AttackRectInitializer.initialize(event.target)
+
+  event.target.slash = slashRect
 end
 
 return InitiateAttackListener

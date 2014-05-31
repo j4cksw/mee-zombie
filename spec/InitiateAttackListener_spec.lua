@@ -3,26 +3,17 @@ describe("InitiateAttackListener", function()
   
   local event = {
     target={
-      frame=5,
-      x=500,
-      y=2000
+      frame=5
     }
   }
   
   local fakeSlashRect = {}
   
   setup(function()
-    physics = {}
-    stub(physics, "addBody")
-    
     stub(event.target, "removeEventListener")
     
-    display = {
-      newRect = function()
-        return fakeSlashRect
-      end
-    }
-    spy.on(display, "newRect")
+    AttackRectInitializer = {}
+    stub(AttackRectInitializer, "initialize")
     
     InitiateAttackListener = require("scripts.InitiateAttackListener")
   end)
@@ -30,12 +21,7 @@ describe("InitiateAttackListener", function()
   it("should create rectangle for use as slash body", function()
     InitiateAttackListener.actionPerformed(event)
     
-    assert.stub(display.newRect).was_called_with(600, 2000, 200, 400)
-  end)
-  it("should add physics body when reach the 4th frame", function()
-    InitiateAttackListener.actionPerformed(event)
-    
-    assert.stub(physics.addBody).was_called_with(fakeSlashRect, "dynamic", {isSensor=true})
+    assert.stub(AttackRectInitializer.initialize).was_called_with(event.target)
   end)
    
   it("should remove itself from player sprite event listener", function()
