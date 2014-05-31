@@ -7,7 +7,7 @@ function ItemRoller.roll()
 
   for i=1, itemGroup.numChildren do
     if itemGroup[i].isMovable then
-      itemGroup[i].x = itemGroup[i].x - 8
+      itemGroup[i].x = itemGroup[i].x - GameRule.speed
     end
   end
 end

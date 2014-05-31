@@ -10,7 +10,11 @@ describe("ItemRoller", function()
         return {fakeItem, numChildren=1}
       end
     }
-
+    
+    GameRule = {
+      speed = 8
+    }
+    
     ItemRoller = require("scripts.ItemRoller")
 
     ItemRoller.roll()
