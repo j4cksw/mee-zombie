@@ -1,20 +1,31 @@
 describe("ItemHitPlayerListener", function()
-  it("should remove itself when hit the player", function()
-  
+
     local fakeItemSprite = {}
     stub(fakeItemSprite, "removeSelf")
-    
+
     local event = {
       target = fakeItemSprite,
       other = {
         type = "player"
       }
     }
-  
-    ItemHitPlayerListener = require("scripts.ItemHitPlayerListener")
-    
-    ItemHitPlayerListener.actionPerformed(event)
-    
-    assert.stub(fakeItemSprite.removeSelf).was_called_with(fakeItemSprite)
-  end)
+
+    setup(function()
+      PlayerBerserkActivator = {}
+      stub(PlayerBerserkActivator, "activate")
+
+      ItemHitPlayerListener = require("scripts.ItemHitPlayerListener")
+    end)
+
+    it("should remove itself when hit the player", function()
+      ItemHitPlayerListener.actionPerformed(event)
+
+      assert.stub(fakeItemSprite.removeSelf).was_called_with(fakeItemSprite)
+    end)
+
+    it("should execute PlayerBerserkActivator", function()
+      ItemHitPlayerListener.actionPerformed(event)
+
+      assert.stub(PlayerBerserkActivator.activate).was_called()
+    end)
 end)
