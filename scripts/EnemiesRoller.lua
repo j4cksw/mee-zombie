@@ -10,7 +10,7 @@ function EnemiesRoller.roll()
   end
 
   for i = 1,enemyGroup.numChildren do
-    enemyGroup[i].x = enemyGroup[i].x - 7
+    enemyGroup[i].x = enemyGroup[i].x - GameRule.speed
   end
 end
 

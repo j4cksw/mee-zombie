@@ -1,5 +1,6 @@
 GameStarter = {}
 
+GameRuleInitializer = GameRuleInitializer or require("scripts.GameRuleInitializer")
 FloorBuilder = FloorBuilder or require("scripts.FloorBuilder")
 FloorRoller = FloorRoller or require("scripts.FloorRoller")
 PlayerInitializer = PlayerInitializer or require("scripts.PlayerInitializer")
@@ -8,6 +9,8 @@ EnemiesRoller = EnemiesRoller or require("scripts.EnemiesRoller")
 ItemRoller = ItemRoller or require("scripts.ItemRoller")
 
 function GameStarter.start()
+  GameRuleInitializer.initialize()
+  
   FloorBuilder.build()
 
   PlayerInitializer.initialize()

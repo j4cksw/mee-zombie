@@ -2,6 +2,10 @@ describe("EnemiesRoller", function()
   local EnemiesRoller
 
   setup(function()
+    GameRule = {
+      speed = 7
+    }
+    
     EnemiesGroup = {
       {x=10},
       numChildren=1

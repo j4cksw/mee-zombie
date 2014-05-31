@@ -1,6 +1,10 @@
 describe("GameStarter", function()
 
     setup(function()
+      
+      GameRuleInitializer = {}
+      stub(GameRuleInitializer, "initialize")
+      
       FloorBuilder = {}
       stub(FloorBuilder, "build")
 
@@ -21,6 +25,12 @@ describe("GameStarter", function()
       }
       
       GameStarter = require("scripts.GameStarter")
+    end)
+    
+    it("should initialize game rule", function()
+      GameStarter.start()
+      
+      assert.stub(GameRuleInitializer.initialize).was_called()
     end)
     
     it("should start player", function()
