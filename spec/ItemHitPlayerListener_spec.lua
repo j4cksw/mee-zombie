@@ -23,9 +23,4 @@ describe("ItemHitPlayerListener", function()
       assert.stub(fakeItemSprite.removeSelf).was_called_with(fakeItemSprite)
     end)
 
-    it("should execute PlayerBerserkActivator", function()
-      ItemHitPlayerListener.actionPerformed(event)
-
-      assert.stub(PlayerBerserkActivator.activate).was_called()
-    end)
 end)

@@ -8,7 +8,7 @@ function ItemHitPlayerListener.actionPerformed(event)
   end
   
   event.target:removeSelf()
-  PlayerBerserkActivator.activate()
+  timer.performWithDelay(0, PlayerBerserkActivator.activate)
 end
 
 return ItemHitPlayerListener
