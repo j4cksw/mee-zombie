@@ -19,6 +19,10 @@ describe("AttackRectInitializer", function()
 
       AttackRectInitializer = require("scripts.AttackRectInitializer")
     end)
+    
+    before_each(function()
+      AttackRect = nil
+    end)
 
     it("should create rectangle for use as slash body", function()
       AttackRectInitializer.initialize(fakePlayerSprite)

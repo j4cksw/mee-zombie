@@ -23,9 +23,11 @@ describe("PlayerAttackEndedListener", function()
     PlayerWalkCommand = {}
     stub(PlayerWalkCommand, "execute")
     
-    stub(event.target.slash, "removeSelf")
-    
     PlayerAttackEndedListener = require("scripts.PlayerAttackEndedListener")
+  end)
+  
+  before_each(function()
+    AttackRect = nil
   end)
   
   it("should acquire player sprite from PlayerRepository", function()
@@ -38,12 +40,6 @@ describe("PlayerAttackEndedListener", function()
     PlayerAttackEndedListener.actionPerformed(event)
     
     assert.stub(fakePlayerSprite.removeEventListener).was_called_with(fakePlayerSprite, "sprite", PlayerAttackEndedListener.actionPerformed)
-  end)
-  
-  it("should remove physics body from player", function()
-    PlayerAttackEndedListener.actionPerformed(event)
-    
-    assert.stub(event.target.slash.removeSelf).was_called_with(event.target.slash)
   end)
   
   it("should execute PlayerWalkCommand", function()

@@ -9,6 +9,11 @@ function ItemHitPlayerListener.actionPerformed(event)
   end
   
   event.target:removeSelf()
+  
+  if event.other.sequence == "berserk" then
+    return
+  end
+  
   timer.performWithDelay(0, PlayerBerserkActivator.activate)
   timer.performWithDelay(1000, PlayerBerserkCanceller.cancel)
 end

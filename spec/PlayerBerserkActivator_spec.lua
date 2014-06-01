@@ -13,6 +13,11 @@ describe("PlayerBerserkActivator", function()
       GameRule = {
         speed = 0
       }
+      
+      stub(fakePlayerSprite, "removeEventListener")
+      
+      AttackRectInitializer = {}
+      stub(AttackRectInitializer, "initialize")
 
       PlayerBerserkActivator = require("scripts.PlayerBerserkActivator")
     end)

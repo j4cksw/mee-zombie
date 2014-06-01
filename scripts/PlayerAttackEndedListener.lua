@@ -13,7 +13,10 @@ function PlayerAttackEndedListener.actionPerformed(event)
   local playerSprite = PlayerRepository.getPlayerSprite()
   playerSprite:removeEventListener("sprite", PlayerAttackEndedListener.actionPerformed)
 
-  event.target.slash:removeSelf()
+  if AttackRect then
+    AttackRect:removeSelf()
+    AttackRect = nil
+  end
   
   PlayerWalkCommand.execute()
 end

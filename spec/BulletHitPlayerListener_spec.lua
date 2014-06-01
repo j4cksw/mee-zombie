@@ -30,6 +30,9 @@ describe("BulletHitPlayerListener", function()
       execute = function()end
     }
     
+    timer = {}
+    stub(timer, "performWithDelay")
+    
 
     BulletHitPlayerListener = require("scripts.BulletHitPlayerListener")
   end)

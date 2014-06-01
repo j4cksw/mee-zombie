@@ -8,9 +8,7 @@ function InitiateAttackListener.actionPerformed(event)
   end
   event.target:removeEventListener("sprite", InitiateAttackListener.actionPerformed)
   
-  local slashRect = AttackRectInitializer.initialize(event.target)
-
-  event.target.slash = slashRect
+  AttackRectInitializer.initialize(event.target)
 end
 
 return InitiateAttackListener

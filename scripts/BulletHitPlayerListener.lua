@@ -9,8 +9,11 @@ function BulletHitPlayerListener.actionPerformed(event)
 
     SpriteSequenceTransition.toSequence(event.other, "dead")
     event.other:addEventListener("sprite", PlayerDeadAnimateEndedListener.actionPerformed)
+    timer.performWithDelay(0, function()
+      physics.removeBody(event.other)
+    end)
     Runtime:removeEventListener("tap", PlayerAttackCommand.execute)
-    
+
   elseif event.other.type == "slash" then
     event.target:removeSelf()
   end

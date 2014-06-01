@@ -18,10 +18,10 @@ function setupPhysics()
 end
 
 function AttackRectInitializer.initialize(source)
-
-  if source.sequence == "berserk" then
-    return
+  if AttackRect then
+    AttackRect:removeSelf()
   end
+
   createRect(source)
   setupPhysics()
   return AttackRect

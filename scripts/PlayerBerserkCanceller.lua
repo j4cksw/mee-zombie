@@ -4,10 +4,10 @@ SpriteSequenceTransition = SpriteSequenceTransition or require("scripts.SpriteSe
 
 function PlayerBerserkCanceller.cancel()
   AttackRect:removeSelf()
-  
-  local playerSprite = PlayerRepository.getPlayerSprite()
-  SpriteSequenceTransition.toSequence(playerSprite, "walk")
-  
+  AttackRect = nil
+
+  PlayerWalkCommand.execute()
+
   GameRule.speed = GameRule.speed/2
 end
 
