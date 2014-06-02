@@ -7,7 +7,7 @@ function getLeftEdgePosition(sprite)
 end
 
 function getRightEdgePosition(sprite)
-  return sprite.x + (sprite.width/2)
+  return sprite.x + (sprite.width/2) + 1
 end
 
 function FloorGapRemoveCommand.execute()
@@ -15,8 +15,10 @@ function FloorGapRemoveCommand.execute()
 
   for chunkIndex = 2, floorGroup.numChildren do
     for pieceIndex = 1, floorGroup[chunkIndex].numChildren do
-      if getLeftEdgePosition(floorGroup[chunkIndex][pieceIndex])> getRightEdgePosition(floorGroup[chunkIndex-1][pieceIndex]) then
-        floorGroup[2][1].x = ((floorGroup[1][1].x + (floorGroup[1][1].width/2))+1) + (floorGroup[2][1].width/2)
+      local targetPiece = floorGroup[chunkIndex][pieceIndex]
+      local sourcePiece = floorGroup[chunkIndex-1][pieceIndex]
+      if getLeftEdgePosition(targetPiece)> getRightEdgePosition(sourcePiece) then
+        targetPiece.x = getRightEdgePosition(sourcePiece) + (targetPiece.width/2)
       end
     end
   end
