@@ -7,7 +7,7 @@ function getLeftEdgePosition(sprite)
 end
 
 function getRightEdgePosition(sprite)
-  return sprite.x + (sprite.width/2) + 1
+  return sprite.x + (sprite.width/2)
 end
 
 function FloorGapRemoveCommand.execute()

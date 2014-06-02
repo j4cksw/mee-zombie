@@ -2,6 +2,7 @@ local FloorRoller = {}
 
 FloorRepository = FloorRepository or require("scripts.FloorRepository")
 FloorChunkSlipDetector = FloorChunkSlipDetector or require("scripts.FloorChunkSlipDetector")
+FloorGapRemoveCommand = FloorGapRemoveCommand or require("scripts.FloorGapRemoveCommand")
 
 function FloorRoller.roll()
   local floorGroup = FloorRepository.getFloorGroup()
@@ -19,6 +20,7 @@ function FloorRoller.roll()
   end
 
   FloorChunkSlipDetector.detect()
+  FloorGapRemoveCommand.execute()
 end
 
 return FloorRoller
