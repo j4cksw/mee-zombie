@@ -34,7 +34,7 @@ describe("FloorGapRemoveCommand", function()
 
       assert.are.same(floorGroup, {
         { { x = 10, width=20}, numChildren = 1 },
-        { { x = 31, width=20}, numChildren = 1 },
+        { { x = 30, width=20}, numChildren = 1 },
         numChildren = 2
       })
     end)

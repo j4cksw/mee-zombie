@@ -26,7 +26,7 @@ describe("FloorRoller", function()
 
     FloorRoller.roll()
 
-    assert.stub(FloorRepository.getFloorGroup).was_called(1)
+    assert.stub(FloorRepository.getFloorGroup).was_called()
   end)
 
   it("should move every floor piece -8 pixels", function()
