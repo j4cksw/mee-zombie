@@ -38,6 +38,14 @@ local ImageSheetsData = {
       height=100,
       numFrames=1
     }
+  },
+  ["background"] = {
+    path="img/background/bg.png",
+    options={
+      width=2274,
+      height=1280,
+      numFrames=1
+    }
   }
 }
 return ImageSheetsData

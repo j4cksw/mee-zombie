@@ -5,7 +5,7 @@ physics = physics or require("physics")
 FloorPhysicsInitializer = FloorPhysicsInitializer or require("scripts.FloorPhysicsInitializer")
 
 function GameInitializer.initialize()
-  ImageSheetLoader.loadByNames({"bear_zombie", "floor", "enemy", "bullet", "item"})
+  ImageSheetLoader.loadByNames({"bear_zombie", "floor", "enemy", "bullet", "item", "background"})
   
   physics.start(false)
   physics.setDrawMode("hybrid")
