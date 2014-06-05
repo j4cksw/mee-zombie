@@ -1,20 +1,20 @@
 describe("BackgroundInitializer", function()
   local BackgroundInitializer
 
-  it("should create sprite of background", function()
-    local gameData = {
-      name="background",
-      x=500,
-      y=600,
-      sequence="background"
-    }
+  local gameData = {
+    name="background",
+    x=500,
+    y=600,
+    sequence="background"
+  }
 
+  local fakeSprite = {}
+
+  setup(function()
     GameInitializeData = {
       ["background"] = gameData
     }
-    
-    local fakeSprite = {}
-    
+
     SpriteInitializer = {
       initializeByData = function()
         return fakeSprite
@@ -23,7 +23,9 @@ describe("BackgroundInitializer", function()
     spy.on(SpriteInitializer, "initializeByData")
 
     BackgroundInitializer = require("scripts.BackgroundInitializer")
+  end)
 
+  it("should create sprite of background", function()
     BackgroundInitializer.initialize()
 
     assert.stub(SpriteInitializer.initializeByData).was_called_with({
@@ -31,5 +33,11 @@ describe("BackgroundInitializer", function()
       x=500,
       y=600,
       sequence="background"})
+  end)
+
+  it("should insert to background group", function()
+    BackgroundInitializer.initialize()
+
+    assert.stub(BackgroundRepository.insert).was_called_with(fakeSprite)
   end)
 end)
