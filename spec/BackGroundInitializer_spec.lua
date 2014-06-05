@@ -21,6 +21,9 @@ describe("BackgroundInitializer", function()
       end
     }
     spy.on(SpriteInitializer, "initializeByData")
+    
+    BackgroundRepository = {}
+    stub(BackgroundRepository, "insert")
 
     BackgroundInitializer = require("scripts.BackgroundInitializer")
   end)
