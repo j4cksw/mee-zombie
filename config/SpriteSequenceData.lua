@@ -104,5 +104,12 @@ local SpriteSequenceData = {
       count=1
     }
   },
+  ["background"]  = {
+    {
+      name="background",
+      start=1,
+      count=1
+    }
+  }
 }
 return SpriteSequenceData
