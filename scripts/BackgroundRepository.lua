@@ -1,20 +1,24 @@
 BackgroundRepository = {}
 
-BackgroundRepository.bulletGroup = nil
+BackgroundRepository.backgroundGroup = nil
 
 function BackgroundRepository.insert(bulletSprite)
-  if not BackgroundRepository.bulletGroup then
-    BackgroundRepository.bulletGroup = display.newGroup()
+  if not BackgroundRepository.backgroundGroup then
+    BackgroundRepository.backgroundGroup = display.newGroup()
   end
   
-  BackgroundRepository.bulletGroup:insert(bulletSprite)
+  BackgroundRepository.backgroundGroup:insert(bulletSprite)
 end
 
 function BackgroundRepository.removeAll()
-  if BackgroundRepository.bulletGroup then
-    display.remove(BackgroundRepository.bulletGroup)
+  if BackgroundRepository.backgroundGroup then
+    display.remove(BackgroundRepository.backgroundGroup)
   end
-  BackgroundRepository.bulletGroup = nil
+  BackgroundRepository.backgroundGroup = nil
+end
+
+function BackgroundRepository.getBackgroundGroup()
+  return BackgroundRepository.backgroundGroup
 end
 
 return BackgroundRepository
