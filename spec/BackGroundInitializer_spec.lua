@@ -6,7 +6,10 @@ describe("BackgroundInitializer", function()
       contentCenterX = 500,
       contentCenterY = 600
     }
-  
+    
+    SpriteInitializer = {}
+    stub(SpriteInitializer, "initializeByData")
+    
     BackgroundInitializer = require("scripts.BackgroundInitializer")
     
     BackgroundInitializer.initialize()
