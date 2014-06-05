@@ -3,13 +3,13 @@ describe("BackgroundRoller", function()
   
   
   setup(function()
+    BackgroundRepository = {}
+    stub(BackgroundRepository, "getBackgroundGroup")
+    
     BackgroundRoller = require("scripts.BackgroundRoller")
   end)
   
   it("should get background from BackgroundRepository", function()
-    BackgroundRepository = {}
-    stub(BackgroundRepository, "getBackgroundGroup")
-    
     BackgroundRoller.roll()
     
     assert.stub(BackgroundRepository.getBackgroundGroup).was_called()
