@@ -13,6 +13,9 @@ describe("GameInitializer", function()
       FloorPhysicsInitializer = {}
       stub(FloorPhysicsInitializer, "initialize")
       
+      BackgroundInitializer = {}
+      stub(BackgroundInitializer, "initialize")
+      
       GameInitializer = require("scripts.GameInitializer")
     end)
 
@@ -38,5 +41,11 @@ describe("GameInitializer", function()
       GameInitializer.initialize()
 
       assert.stub(FloorPhysicsInitializer.initialize).was_called()
+    end)
+    
+    it("should initialize background", function()
+      GameInitializer.initialize()
+      
+      assert.stub(BackgroundInitializer.initialize).was_called()
     end)
 end)
