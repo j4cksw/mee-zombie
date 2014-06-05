@@ -42,6 +42,12 @@ local GameInitializeData = {
   ["floor_physics"] = {
     y=1460,
     height=268
+  },
+  ["background"] = {
+    name="background",
+    x=display.contentCenterX,
+    y=display.contentCenterY,
+    sequence="background"
   }
 }
 return GameInitializeData

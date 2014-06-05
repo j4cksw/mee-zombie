@@ -1,14 +1,10 @@
 BackgroundInitializer = {}
 
 SpriteInitializer = SpriteInitializer or require("scripts.SpriteInitializer")
+GameInitializeData = GameInitializeData or require("config.GameInitializer")
 
 function BackgroundInitializer.initialize()
-  SpriteInitializer.initializeByData({
-    name="background",
-    x=display.contentCenterX,
-    y=display.contentCenterY,
-    sequence="background"
-  })
+  SpriteInitializer.initializeByData(GameInitializeData["background"])
 end
 
 return BackgroundInitializer
