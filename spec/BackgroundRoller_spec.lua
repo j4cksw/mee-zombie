@@ -17,7 +17,8 @@ describe("BackgroundRoller", function()
   before_each(function()
     fakeBackgroundGroup = {
       {
-        x=0
+        x=0,
+        width=2000
       },
       numChildren=1
     }
