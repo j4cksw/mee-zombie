@@ -45,14 +45,14 @@ local GameInitializeData = {
   },
   ["background"] = {
     name="background",
-    x=display.contentCenterX,
-    y=display.contentCenterY,
+    x=1360,
+    y=640,
     sequence="background"
   },
   ["chairs"] = {
     name="chairs",
-    x=display.contentCenterX,
-    y=display.contentCenterY,
+    x=1360,
+    y=1190,
     sequence="chairs"
   }
 }

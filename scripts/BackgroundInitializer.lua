@@ -7,14 +7,10 @@ BackgroundRepository = BackgroundRepository or require("scripts.BackgroundReposi
 function BackgroundInitializer.initialize()
   for index, name in pairs({"background", "chairs"}) do
     for i = 1,2 do
-      local backgroundSprite = SpriteInitializer.initializeByData(GameInitializeData["background"])
-
-      backgroundSprite.anchorX = 0
-      backgroundSprite.anchorY = 0
-      backgroundSprite.x = 0 + ((i-1)*backgroundSprite.width)
-      backgroundSprite.y = 0
-
+      local backgroundSprite = SpriteInitializer.initializeByData(GameInitializeData[name])
       BackgroundRepository.insert(backgroundSprite)
+      
+      backgroundSprite.x = (backgroundSprite.width/2) + (backgroundSprite.width*(i-1))
     end
   end
 end

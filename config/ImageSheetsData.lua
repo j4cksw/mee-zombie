@@ -47,7 +47,7 @@ local ImageSheetsData = {
       numFrames=1
     }
   },
-  ["chair"] = {
+  ["chairs"] = {
     path="img/background/chair.png",
     options={
       width=2724,

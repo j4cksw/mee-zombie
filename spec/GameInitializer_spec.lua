@@ -34,7 +34,7 @@ describe("GameInitializer", function()
     it("should set physics draw mode to hybrid", function()
       GameInitializer.initialize()
       
-      assert.stub(physics.setDrawMode).was_called_with("hybrid")
+      assert.stub(physics.setDrawMode).was_called_with("normal")
     end)
     
     it("should start physics of floor", function()
