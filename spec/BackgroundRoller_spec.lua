@@ -35,10 +35,5 @@ describe("BackgroundRoller", function()
 
     assert.are.equal(fakeBackgroundGroup[1].x, -8)
   end)
-  
-  it("should create next background when reach the edge", function()
-    BackgroundRoller.roll()
-    
-    assert.stub(BackgroundInitializer.initialize).was_called_with(display.view)
-  end)
+
 end)
