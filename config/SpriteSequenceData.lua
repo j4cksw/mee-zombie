@@ -110,6 +110,13 @@ local SpriteSequenceData = {
       start=1,
       count=1
     }
+  },
+  ["chairs"]  = {
+    {
+      name="chairs",
+      start=1,
+      count=1
+    }
   }
 }
 return SpriteSequenceData

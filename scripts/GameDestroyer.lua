@@ -4,7 +4,8 @@ EnemyRepository = EnemyRepository or require("scripts.EnemyRepository")
 FloorRepository = FloorRepository or require("scripts.FloorRepository")
 SwatShootTimerRepository = SwatShootTimerRepository or require("scripts.SwatShootRepository")
 BulletRepository = BulletRepository or require("scripts.BulletRepository")
-ItemRepository = ItemRepository or require("scripts.ItemRepository")
+ItemRoller = ItemRoller or require("scripts.ItemRoller")
+BackgroundRoller = BackgroundRoller or require("scripts.BackgroundRoller")
 
 function GameDestroyer.destroy()
   local swatShootTimers = SwatShootTimerRepository.getAll()
@@ -23,6 +24,8 @@ function GameDestroyer.destroy()
   
   Runtime:removeEventListener("enterFrame", FloorRoller.roll)
   Runtime:removeEventListener("enterFrame", EnemiesRoller.roll)
+  Runtime:removeEventListener("enterFrame", ItemRoller.roll)
+  Runtime:removeEventListener("enterFrame", BackgroundRoller.roll)
 end
 
 return GameDestroyer

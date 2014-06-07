@@ -4,8 +4,14 @@ BackgroundRepository = BackgroundRepository or require("scripts.BackgroundReposi
 
 function BackgroundRoller.roll()
   local backgroundGroup = BackgroundRepository.getBackgroundGroup()
-  
-  backgroundGroup[1].x = backgroundGroup[1].x - 8
+
+  for i = 1,backgroundGroup.numChildren do
+    backgroundGroup[i].x = backgroundGroup[i].x - 8
+
+    if backgroundGroup[i].x <= -(backgroundGroup[i].width) then
+      backgroundGroup[i].x = backgroundGroup[i].width
+    end
+  end
 end
 
 return BackgroundRoller
