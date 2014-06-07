@@ -48,6 +48,12 @@ local GameInitializeData = {
     x=display.contentCenterX,
     y=display.contentCenterY,
     sequence="background"
+  },
+  ["chairs"] = {
+    name="chairs",
+    x=display.contentCenterX,
+    y=display.contentCenterY,
+    sequence="chairs"
   }
 }
 return GameInitializeData

@@ -8,11 +8,14 @@ describe("BackgroundInitializer", function()
     sequence="background"
   }
 
-  local fakeSprite = {}
+  local fakeSprite = {
+    width=128
+  }
 
   setup(function()
     GameInitializeData = {
-      ["background"] = gameData
+      ["background"] = gameData,
+      ["chairs"] = {},
     }
 
     SpriteInitializer = {
