@@ -7,7 +7,7 @@ function FloorChunkSlipDetector.detect()
   local floorGroup = FloorRepository.getFloorGroup()
   local floorChunk = floorGroup[1]
 
-  if floorChunk[floorChunk.numChildren].x <= -(floorChunk[floorChunk.numChildren].width/2) then
+  if floorChunk[floorChunk.numChildren].x <= -(floorChunk[floorChunk.numChildren].width/2) - 800 then
     floorGroup:remove(1)
     FloorAppender.append()
   end

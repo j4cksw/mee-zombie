@@ -2,7 +2,7 @@ GameRuleInitializer = {}
 
 function GameRuleInitializer.initialize()
   GameRule = {
-    speed = 8
+    speed = 14
   }
 end
 

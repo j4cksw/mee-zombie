@@ -9,7 +9,7 @@ function GameInitializer.initialize()
   ImageSheetLoader.loadByNames({"bear_zombie", "floor", "enemy", "bullet", "item", "background", "chairs"})
 
   physics.start(false)
-  physics.setDrawMode("normal")
+  physics.setDrawMode("hybrid")
 
   FloorPhysicsInitializer.initialize()
   
