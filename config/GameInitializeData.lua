@@ -1,8 +1,8 @@
 local GameInitializeData = {
   ["bear_zombie"] = {
     name="bear_zombie",
-    x=512,
-    y=1125,
+    x=0,
+    y=730,
     sequence="walk"
   },
   ["enemy1"] = {
@@ -37,7 +37,7 @@ local GameInitializeData = {
   },
   ["floor"] = {
     name="floor",
-    initializeChunks=18
+    initializeChunks=24
   },
   ["floor_physics"] = {
     y=1460,

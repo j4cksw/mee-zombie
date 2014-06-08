@@ -8,11 +8,13 @@ function FloorChunkBuilder.buildFromPatternAndVerticalOffset(floorChunkPattern, 
   local floorChunkGroup = display.newGroup()
 
   local floorPieceWidth, floorPieceHeight = getFloorSpriteWidthHeight()
-
+  
+  
+  
   for key, value in pairs(floorChunkPattern) do
     floorChunkGroup:insert(SpriteInitializer.initializeByData({
       name = "floor",
-      x = (floorPieceWidth*verticalOffset) - (floorPieceWidth/2),
+      x = ((floorPieceWidth*verticalOffset) - (floorPieceWidth/2)),
       y = display.viewableContentHeight - (floorPieceHeight*key) + (floorPieceHeight/2),
       sequence = value
     }))

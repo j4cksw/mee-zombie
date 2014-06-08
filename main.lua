@@ -1,4 +1,3 @@
-
 display.setStatusBar( display.HiddenStatusBar )
 
 storyboard = require("storyboard")
