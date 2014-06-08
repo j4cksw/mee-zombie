@@ -40,10 +40,10 @@ local ImageSheetsData = {
     }
   },
   ["background"] = {
-    path="img/background/bg.png",
+    path="img/background/bg_ipod.png",
     options={
-      width=2724,
-      height=1280,
+      width=2128,
+      height=1000,
       numFrames=1
     }
   },

@@ -46,7 +46,7 @@ local GameInitializeData = {
   ["background"] = {
     name="background",
     x=1360,
-    y=640,
+    y=480,
     sequence="background"
   },
   ["chairs"] = {
