@@ -10,7 +10,7 @@ function BackgroundInitializer.initialize()
       local backgroundSprite = SpriteInitializer.initializeByData(GameInitializeData[name])
       BackgroundRepository.insert(backgroundSprite)
       
-      backgroundSprite.x = (backgroundSprite.width/2) + (backgroundSprite.width*(i-1))
+      backgroundSprite.x = (backgroundSprite.width/2) + (backgroundSprite.width*(i-1)) - 800
     end
   end
 end

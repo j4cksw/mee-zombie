@@ -10,8 +10,8 @@ function BackgroundRoller.roll()
   for i = 1,backgroundGroup.numChildren do
     backgroundGroup[i].x = backgroundGroup[i].x - layerSpeed[i]
 
-    if (backgroundGroup[i].x + (backgroundGroup[i].width/2)) <= 0 then
-      backgroundGroup[i].x = (backgroundGroup[i].width + (backgroundGroup[i].width/2))
+    if (backgroundGroup[i].x + (backgroundGroup[i].width/2)) <= -788 then
+      backgroundGroup[i].x = (backgroundGroup[i].width + (backgroundGroup[i].width/2)) -790
     end
   end
 end
