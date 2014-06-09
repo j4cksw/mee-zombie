@@ -16,6 +16,13 @@ describe("GameInitializer", function()
       BackgroundInitializer = {}
       stub(BackgroundInitializer, "initialize")
       
+      GameInitializeData = {
+        ["game_scene"] = {
+          physicsDrawMode = "normal",
+          loadImageSheets = {"bear_zombie", "floor", "enemy", "bullet", "item", "background", "chairs"}
+        }
+      }
+      
       GameInitializer = require("scripts.GameInitializer")
     end)
 

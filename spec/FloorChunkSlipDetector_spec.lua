@@ -39,8 +39,8 @@ describe("FloorChunkSlipDetector", function()
 
   it("should remove the first chunk when slip from screen", function()
     FloorDataGenerator.setupFloorData(5)
-    Floor[1][1].x = -10
-    Floor[1][2].x = -10
+    Floor[1][1].x = -810
+    Floor[1][2].x = -810
     stub(Floor, "remove")
 
     FloorChunkSlipDetector.detect()
@@ -50,8 +50,8 @@ describe("FloorChunkSlipDetector", function()
 
   it("should append floor when the first chunk slip from screen", function()
     FloorDataGenerator.setupFloorData(5)
-    Floor[1][1].x = -10
-    Floor[1][2].x = -10
+    Floor[1][1].x = -810
+    Floor[1][2].x = -810
     stub(Floor, "remove")
 
     FloorChunkSlipDetector.detect()

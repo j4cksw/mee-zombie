@@ -1,4 +1,5 @@
 describe("FloorChunkBuilder", function()
+
   local FloorChunkBuilder
   
   local floorChunkPattern = {"body", "top"}
@@ -43,13 +44,13 @@ describe("FloorChunkBuilder", function()
     [1] = {
       {
         name="floor",
-        x=64,
+        x=64-1000,
         y=1344,
         sequence="top"
       },
       {
         name="floor",
-        x=64,
+        x=64-1000,
         y=1472,
         sequence="body"
       }
@@ -57,13 +58,13 @@ describe("FloorChunkBuilder", function()
     [2] = {
       {
         name="floor",
-        x=192,
+        x=192-1000,
         y=1344,
         sequence="top"
       },
       {
         name="floor",
-        x=192,
+        x=192-1000,
         y=1472,
         sequence="body"
       }
@@ -71,18 +72,19 @@ describe("FloorChunkBuilder", function()
     [10] = {
       {
         name="floor",
-        x=1216,
+        x=216,
         y=1344,
         sequence="top"
       },
       {
         name="floor",
-        x=1216,
+        x=216,
         y=1472,
         sequence="body"
       }
     }
   }
+  
   for verticalOffset, expected in pairs(testData) do
     it("should create the first floor", function()
       FloorChunkBuilder.buildFromPatternAndVerticalOffset(floorChunkPattern, verticalOffset)

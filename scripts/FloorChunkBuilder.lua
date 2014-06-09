@@ -9,8 +9,6 @@ function FloorChunkBuilder.buildFromPatternAndVerticalOffset(floorChunkPattern, 
 
   local floorPieceWidth, floorPieceHeight = getFloorSpriteWidthHeight()
   
-  
-  
   for key, value in pairs(floorChunkPattern) do
     floorChunkGroup:insert(SpriteInitializer.initializeByData({
       name = "floor",

@@ -54,6 +54,10 @@ local GameInitializeData = {
     x=1360,
     y=800,
     sequence="chairs"
+  },
+  ["game_scene"] = {
+    physicsDrawMode = "normal",
+    loadImageSheets = {"bear_zombie", "floor", "enemy", "bullet", "item", "background", "chairs"}
   }
 }
 return GameInitializeData
