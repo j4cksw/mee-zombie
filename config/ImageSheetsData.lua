@@ -54,6 +54,14 @@ local ImageSheetsData = {
       height=202,
       numFrames=1
     }
+  },
+  ["rave_level"] = {
+    path="img/ui/rave_level.png",
+    options={
+      width=1024,
+      height=360,
+      numFrames=5
+    }
   }
 }
 return ImageSheetsData

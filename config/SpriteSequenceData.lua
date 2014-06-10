@@ -117,6 +117,33 @@ local SpriteSequenceData = {
       start=1,
       count=1
     }
+  },
+  ["rave_level"]  = {
+    {
+      name="rave_level_1",
+      start=1,
+      count=1
+    },
+     {
+      name="rave_level_2",
+      start=2,
+      count=1
+    },
+     {
+      name="rave_level_3",
+      start=3,
+      count=1
+    },
+     {
+      name="rave_level_4",
+      start=4,
+      count=1
+    },
+     {
+      name="rave_level_5",
+      start=5,
+      count=1
+    }
   }
 }
 return SpriteSequenceData

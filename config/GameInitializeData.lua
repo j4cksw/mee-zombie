@@ -57,7 +57,16 @@ local GameInitializeData = {
   },
   ["game_scene"] = {
     physicsDrawMode = "normal",
-    loadImageSheets = {"bear_zombie", "floor", "enemy", "bullet", "item", "background", "chairs"}
+    loadImageSheets = {
+      "bear_zombie",
+      "floor",
+      "enemy",
+      "bullet",
+      "item",
+      "background",
+      "chairs",
+      "rave_level"
+    }
   }
 }
 return GameInitializeData
