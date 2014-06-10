@@ -23,6 +23,9 @@ describe("GameInitializer", function()
         }
       }
       
+      GameUIInitializer = {}
+      stub(GameUIInitializer, "initialize")
+      
       GameInitializer = require("scripts.GameInitializer")
     end)
 
@@ -54,5 +57,11 @@ describe("GameInitializer", function()
       GameInitializer.initialize()
       
       assert.stub(BackgroundInitializer.initialize).was_called()
+    end)
+    
+    it("should initialize game UI", function()
+      GameInitializer.initialize()
+      
+      assert.stub(GameUIInitializer.initialize).was_called()
     end)
 end)

@@ -9,6 +9,6 @@ describe("GameUIInitializer", function()
     
     GameUIInitializer.initialize()
     
-    assert.stub(display.newText).was_called_with("0")
+    assert.stub(display.newText).was_called_with("0", -500, 48, "boon-500", 72)
   end)
 end)
