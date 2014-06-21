@@ -67,6 +67,12 @@ local GameInitializeData = {
       "chairs",
       "rave_level"
     }
+  },
+  ["rave_level"] = {
+      name="rave_level",
+      x=-192,
+      y=148,
+      sequence="rave_level_5"
   }
 }
 return GameInitializeData
