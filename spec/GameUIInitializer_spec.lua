@@ -2,9 +2,6 @@ describe("GameUIInitializer", function()
   local GameUIInitializer
 
   setup(function()
-    display = {}
-    stub(display, "newText")
-    
     SpriteInitializer = {}
     stub(SpriteInitializer, "initializeByData")
 
@@ -16,6 +13,9 @@ describe("GameUIInitializer", function()
             sequence="rave_level_1"
         }
     }
+
+    ScoreInitializer = {}
+    stub(ScoreInitializer, "initialize")
 
     GameUIInitializer = require("scripts.GameUIInitializer")
   end)
@@ -29,6 +29,6 @@ describe("GameUIInitializer", function()
   it("should create score", function()
     GameUIInitializer.initialize()
 
-    assert.stub(display.newText).was_called_with(CurrentScore, -300, 128, "Bookshelf", 72)
+    assert.stub(ScoreInitializer.initialize).was_called()
   end)
 end)
