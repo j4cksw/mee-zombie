@@ -24,7 +24,10 @@ describe("EnemySpriteCollisionListener", function()
     
     ItemInitializer = {}
     stub(ItemInitializer, "initialize")
-    
+
+    CurrentScore = 0
+    ScoreText = {}
+
     EnemySpriteCollisionListener = require("scripts.EnemySpriteCollisionListener")
   end)
   

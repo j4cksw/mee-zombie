@@ -5,11 +5,12 @@ SpriteInitializer = SpriteInitializer or require("scripts.SpriteInitializer")
 function GameUIInitializer.initialize()
   SpriteInitializer.initializeByData({
       name="rave_level",
-      x=-500,
-      y=48,
-      sequence="rave_level_1"
+      x=-192,
+      y=148,
+      sequence="rave_level_5"
     })
-  display.newText("0", -500, 48, "boon-500", 72)
+  CurrentScore = 0
+  ScoreText = display.newText(CurrentScore, -300, 128, "Bookshelf", 72)
 end
 
 return GameUIInitializer

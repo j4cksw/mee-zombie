@@ -37,4 +37,5 @@ describe("SwatShootCommand", function()
 
     assert.stub(BulletInitializer.initialize).was_called_with(fakeSwatSprite)
   end)
+
 end)

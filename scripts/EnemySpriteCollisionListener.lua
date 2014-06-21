@@ -15,6 +15,9 @@ function EnemySpriteCollisionListener.actionPerformed(event)
     timer.performWithDelay(0, function()
       ItemInitializer.initialize(event.target)
     end)
+
+    CurrentScore = CurrentScore+1
+    ScoreText.text = CurrentScore
   end
 end
 
