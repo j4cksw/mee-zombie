@@ -1,19 +1,35 @@
 describe("RandomizedItemInitializer", function()
-    math = {
-        random = function()end
-    }
+    local randomResult = 0
+    local generator
 
-    local generator = {}
+    setup(function()
+        ItemInitializer ={}
+        ItemInitializer.initialize = function()end
 
-    function generator.initialize()
-        math.random(0, 100)
-    end
+        math = {
+            random = function()
+                return randomResult
+            end
+        }
 
-    it("should random number from 0-100", function()
-        stub(math, "random")
+        generator = require("scripts.RandomizeItemInitializer")
+    end)
 
-        generator.initialize()
+    it("should call ItemInitializer.initialize when random result is lower than 30", function()
+        randomResult = 0
+        spy.on(ItemInitializer, "initialize")
+        sourceSprite = {}
+        generator.initialize(sourceSprite)
 
-        assert.stub(math.random).was_called_with(0, 100)
+        assert.stub(ItemInitializer.initialize).was_called_with(sourceSprite)
+    end)
+
+    it("should call ItemInitializer.initialize when random result is greater than 30", function()
+        randomResult = 31
+        spy.on(ItemInitializer, "initialize")
+        sourceSprite = {}
+        generator.initialize(sourceSprite)
+
+        assert.stub(ItemInitializer.initialize).was_not_called()
     end)
 end)

@@ -2,7 +2,7 @@ EnemySpriteCollisionListener = {}
 
 SpriteSequenceTransition = SpriteSequenceTransition or require("scripts.SpriteSequenceTransition")
 EnemyDeadAnimateEndedListener = EnemyDeadAnimateEndedListener or require("scripts.EnemyDeadAnimateEndedListener")
-ItemInitializer = ItemInitializer or require("scripts.ItemInitializer")
+ItemInitializer = ItemInitializer or require("scripts.RandomizeItemInitializer")
 
 function EnemySpriteCollisionListener.actionPerformed(event)
   if event.other.type == "slash" then
