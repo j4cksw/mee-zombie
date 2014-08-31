@@ -72,7 +72,7 @@ local GameInitializeData = {
       name="rave_level",
       x=-192,
       y=148,
-      sequence="rave_level_5"
+      sequence="rave_level_1"
   }
 }
 return GameInitializeData
