@@ -6,6 +6,10 @@ describe("RandomizedItemInitializer", function()
         ItemInitializer ={}
         ItemInitializer.initialize = function()end
 
+        ItemConfig = {
+            dropRate=30
+        }
+
         math = {
             random = function()
                 return randomResult
