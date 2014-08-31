@@ -1,10 +1,16 @@
 describe("RandomizedItemInitializer", function()
+    math = {
+        random = function()end
+    }
 
     local generator = {}
 
-    function generator.initialize()end 
+    function generator.initialize()
+        math.random(0, 100)
+    end
 
     it("should random number from 0-100", function()
+        stub(math, "random")
 
         generator.initialize()
 
