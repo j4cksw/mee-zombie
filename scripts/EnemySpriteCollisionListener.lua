@@ -3,6 +3,7 @@ EnemySpriteCollisionListener = {}
 SpriteSequenceTransition = SpriteSequenceTransition or require("scripts.SpriteSequenceTransition")
 EnemyDeadAnimateEndedListener = EnemyDeadAnimateEndedListener or require("scripts.EnemyDeadAnimateEndedListener")
 local itemInitializer = RandomizeItemInitializer or require("scripts.RandomizeItemInitializer")
+ScoreUpdater = ScoreUpdater or require("scripts.ScoreUpdater")
 
 function EnemySpriteCollisionListener.actionPerformed(event)
   if event.other.type == "slash" then
@@ -16,8 +17,7 @@ function EnemySpriteCollisionListener.actionPerformed(event)
       itemInitializer.initialize(event.target)
     end)
 
-    CurrentScore = CurrentScore+1
-    ScoreText.text = CurrentScore
+    ScoreUpdater.update()
   end
 end
 
