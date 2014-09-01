@@ -23,4 +23,10 @@ describe("ScoreUpdater", function()
         assert.are.equal(ScoreText.text, "1")
     end)
 
+    it("should increase level", function()
+        ScoreUpdater.update()
+
+
+    end)
+
 end)

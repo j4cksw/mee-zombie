@@ -5,7 +5,7 @@ GameInitializeData = GameInitializeData or require("config.GameInitializeData")
 ScoreInitializer = ScoreInitializer or require("scripts.ScoreInitializer")
 
 function GameUIInitializer.initialize()
-  SpriteInitializer.initializeByData(GameInitializeData["rave_level"])
+  RaveLevelSprite = SpriteInitializer.initializeByData(GameInitializeData["rave_level"])
   ScoreInitializer.initialize()
 end
 
