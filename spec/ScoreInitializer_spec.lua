@@ -1,7 +1,7 @@
 describe("ScoreInitializer", function()
 
     setup(function()
-        display = {
+        _G.display = {
             newText = function ()
                 return {}
             end

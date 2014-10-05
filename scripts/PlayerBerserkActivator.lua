@@ -1,4 +1,5 @@
-PlayerBerserkActivator = {}
+local PlayerBerserkActivator = {}
+package.loaded[...] = PlayerBerserkActivator
 
 PlayerRepositry = PlayerRepository or require("scripts.PlayerRepository")
 SpriteSequenceTransition = SpriteSequenceTransition or require("scripts.SpriteSequenceTransition")
@@ -11,9 +12,9 @@ function PlayerBerserkActivator.activate()
   if playerSprite.sequence == "berserk" then
     return
   end
-  
+
   playerSprite:removeEventListener("sprite", PlayerAttackEndedListener.actionPerformed)
-  
+
   SpriteSequenceTransition.toSequence(playerSprite, "berserk")
   AttackRectInitializer.initialize(playerSprite)
 

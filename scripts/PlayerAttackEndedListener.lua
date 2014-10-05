@@ -1,4 +1,5 @@
 local PlayerAttackEndedListener = {}
+package.loaded[...] = PlayerAttackEndedListener
 
 PlayerRepository = PlayerRepository or require("scripts.PlayerRepository")
 PlayerWalkCommand = PlayerWalkCommand or require("scripts.PlayerWalkCommand")
@@ -17,7 +18,7 @@ function PlayerAttackEndedListener.actionPerformed(event)
     AttackRect:removeSelf()
     AttackRect = nil
   end
-  
+
   PlayerWalkCommand.execute()
 end
 

@@ -11,15 +11,18 @@ describe("FloorPhysicsInitializer", function()
       viewAbleContentWidth=2048
     }
     spy.on(display, "newRect")
-    
+
     GameInitializeData  = {
       ["floor_physics"] = {
         y=1460,
         height=152
       }
     }
-    
-    
+
+    _G.physics = {
+        addBody = function()end
+    }
+
     FloorPhysicsInitializer = require("scripts.FloorPhysicsInitializer")
   end)
 
@@ -31,7 +34,7 @@ describe("FloorPhysicsInitializer", function()
 
   it("should add physics body to rectangle", function()
     FloorPhysicsInitializer.initialize()
-    
+
     assert.stub(physics.addBody).was_called_with(fakeRect, "static")
   end)
 end)

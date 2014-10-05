@@ -1,4 +1,4 @@
-GameDestroyer = {}
+local GameDestroyer = {}
 
 EnemyRepository = EnemyRepository or require("scripts.EnemyRepository")
 FloorRepository = FloorRepository or require("scripts.FloorRepository")
@@ -14,14 +14,14 @@ function GameDestroyer.destroy()
     timer.cancel(timerId)
     swatShootTimers[key] = nil
   end
-  
+
   timer.cancel(EnemyGenerateTimer)
-  
+
   EnemyRepository.getEnemyGroup():removeSelf()
   FloorRepository.getFloorGroup():removeSelf()
   BulletRepository.removeAll()
   ItemRepository.removeAll()
-  
+
   Runtime:removeEventListener("enterFrame", FloorRoller.roll)
   Runtime:removeEventListener("enterFrame", EnemiesRoller.roll)
   Runtime:removeEventListener("enterFrame", ItemRoller.roll)

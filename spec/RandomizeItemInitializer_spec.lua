@@ -3,7 +3,7 @@ describe("RandomizedItemInitializer", function()
     local generator
 
     setup(function()
-        ItemInitializer ={}
+        _G.ItemInitializer ={}
         ItemInitializer.initialize = function()end
 
         ItemConfig = {

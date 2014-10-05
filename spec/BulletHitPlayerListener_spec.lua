@@ -17,7 +17,7 @@ describe("BulletHitPlayerListener", function()
     SpriteSequenceTransition = {}
     stub(SpriteSequenceTransition, "toSequence")
 
-    PlayerDeadAnimateEndedListener = {
+    _G.PlayerDeadAnimateEndedListener = {
       actionPerformed = function()end
     }
 
@@ -25,14 +25,14 @@ describe("BulletHitPlayerListener", function()
 
     Runtime = {}
     stub(Runtime, "removeEventListener")
-    
+
     PlayerAttackCommand = {
       execute = function()end
     }
-    
+
     timer = {}
     stub(timer, "performWithDelay")
-    
+
 
     BulletHitPlayerListener = require("scripts.BulletHitPlayerListener")
   end)

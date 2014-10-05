@@ -1,6 +1,6 @@
 describe("ScoreUpdater", function()
 
-    setup(function()
+    before_each(function()
         ScoreUpdater = require("scripts.ScoreUpdater")
     end)
 

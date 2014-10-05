@@ -1,4 +1,4 @@
-EnemyInitializer = {}
+local EnemyInitializer = {}
 
 SpriteInitializer = SpriteInitializer or require("scripts.SpriteInitializer")
 physics = physics or require("physics")
@@ -7,15 +7,15 @@ EnemyRepository = EnemyRepository or require("scripts.EnemyRepository")
 
 function EnemyInitializer.initialize(enemyName)
   local enemySprite = SpriteInitializer.initializeByData(GameInitializeData[enemyName])
-  
+
   physics.addBody(enemySprite, "static", {filter={groupIndex=-1}})
   enemySprite.isSleepingAllowed = false
-  
+
   enemySprite:addEventListener("collision", EnemySpriteCollisionListener.actionPerformed)
-  
+
   local enemyGroup = EnemyRepository.getEnemyGroup()
   enemyGroup:insert(enemySprite)
-  
+
   return enemySprite
 end
 

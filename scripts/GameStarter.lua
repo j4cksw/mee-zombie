@@ -1,4 +1,5 @@
-GameStarter = {}
+local GameStarter = {}
+package.loaded[...] = GameStarter
 
 GameRuleInitializer = GameRuleInitializer or require("scripts.GameRuleInitializer")
 FloorBuilder = FloorBuilder or require("scripts.FloorBuilder")
@@ -11,7 +12,7 @@ BackgroundRoller = BackgroundRoller or require("scripts.BackgroundRoller")
 
 function GameStarter.start()
   GameRuleInitializer.initialize()
-  
+
   FloorBuilder.build()
 
   PlayerInitializer.initialize()

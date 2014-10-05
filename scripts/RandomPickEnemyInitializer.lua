@@ -1,4 +1,5 @@
 RandomPickEnemyInitializer = {}
+package.loaded[...] = RandomPickEnemyInitializer
 
 EnemyInitializer = EnemyInitializer or require("scripts.EnemyInitializer")
 

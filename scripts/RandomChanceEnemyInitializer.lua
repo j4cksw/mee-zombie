@@ -1,9 +1,10 @@
-RandomChanceRandomPickEnemyInitializer = {}
+local RandomChanceEnemyInitializer = {}
+package.loaded[...] = RandomChanceEnemyInitializer
 
 RandomPickEnemyInitializer = RandomPickEnemyInitializer or require("scripts.RandomPickEnemyInitializer")
 EnemySwatInitializer = EnemySwatInitializer or require("scripts.EnemySwatInitializer")
 
-function RandomChanceRandomPickEnemyInitializer.initialize()
+function RandomChanceEnemyInitializer.initialize()
   local randomedResult = math.random(0, 100)
 
   if randomedResult <= 30 then
@@ -13,4 +14,4 @@ function RandomChanceRandomPickEnemyInitializer.initialize()
   end
 end
 
-return RandomChanceRandomPickEnemyInitializer
+return RandomChanceEnemyInitializer

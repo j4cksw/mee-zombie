@@ -5,7 +5,7 @@ describe("AttackRectInitializer", function()
       x=500,
       y=2000
     }
-    
+
     setup(function()
       display = {
         newRect = function()
@@ -13,13 +13,13 @@ describe("AttackRectInitializer", function()
         end
       }
       spy.on(display, "newRect")
-      
-      physics = {}
+
+      _G.physics = {}
       stub(physics, "addBody")
 
       AttackRectInitializer = require("scripts.AttackRectInitializer")
     end)
-    
+
     before_each(function()
       AttackRect = nil
     end)

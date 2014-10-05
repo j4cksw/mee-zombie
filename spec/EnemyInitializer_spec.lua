@@ -5,7 +5,7 @@ describe("EnemyInitializer", function()
 
   local fakeEnemyGroup = {}
 
-  setup(function()
+  before_each(function()
     SpriteInitializer = {
       initializeByData = function(...)
         return fakeEnemySprite
@@ -21,7 +21,7 @@ describe("EnemyInitializer", function()
       }
     }
 
-    physics = {}
+    _G.physics = {}
     stub(physics, "addBody")
 
     stub(fakeEnemySprite, "addEventListener")

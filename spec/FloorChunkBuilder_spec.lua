@@ -1,25 +1,25 @@
 describe("FloorChunkBuilder", function()
 
   local FloorChunkBuilder
-  
+
   local floorChunkPattern = {"body", "top"}
-  
+
   local fakeGroup = {}
 
   local fakeFloorPiece = {}
 
-  setup(function()
+  before_each(function()
 
       stub(fakeGroup, "insert")
 
-      SpriteInitializer = {
+      _G.SpriteInitializer = {
         initializeByData = function()
           return fakeFloorPiece
         end
       }
       spy.on(SpriteInitializer, "initializeByData")
 
-      display = {
+      _G.display = {
         viewableContentHeight=1536,
         newGroup = function()
           return fakeGroup
@@ -28,7 +28,7 @@ describe("FloorChunkBuilder", function()
       spy.on(display, "newGroup")
 
 
-      ImageSheetsData = {
+      _G.ImageSheetsData = {
         ["floor"] = {
           options={
             width=128,
@@ -84,7 +84,7 @@ describe("FloorChunkBuilder", function()
       }
     }
   }
-  
+
   for verticalOffset, expected in pairs(testData) do
     it("should create the first floor", function()
       FloorChunkBuilder.buildFromPatternAndVerticalOffset(floorChunkPattern, verticalOffset)

@@ -16,7 +16,7 @@ describe("FloorGapRemoveCommand", function()
     end)
 
     before_each(function()
-      floorGroup = {
+      _G.floorGroup = {
         { { x = 10, width=20}, numChildren = 1 },
         { { x = 35, width=20}, numChildren = 1 },
         numChildren = 2

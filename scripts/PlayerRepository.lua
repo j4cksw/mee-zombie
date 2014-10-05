@@ -1,4 +1,5 @@
 local PlayerRepository = {}
+package.loaded[...] = PlayerRepository
 
 PlayerRepository.playerSprite = nil
 

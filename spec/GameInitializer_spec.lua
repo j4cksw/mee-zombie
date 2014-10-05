@@ -1,67 +1,67 @@
 describe("GameInitializer", function()
-    
-    setup(function()
+
+    before_each(function()
       ImageSheetLoader = {
         loadByNames = function(...) end
       }
       stub(ImageSheetLoader, "loadByNames")
-      
-      physics = {}
+
+      _G.physics = {}
       stub(physics, "start")
       stub(physics, "setDrawMode")
 
       FloorPhysicsInitializer = {}
       stub(FloorPhysicsInitializer, "initialize")
-      
+
       BackgroundInitializer = {}
       stub(BackgroundInitializer, "initialize")
-      
+
       GameInitializeData = {
         ["game_scene"] = {
           physicsDrawMode = "normal",
           loadImageSheets = {"bear_zombie", "floor", "enemy", "bullet", "item", "background", "chairs"}
         }
       }
-      
+
       GameUIInitializer = {}
       stub(GameUIInitializer, "initialize")
-      
+
       GameInitializer = require("scripts.GameInitializer")
     end)
 
     it("should load image sheets which will be use in game", function()
       GameInitializer.initialize()
-      
+
       assert.stub(ImageSheetLoader.loadByNames).was_called_with({"bear_zombie", "floor", "enemy", "bullet", "item", "background", "chairs"})
     end)
-    
+
     it("should start physics", function()
       GameInitializer.initialize()
-      
+
       assert.stub(physics.start).was_called()
     end)
-    
+
     it("should set physics draw mode to hybrid", function()
       GameInitializer.initialize()
-      
+
       assert.stub(physics.setDrawMode).was_called_with("normal")
     end)
-    
+
     it("should start physics of floor", function()
       GameInitializer.initialize()
 
       assert.stub(FloorPhysicsInitializer.initialize).was_called()
     end)
-    
+
     it("should initialize background", function()
       GameInitializer.initialize()
-      
+
       assert.stub(BackgroundInitializer.initialize).was_called()
     end)
-    
+
     it("should initialize game UI", function()
       GameInitializer.initialize()
-      
+
       assert.stub(GameUIInitializer.initialize).was_called()
     end)
 end)
