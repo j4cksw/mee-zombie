@@ -13,19 +13,19 @@ describe("BackgroundInitializer", function()
   }
 
   setup(function()
-    GameInitializeData = {
+    _G.GameInitializeData = {
       ["background"] = gameData,
       ["chairs"] = {},
     }
 
-    SpriteInitializer = {
+    _G.SpriteInitializer = {
       initializeByData = function()
         return fakeSprite
       end
     }
     spy.on(SpriteInitializer, "initializeByData")
-    
-    BackgroundRepository = {}
+
+    _G.BackgroundRepository = {}
     stub(BackgroundRepository, "insert")
 
     BackgroundInitializer = require("scripts.BackgroundInitializer")

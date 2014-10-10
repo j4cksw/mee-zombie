@@ -2,20 +2,23 @@ describe("SpriteFactory", function()
 
     local fakeImageSheet = {}
 
+    local SpriteFactory
+
     setup(function()
 
-        display = {
+        _G.display = {
           newSprite = function(...)
             return fakeImageSheet
           end
         }
         spy.on(display, "newSprite")
 
-        ImageSheetsTable = {
+        _G.ImageSheetsTable = {
           ["bear_zombie"] = fakeImageSheet
         }
-        SpriteSequenceData = {
-          ["bear_zombie"] = {name="run",
+        _G.SpriteSequenceData = {
+          ["bear_zombie"] = {
+            name="run",
             start=1,
             count=1,
           }

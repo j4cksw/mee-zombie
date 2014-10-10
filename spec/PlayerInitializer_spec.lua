@@ -4,24 +4,24 @@ describe("PlayerInitializer", function()
   local fakePlayerSprite = {}
 
   setup(function()
-    SpriteInitializer = {
+    _G.SpriteInitializer = {
       initializeByData = function()
         return fakePlayerSprite
       end
     }
     spy.on(SpriteInitializer, "initializeByData")
 
-    GameInitializeData = {
+    _G.GameInitializeData = {
       ["bear_zombie"] = {}
     }
 
-    PlayerRepository = {}
+    _G.PlayerRepository = {}
     stub(PlayerRepository, "setPlayerSprite")
 
-    physics = {}
+    _G.physics = {}
     stub(physics, "addBody")
 
-    PhysicsData = {
+    _G.PhysicsData = {
       ["player"] = {
         type="dynamic",
         options = {

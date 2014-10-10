@@ -1,4 +1,4 @@
-ScoreUpdater = {}
+local ScoreUpdater = {}
 
 LevelConfig = {
     {

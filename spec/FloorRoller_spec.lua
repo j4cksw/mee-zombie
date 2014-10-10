@@ -1,20 +1,20 @@
 describe("FloorRoller", function()
   local FloorRoller
-  
+
   local FloorDataGenerator = require("spec.lib.FloorDataGenerator")
-  
+
   setup(function()
-    FloorRepository = {
+    _G.FloorRepository = {
       getFloorGroup = function()
         return Floor
       end
     }
     spy.on(FloorRepository, "getFloorGroup")
-    
-    FloorChunkSlipDetector = {}
+
+    _G.FloorChunkSlipDetector = {}
     stub(FloorChunkSlipDetector, "detect")
-    
-    GameRule = {
+
+    _G.GameRule = {
       speed = 8
     }
 

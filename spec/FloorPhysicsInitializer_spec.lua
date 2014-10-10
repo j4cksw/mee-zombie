@@ -3,7 +3,7 @@ describe("FloorPhysicsInitializer", function()
   local fakeRect = {}
 
   setup(function()
-    display = {
+    _G.display = {
       newRect=function()
         return fakeRect
       end,
@@ -12,7 +12,7 @@ describe("FloorPhysicsInitializer", function()
     }
     spy.on(display, "newRect")
 
-    GameInitializeData  = {
+    _G.GameInitializeData  = {
       ["floor_physics"] = {
         y=1460,
         height=152
@@ -22,6 +22,7 @@ describe("FloorPhysicsInitializer", function()
     _G.physics = {
         addBody = function()end
     }
+    spy.on(physics, "addBody")
 
     FloorPhysicsInitializer = require("scripts.FloorPhysicsInitializer")
   end)

@@ -4,16 +4,16 @@ describe("FloorChunkSlipDetector", function()
   local FloorDataGenerator = require("spec.lib.FloorDataGenerator")
 
   setup(function()
-    FloorRepository = {
+    _G.FloorRepository = {
       getFloorGroup = function()
         return Floor
       end
     }
     spy.on(FloorRepository, "getFloorGroup")
 
-    FloorAppender = {}
+    _G.FloorAppender = {}
     stub(FloorAppender, "append")
-    
+
     FloorChunkSlipDetector = require("scripts.FloorChunkSlipDetector")
   end)
 

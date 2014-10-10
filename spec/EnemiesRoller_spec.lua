@@ -2,22 +2,22 @@ describe("EnemiesRoller", function()
   local EnemiesRoller
 
   setup(function()
-    GameRule = {
+    _G.GameRule = {
       speed = 7
     }
-    
-    EnemiesGroup = {
+
+    _G.EnemiesGroup = {
       {x=10},
       numChildren=1
     }
 
-    EnemyRepository = {
+    _G.EnemyRepository = {
       getEnemyGroup = function()
         return EnemiesGroup
       end
     }
     spy.on(EnemyRepository, "getEnemyGroup")
-    
+
     EnemiesRoller = require("scripts.EnemiesRoller")
   end)
 
@@ -31,7 +31,7 @@ describe("EnemiesRoller", function()
       {x=10},
       numChildren=1
     }
-    
+
     EnemiesRoller.roll()
 
     assert.are.equal(EnemiesGroup[1].x, 3)

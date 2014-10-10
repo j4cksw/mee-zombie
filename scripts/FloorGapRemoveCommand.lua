@@ -1,4 +1,4 @@
-FloorGapRemoveCommand = {}
+local FloorGapRemoveCommand = {}
 
 FloorRepository = FloorRepository or require("scripts.FloorRepository")
 

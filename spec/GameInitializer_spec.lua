@@ -1,7 +1,7 @@
 describe("GameInitializer", function()
 
     before_each(function()
-      ImageSheetLoader = {
+      _G.ImageSheetLoader = {
         loadByNames = function(...) end
       }
       stub(ImageSheetLoader, "loadByNames")
@@ -10,23 +10,23 @@ describe("GameInitializer", function()
       stub(physics, "start")
       stub(physics, "setDrawMode")
 
-      FloorPhysicsInitializer = {}
+      _G.FloorPhysicsInitializer = {}
       stub(FloorPhysicsInitializer, "initialize")
 
-      BackgroundInitializer = {}
+      _G.BackgroundInitializer = {}
       stub(BackgroundInitializer, "initialize")
 
-      GameInitializeData = {
+      _G.GameInitializeData = {
         ["game_scene"] = {
           physicsDrawMode = "normal",
           loadImageSheets = {"bear_zombie", "floor", "enemy", "bullet", "item", "background", "chairs"}
         }
       }
 
-      GameUIInitializer = {}
+      _G.GameUIInitializer = {}
       stub(GameUIInitializer, "initialize")
 
-      GameInitializer = require("scripts.GameInitializer")
+      _G.GameInitializer = require("scripts.GameInitializer")
     end)
 
     it("should load image sheets which will be use in game", function()

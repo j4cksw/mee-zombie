@@ -6,21 +6,21 @@ describe("FloorAppender", function()
   local fakeCreatedFloorChunk = {}
 
   setup(function()
-    FloorRepository = {
+    _G.FloorRepository = {
       getFloorGroup = function()
         return Floor
       end
     }
     spy.on(FloorRepository, "getFloorGroup")
 
-    FloorChunkBuilder = {
+    _G.FloorChunkBuilder = {
       buildFromPatternAndVerticalOffset = function(...)
         return fakeCreatedFloorChunk
       end
     }
     spy.on(FloorChunkBuilder, "buildFromPatternAndVerticalOffset")
-    
-    FloorPatterns = {
+
+    _G.FloorPatterns = {
       {"body", "top"}
     }
 

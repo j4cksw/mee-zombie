@@ -2,10 +2,10 @@ describe("GameUIInitializer", function()
   local GameUIInitializer
 
   setup(function()
-    SpriteInitializer = {}
+    _G.SpriteInitializer = {}
     stub(SpriteInitializer, "initializeByData")
 
-    GameInitializeData = {
+    _G.GameInitializeData = {
         ["rave_level"] = {
             name="rave_level",
             x=500,
@@ -14,7 +14,7 @@ describe("GameUIInitializer", function()
         }
     }
 
-    ScoreInitializer = {}
+    _G.ScoreInitializer = {}
     stub(ScoreInitializer, "initialize")
 
     GameUIInitializer = require("scripts.GameUIInitializer")
@@ -22,7 +22,7 @@ describe("GameUIInitializer", function()
 
   it("should create rave level sprite", function()
     GameUIInitializer.initialize()
-    
+
     assert.stub(SpriteInitializer.initializeByData).was_called_with(GameInitializeData["rave_level"])
   end)
 

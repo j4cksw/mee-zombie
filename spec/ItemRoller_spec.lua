@@ -5,16 +5,16 @@ describe("ItemRoller", function()
       isMovable = true
     }
 
-    ItemRepository = {
+    _G.ItemRepository = {
       getAll = function()
         return {fakeItem, numChildren=1}
       end
     }
-    
-    GameRule = {
+
+    _G.GameRule = {
       speed = 8
     }
-    
+
     ItemRoller = require("scripts.ItemRoller")
 
     ItemRoller.roll()

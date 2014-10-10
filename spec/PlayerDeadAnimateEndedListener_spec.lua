@@ -2,7 +2,7 @@ describe("PlayerDeadAnimateEndedListener", function()
   local PlayerDeadAnimateEndedListener
 
   before_each(function()
-    GameDestroyer = {}
+    _G.GameDestroyer = {}
     stub(GameDestroyer, "destroy")
 
     _G.storyboard = {}

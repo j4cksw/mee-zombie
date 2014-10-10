@@ -2,14 +2,16 @@ describe("ImageSheetFactory", function()
 
     local fakeImageSheet = {}
 
+    local ImageSheetFactory
+
     setup(function()
-      graphics = {
+      _G.graphics = {
         newImageSheet = function(...)
           return fakeImageSheet
         end
       }
       spy.on(graphics, "newImageSheet")
-      
+
       ImageSheetFactory = require("scripts.ImageSheetFactory")
     end)
 

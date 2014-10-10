@@ -9,10 +9,10 @@ describe("BulletInitializer", function()
   local fakeBulletSprite = {}
 
   setup(function()
-    SpriteSequenceTransition = {}
+    _G.SpriteSequenceTransition = {}
     stub(SpriteSequenceTransition, "toSequence")
 
-    SpriteInitializer = {
+    _G.SpriteInitializer = {
       initializeByData = function()
         return fakeBulletSprite
       end
@@ -24,8 +24,8 @@ describe("BulletInitializer", function()
 
     stub(fakeBulletSprite, "setLinearVelocity")
     stub(fakeBulletSprite, "addEventListener")
-    
-    PhysicsData = {
+
+    _G.PhysicsData = {
       ["bullet"] = {
         type="kinematic",
         options = {
@@ -33,14 +33,14 @@ describe("BulletInitializer", function()
         }
       },
     }
-    
-    BulletHitPlayerListener = {
+
+    _G.BulletHitPlayerListener = {
       actionPerformed = function()end
     }
-    
-    BulletRepository = {}
+
+    _G.BulletRepository = {}
     stub(BulletRepository, "insert")
-    
+
     BulletInitializer = require("scripts.BulletInitializer")
   end)
 
@@ -74,7 +74,7 @@ describe("BulletInitializer", function()
       "collision",
       BulletHitPlayerListener.actionPerformed)
   end)
-  
+
   it("should add bullet sprite to BulletRepository", function()
     BulletInitializer.initialize(fakeSwatSprite)
 

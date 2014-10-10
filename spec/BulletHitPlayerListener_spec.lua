@@ -14,7 +14,7 @@ describe("BulletHitPlayerListener", function()
   setup(function()
     stub(fakeTargetBulletSprite, "removeSelf")
 
-    SpriteSequenceTransition = {}
+    _G.SpriteSequenceTransition = {}
     stub(SpriteSequenceTransition, "toSequence")
 
     _G.PlayerDeadAnimateEndedListener = {
@@ -23,14 +23,14 @@ describe("BulletHitPlayerListener", function()
 
     stub(fakePlayerSprite, "addEventListener")
 
-    Runtime = {}
+    _G.Runtime = {}
     stub(Runtime, "removeEventListener")
 
-    PlayerAttackCommand = {
+    _G.PlayerAttackCommand = {
       execute = function()end
     }
 
-    timer = {}
+    _G.timer = {}
     stub(timer, "performWithDelay")
 
 

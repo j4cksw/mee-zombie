@@ -9,26 +9,26 @@ describe("EnemySpriteCollisionListener", function()
   }
 
   setup(function()
-    SpriteSequenceTransition = {}
+    _G.SpriteSequenceTransition = {}
     stub(SpriteSequenceTransition, "toSequence")
 
     stub(event.target, "addEventListener")
 
-    EnemyDeadAnimateEndedListener = {
+    _G.EnemyDeadAnimateEndedListener = {
       actionPerformed = function()end
     }
 
-    timer = {}
+    _G.timer = {}
     stub(timer, "cancel")
     stub(timer, "performWithDelay")
 
-    ItemInitializer = {}
+    _G.ItemInitializer = {}
     stub(ItemInitializer, "initialize")
 
-    CurrentScore = 0
-    ScoreText = {}
+    _G.CurrentScore = 0
+    _G.ScoreText = {}
 
-    ScoreUpdater = {
+    _G.ScoreUpdater = {
         update = function()end
     }
 

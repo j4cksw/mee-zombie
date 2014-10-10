@@ -6,23 +6,23 @@ describe("FloorBuilder", function()
   local fakeCreatedFloorChunk = {}
 
   setup(function()
-    
+
     stub(fakeFloorGroup, "insert")
-    
-    display = {
+
+    _G.display = {
       newGroup = function()
         return fakeFloorGroup
       end
     }
     spy.on(display, "newGroup")
-    
-    FloorRepository = {}
+
+    _G.FloorRepository = {}
     stub(FloorRepository, "setFloorGroup")
-    
-    FloorAppender = {}
+
+    _G.FloorAppender = {}
     stub(FloorAppender, "append")
-    
-    GameInitializeData = {
+
+    _G.GameInitializeData = {
       ["floor"] = {
         initializeChunks = 18
       }
@@ -39,15 +39,15 @@ describe("FloorBuilder", function()
 
   it("should append floor for configured initialize times", function()
     stub(FloorAppender, "append")
-    
+
     FloorBuilder.build()
 
     assert.stub(FloorAppender.append).was_called(18)
   end)
-  
+
   it("should set floor group to FloorRepository", function()
     FloorBuilder.build()
-    
+
     assert.stub(FloorRepository.setFloorGroup).was_called_with(fakeFloorGroup)
   end)
 end)

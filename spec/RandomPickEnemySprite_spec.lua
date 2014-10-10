@@ -3,14 +3,14 @@ describe("RandomPickEnemyInitializer", function()
   local fakeRandomResult = -1
 
   setup(function()
-    math = {
+    _G.math = {
       random = function()
         return fakeRandomResult
       end
     }
     spy.on(math, "random")
 
-    EnemyInitializer = {}
+    _G.EnemyInitializer = {}
     stub(EnemyInitializer, "initialize")
 
     RandomPickEnemyInitializer = require("scripts.RandomPickEnemyInitializer")
@@ -21,14 +21,14 @@ describe("RandomPickEnemyInitializer", function()
 
     assert.stub(math.random).was_called_with(1, 4)
   end)
-  
+
   local testData = {
     [1] = "enemy1",
     [2] = "enemy2",
     [3] = "enemy3",
     [4] = "enemy4"
   }
-  
+
   for index, expectedInput in pairs(testData) do
     it("should call EnemyInitializer with combined 'enemy' with random result "..index, function()
       fakeRandomResult = index

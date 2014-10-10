@@ -1,4 +1,5 @@
 describe("BulletRepository", function()
+    local BulletRepository
 
     local fakeGroup = {
       numChildren = 1,
@@ -6,9 +7,12 @@ describe("BulletRepository", function()
     }
     local fakeBullet = {}
 
-    setup(function()
-      display = {
+    before_each(function()
+        BulletRepository = require("scripts.BulletRepository")
+        
+      _G.display = {
         newGroup = function()
+            print("calling fakeGroup")
           return fakeGroup
         end
       }
@@ -17,8 +21,6 @@ describe("BulletRepository", function()
 
       stub(fakeGroup, "insert")
       stub(fakeGroup[1], "removeSelf")
-
-      BulletRepository = require("scripts.BulletRepository")
     end)
 
     it("should create group if not available when insert", function()

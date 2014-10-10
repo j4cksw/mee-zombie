@@ -1,11 +1,17 @@
 describe("ScoreUpdater", function()
 
+    local ScoreUpdater
+
     before_each(function()
         ScoreUpdater = require("scripts.ScoreUpdater")
+
+        _G.RaveLevelSprite = {
+            setSequence = function()end
+        }
     end)
 
     it("should increase current score", function()
-        CurrentScore = 0
+        _G.CurrentScore = 0
 
         ScoreUpdater.update()
 
@@ -13,20 +19,14 @@ describe("ScoreUpdater", function()
     end)
 
     it("should update score text", function()
-        CurrentScore = 0
-        ScoreText = {
+        _G.CurrentScore = 0
+        _G.ScoreText = {
             text = nil
         }
 
         ScoreUpdater.update()
 
         assert.are.equal(ScoreText.text, "1")
-    end)
-
-    it("should increase level", function()
-        ScoreUpdater.update()
-
-
     end)
 
 end)

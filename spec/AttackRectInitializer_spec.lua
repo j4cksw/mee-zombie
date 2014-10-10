@@ -1,13 +1,15 @@
 describe("AttackRectInitializer", function()
 
+    local AttackRectInitializer
+
     local fakeAttackRect = {}
     local fakePlayerSprite = {
       x=500,
       y=2000
     }
 
-    setup(function()
-      display = {
+    before_each(function()
+      _G.display = {
         newRect = function()
           return fakeAttackRect
         end
@@ -17,11 +19,9 @@ describe("AttackRectInitializer", function()
       _G.physics = {}
       stub(physics, "addBody")
 
-      AttackRectInitializer = require("scripts.AttackRectInitializer")
-    end)
+      _G.AttackRect = nil
 
-    before_each(function()
-      AttackRect = nil
+      AttackRectInitializer = require("scripts.AttackRectInitializer")
     end)
 
     it("should create rectangle for use as slash body", function()

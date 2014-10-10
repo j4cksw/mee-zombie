@@ -16,7 +16,7 @@ describe("GameScene", function()
       end
     }
 
-    GameInitializer = {}
+    _G.GameInitializer = {}
     stub(GameInitializer, "initialize")
 
     gameScene = require("scripts.scene.GameScene")

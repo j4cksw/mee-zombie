@@ -7,7 +7,7 @@ describe("BackgroundRepository", function()
     local fakeBullet = {}
 
     setup(function()
-      display = {
+      _G.display = {
         newGroup = function()
           return fakeGroup
         end

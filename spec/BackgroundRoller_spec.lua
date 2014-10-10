@@ -4,7 +4,7 @@ describe("BackgroundRoller", function()
   local fakeBackgroundGroup
 
   setup(function()
-    BackgroundRepository = {
+    _G.BackgroundRepository = {
       getBackgroundGroup = function()
         return fakeBackgroundGroup
       end

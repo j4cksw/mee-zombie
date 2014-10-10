@@ -3,20 +3,23 @@ describe("RandomChanceEnemyInitializer", function()
 
   local randomResult = -1
 
-  setup(function()
-    math = {
+  before_each(function()
+    _G.math = {
       random = function()
         return randomResult
       end
     }
     spy.on(math, "random")
 
-    RandomPickEnemyInitializer = {}
+    _G.RandomPickEnemyInitializer = {}
     stub(RandomPickEnemyInitializer, "initialize")
 
-    RandomChanceEnemyInitializer = require("scripts.RandomChanceEnemyInitializer")
+    _G.EnemySwatInitializer = {}
+    stub(EnemySwatInitializer, "initialize")
 
+    RandomChanceEnemyInitializer = require("scripts.RandomChanceEnemyInitializer")
   end)
+
   it("should random number 0 - 100", function()
       RandomChanceEnemyInitializer.initialize()
 

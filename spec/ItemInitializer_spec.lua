@@ -1,5 +1,7 @@
 describe("ItemInitializer", function()
 
+    local ItemInitializer
+    
     local fakeEnemySprite = {
       x=1000,
       y=2000
@@ -8,14 +10,14 @@ describe("ItemInitializer", function()
     local fakeItemSprite = {}
 
     before_each(function()
-      SpriteInitializer = {
+      _G.SpriteInitializer = {
         initializeByData = function()
           return fakeItemSprite
         end
       }
       spy.on(SpriteInitializer, "initializeByData")
 
-      ItemRepository = {}
+      _G.ItemRepository = {}
       stub(ItemRepository, "insert")
 
       _G.physics = {}

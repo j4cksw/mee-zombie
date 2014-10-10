@@ -6,25 +6,25 @@ describe("PlayerAttackCommand", function()
   setup(function()
     stub(fakePlayerSprite, "addEventListener")
 
-    PlayerRepository = {
+    _G.PlayerRepository = {
       getPlayerSprite = function()
         return fakePlayerSprite
       end
     }
     spy.on(PlayerRepository, "getPlayerSprite")
 
-    SpriteSequenceTransition = {}
+    _G.SpriteSequenceTransition = {}
     stub(SpriteSequenceTransition, "toSequence")
-    
-    InitiateAttackListener = {
+
+    _G.InitiateAttackListener = {
       actionPerformed = function()end
     }
-    
-    PlayerAttackEndedListener = {
+
+    _G.PlayerAttackEndedListener = {
       actionPerformed = function()end
     }
-    
-    Runtime = {}
+
+    _G.Runtime = {}
     stub(Runtime, "removeEventListener")
 
     PlayerAttackCommand = require("scripts.PlayerAttackCommand")
@@ -41,13 +41,13 @@ describe("PlayerAttackCommand", function()
 
     assert.stub(SpriteSequenceTransition.toSequence).was_called_with(fakePlayerSprite, "attack")
   end)
-  
+
   it("should add InitiateAttackListener to sprite event listeners of player sprite", function()
     PlayerAttackCommand.execute()
 
     assert.stub(fakePlayerSprite.addEventListener).was_called_with(fakePlayerSprite, "sprite", InitiateAttackListener.actionPerformed)
   end)
-  
+
   it("should add PlayerAttackEndedListener to sprite event listeners of player sprite", function()
     PlayerAttackCommand.execute()
 
@@ -56,7 +56,7 @@ describe("PlayerAttackCommand", function()
 
   it("should remove tap event listener from Runtime", function()
     PlayerAttackCommand.execute()
-    
+
     assert.stub(Runtime.removeEventListener).was_called_with(Runtime, "tap", PlayerAttackCommand.execute)
   end)
 end)

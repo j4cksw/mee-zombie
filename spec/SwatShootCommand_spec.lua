@@ -17,12 +17,12 @@ describe("SwatShootCommand", function()
   local fakeBulletSprite = {}
 
   setup(function()
-    BulletInitializer = {}
+    _G.BulletInitializer = {}
     stub(BulletInitializer, "initialize")
-    
-    SpriteSequenceTransition = {}
+
+    _G.SpriteSequenceTransition = {}
     stub(SpriteSequenceTransition, "toSequence")
-    
+
     SwatShootCommand = require("scripts.SwatShootCommand")
   end)
 

@@ -2,22 +2,22 @@ describe("EnemyGenerateTimerInitializer", function()
   local EnemyGenerateTimerInitializer
   local fakeEnemyGroup = {}
 
-  setup(function()
+  before_each(function()
     timer = {}
     stub(timer, "performWithDelay")
 
-    RandomChanceEnemyInitializer = {
+    _G.RandomChanceEnemyInitializer = {
       initialize = function()end
     }
 
-    display = {
+    _G.display = {
       newGroup = function()
         return fakeEnemyGroup
       end
     }
     spy.on(display, "newGroup")
-    
-    EnemyRepository = {}
+
+    _G.EnemyRepository = {}
     stub(EnemyRepository, "setEnemyGroup")
 
     EnemyGenerateTimerInitializer = require("scripts.EnemyGenerateTimerInitializer")
@@ -37,7 +37,7 @@ describe("EnemyGenerateTimerInitializer", function()
 
   it("should set enemy group to EnemyRepository", function()
     EnemyGenerateTimerInitializer.initialize()
-    
+
     assert.stub(EnemyRepository.setEnemyGroup).was_called_with(fakeEnemyGroup)
   end)
 end)

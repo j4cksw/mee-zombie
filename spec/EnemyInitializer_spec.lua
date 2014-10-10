@@ -6,14 +6,14 @@ describe("EnemyInitializer", function()
   local fakeEnemyGroup = {}
 
   before_each(function()
-    SpriteInitializer = {
+    _G.SpriteInitializer = {
       initializeByData = function(...)
         return fakeEnemySprite
       end
     }
     spy.on(SpriteInitializer, "initializeByData")
 
-    GameInitializeData = {
+    _G.GameInitializeData = {
       ["enemy"] = {name="enemy",
         x=512,
         y=1150,
@@ -26,13 +26,13 @@ describe("EnemyInitializer", function()
 
     stub(fakeEnemySprite, "addEventListener")
 
-    EnemySpriteCollisionListener = {
+    _G.EnemySpriteCollisionListener = {
       actionPerformed = function()end
     }
 
     stub(fakeEnemyGroup, "insert")
 
-    EnemyRepository = {
+    _G.EnemyRepository = {
       getEnemyGroup = function()
         return fakeEnemyGroup
       end

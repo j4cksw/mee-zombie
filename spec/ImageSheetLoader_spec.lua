@@ -2,8 +2,10 @@ describe("ImageSheetLoader", function()
 
     local fakeImageSheet = {}
 
+    local ImageSheetLoader
+
     setup(function()
-      ImageSheetsData = {
+      _G.ImageSheetsData = {
         ["bear_zombie"] = {
           path="img/sprite/bear_zombie.png",
           options={
@@ -22,7 +24,7 @@ describe("ImageSheetLoader", function()
         }
       }
 
-      ImageSheetFactory = {
+      _G.ImageSheetFactory = {
         createFromImageSheetData = function()
           return fakeImageSheet
         end
@@ -31,7 +33,7 @@ describe("ImageSheetLoader", function()
 
       ImageSheetLoader = require("scripts.ImageSheetLoader")
     end)
-    
+
     it("should acquire imageSheet data from config table and assign to ImageFactory.create", function()
       ImageSheetLoader.loadByNames({"bear_zombie"})
 
@@ -44,22 +46,22 @@ describe("ImageSheetLoader", function()
         }
       })
     end)
-    
+
     it("should create a global ImageSheetsTable", function()
       ImageSheetLoader.loadByNames({"bear_zombie"})
-      
+
       assert.are_not.Nil(ImageSheetsTable)
     end)
-    
+
     it("should have imageSheet with a given name", function()
       ImageSheetLoader.loadByNames({"bear_zombie"})
-      
+
       assert.are_not.Nil(ImageSheetsTable["bear_zombie"])
     end)
-    
+
     it("should have imageSheet with all given names", function()
       ImageSheetLoader.loadByNames({"bear_zombie", "floor"})
-      
+
       assert.are_not.Nil(ImageSheetsTable["bear_zombie"])
       assert.are_not_Nil(ImageSheetsTable["floor"])
     end)

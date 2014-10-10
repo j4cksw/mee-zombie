@@ -6,11 +6,11 @@ describe("RandomizedItemInitializer", function()
         _G.ItemInitializer ={}
         ItemInitializer.initialize = function()end
 
-        ItemConfig = {
+        _G.ItemConfig = {
             dropRate=30
         }
 
-        math = {
+        _G.math = {
             random = function()
                 return randomResult
             end

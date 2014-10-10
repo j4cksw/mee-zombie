@@ -1,38 +1,38 @@
 describe("GameStarter", function()
 
     setup(function()
-      
-      GameRuleInitializer = {}
+
+      _G.GameRuleInitializer = {}
       stub(GameRuleInitializer, "initialize")
-      
-      FloorBuilder = {}
+
+      _G.FloorBuilder = {}
       stub(FloorBuilder, "build")
 
-      Runtime = {}
+      _G.Runtime = {}
       stub(Runtime, "addEventListener")
 
-      FloorRoller = {}
+      _G.FloorRoller = {}
       stub(FloorRoller, "roll")
 
-      PlayerInitializer = {}
+      _G.PlayerInitializer = {}
       stub(PlayerInitializer, "initialize")
 
-      EnemyGenerateTimerInitializer = {}
+      _G.EnemyGenerateTimerInitializer = {}
       stub(EnemyGenerateTimerInitializer, "initialize")
 
-      EnemiesRoller = {
+      _G.EnemiesRoller = {
         roll = function()end
       }
-      
+
       GameStarter = require("scripts.GameStarter")
     end)
-    
+
     it("should initialize game rule", function()
       GameStarter.start()
-      
+
       assert.stub(GameRuleInitializer.initialize).was_called()
     end)
-    
+
     it("should start player", function()
       GameStarter.start()
 
