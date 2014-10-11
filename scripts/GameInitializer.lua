@@ -19,6 +19,7 @@ function GameInitializer.initialize()
   BackgroundInitializer.initialize()
 
   AudioRepository.add("game_bgm", audio.loadSound("audio/bg.mp3"))
+  AudioRepository.add("killed_sfx", audio.loadSound("audio/killed.wav"))
 
   GameUIInitializer.initialize()
 end

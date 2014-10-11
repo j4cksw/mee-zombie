@@ -13,17 +13,17 @@ AudioRepository = AudioRepository or require("scripts.AudioRepository")
 
 function GameStarter.start()
     audio.play(AudioRepository.get("game_bgm"))
-  GameRuleInitializer.initialize()
+    GameRuleInitializer.initialize()
 
-  FloorBuilder.build()
+    FloorBuilder.build()
 
-  PlayerInitializer.initialize()
-  EnemyGenerateTimerInitializer.initialize()
+    PlayerInitializer.initialize()
+    EnemyGenerateTimerInitializer.initialize()
 
-  Runtime:addEventListener("enterFrame", FloorRoller.roll)
-  Runtime:addEventListener("enterFrame", EnemiesRoller.roll)
-  Runtime:addEventListener("enterFrame", ItemRoller.roll)
-  Runtime:addEventListener("enterFrame", BackgroundRoller.roll)
+    Runtime:addEventListener("enterFrame", FloorRoller.roll)
+    Runtime:addEventListener("enterFrame", EnemiesRoller.roll)
+    Runtime:addEventListener("enterFrame", ItemRoller.roll)
+    Runtime:addEventListener("enterFrame", BackgroundRoller.roll)
 end
 
 return GameStarter

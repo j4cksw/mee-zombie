@@ -79,15 +79,17 @@ describe("GameInitializer", function()
       assert.stub(GameUIInitializer.initialize).was_called()
     end)
 
-    it("should load game background music", function()
+    it("should load game background music and add to AudioRepository", function()
         GameInitializer.initialize()
 
         assert.stub(audio.loadSound).was_called_with("audio/bg.mp3")
+        assert.stub(AudioRepository.add).was_called_with("game_bgm", fakeLoadedAudio)
     end)
 
-    it("should add loaded sound to AudioRepository", function()
+    it("should load killed sound and add to AudioRepository", function()
         GameInitializer.initialize()
 
-        assert.stub(AudioRepository.add).was_called_with("game_bgm", fakeLoadedAudio)
+        assert.stub(audio.loadSound).was_called_with("audio/killed.wav")
+        assert.stub(AudioRepository.add).was_called_with("killed_sfx", fakeLoadedAudio)
     end)
 end)
