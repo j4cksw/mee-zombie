@@ -4,6 +4,7 @@ SpriteSequenceTransition = SpriteSequenceTransition or require("scripts.SpriteSe
 EnemyDeadAnimateEndedListener = EnemyDeadAnimateEndedListener or require("scripts.EnemyDeadAnimateEndedListener")
 local itemInitializer = RandomizeItemInitializer or require("scripts.RandomizeItemInitializer")
 ScoreUpdater = ScoreUpdater or require("scripts.ScoreUpdater")
+AudioRepository = AudioRepository or require("scripts.AudioRepository")
 
 function EnemySpriteCollisionListener.actionPerformed(event)
   if event.other.type == "slash" then
@@ -18,6 +19,8 @@ function EnemySpriteCollisionListener.actionPerformed(event)
     end)
 
     ScoreUpdater.update()
+
+    audio.play(AudioRepository.get("killed_sfx"))
   end
 end
 

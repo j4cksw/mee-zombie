@@ -8,6 +8,8 @@ describe("EnemySpriteCollisionListener", function()
     }
   }
 
+  local fakeKilledSFX = {}
+
   setup(function()
     _G.SpriteSequenceTransition = {}
     stub(SpriteSequenceTransition, "toSequence")
@@ -32,6 +34,16 @@ describe("EnemySpriteCollisionListener", function()
         update = function()end
     }
 
+    _G.AudioRepository = {
+        get = function()
+            return fakeKilledSFX
+        end
+    }
+    spy.on(AudioRepository, "get")
+
+    _G.audio = {}
+    stub(audio, "play")
+
     EnemySpriteCollisionListener = require("scripts.EnemySpriteCollisionListener")
   end)
 
@@ -39,6 +51,7 @@ describe("EnemySpriteCollisionListener", function()
     EnemySpriteCollisionListener.actionPerformed(event)
 
     assert.stub(SpriteSequenceTransition.toSequence).was_called_with(event.target, "dead")
+    assert.stub(audio.play).was_called_with(fakeKilledSFX)
   end)
 
   it("should cancel the timer if it was attached to sprite", function()
@@ -63,4 +76,9 @@ describe("EnemySpriteCollisionListener", function()
     assert.stub(ScoreUpdater.update).was_called()
   end)
 
+  it("should play killed sound", function()
+      EnemySpriteCollisionListener.actionPerformed(event)
+
+      assert.stub(AudioRepository.get).was_called_with("killed_sfx")
+  end)
 end)
