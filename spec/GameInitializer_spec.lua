@@ -1,5 +1,7 @@
 describe("GameInitializer", function()
 
+    local fakeLoadedAudio = {}
+
     before_each(function()
       _G.ImageSheetLoader = {
         loadByNames = function(...) end
@@ -26,8 +28,17 @@ describe("GameInitializer", function()
       _G.GameUIInitializer = {}
       stub(GameUIInitializer, "initialize")
 
-      _G.audio = {}
-      stub(audio, "loadSound")
+      _G.audio = {
+          loadSound = function()
+              return fakeLoadedAudio
+          end
+      }
+      spy.on(audio, "loadSound")
+
+      _G.AudioRepository = {
+          add = function()end
+      }
+      stub(AudioRepository, "add")
 
       _G.GameInitializer = require("scripts.GameInitializer")
     end)
@@ -72,5 +83,11 @@ describe("GameInitializer", function()
         GameInitializer.initialize()
 
         assert.stub(audio.loadSound).was_called_with("audio/bg.mp3")
+    end)
+
+    it("should add loaded sound to AudioRepository", function()
+        GameInitializer.initialize()
+
+        assert.stub(AudioRepository.add).was_called_with("game_bgm", fakeLoadedAudio)
     end)
 end)

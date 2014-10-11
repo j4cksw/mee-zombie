@@ -6,6 +6,7 @@ FloorPhysicsInitializer = FloorPhysicsInitializer or require("scripts.FloorPhysi
 BackgroundInitializer = BackgroundInitializer or require("scripts.BackgroundInitializer")
 GameInitializeData = GameInitializeData or require("config.GameInitializeData")
 GameUIInitializer = GameUIInitializer or require("scripts.GameUIInitializer")
+AudioRepository = AudioRepository or require("scripts.AudioRepository")
 
 function GameInitializer.initialize()
   ImageSheetLoader.loadByNames(GameInitializeData["game_scene"].loadImageSheets)
@@ -17,7 +18,7 @@ function GameInitializer.initialize()
 
   BackgroundInitializer.initialize()
 
-  audio.loadSound("audio/bg.mp3")
+  AudioRepository.add("game_bgm", audio.loadSound("audio/bg.mp3"))
 
   GameUIInitializer.initialize()
 end
