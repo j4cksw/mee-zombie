@@ -11,6 +11,7 @@ ItemRoller = ItemRoller or require("scripts.ItemRoller")
 BackgroundRoller = BackgroundRoller or require("scripts.BackgroundRoller")
 
 function GameStarter.start()
+    audio.play()
   GameRuleInitializer.initialize()
 
   FloorBuilder.build()

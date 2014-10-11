@@ -24,7 +24,16 @@ describe("GameStarter", function()
         roll = function()end
       }
 
+      _G.audio = {}
+      stub(audio, "play")
+
       GameStarter = require("scripts.GameStarter")
+    end)
+
+    it("should play background audio", function()
+        GameStarter.start()
+
+        assert.stub(audio.play).was_called()
     end)
 
     it("should initialize game rule", function()
