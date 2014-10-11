@@ -2,6 +2,7 @@ BulletHitPlayerListener = {}
 
 SpriteSequenceTransition = SpriteSequenceTransition or require("scripts.SpriteSequenceTransition")
 PlayerDeadAnimateEndedListener = PlayerDeadAnimateEndedListener or require("scripts.PlayerDeadAnimateEndedListener")
+AudioRepository = AudioRepository or require("scripts.AudioRepository")
 
 function BulletHitPlayerListener.actionPerformed(event)
   if event.other.type == "player" then
@@ -13,6 +14,7 @@ function BulletHitPlayerListener.actionPerformed(event)
       physics.removeBody(event.other)
     end)
     Runtime:removeEventListener("tap", PlayerAttackCommand.execute)
+    AudioRepository.get("killed_sfx")
 
   elseif event.other.type == "slash" then
     event.target:removeSelf()

@@ -33,6 +33,10 @@ describe("BulletHitPlayerListener", function()
     _G.timer = {}
     stub(timer, "performWithDelay")
 
+    _G.AudioRepository = {
+        get=function()end
+    }
+    spy.on(AudioRepository, "get")
 
     BulletHitPlayerListener = require("scripts.BulletHitPlayerListener")
   end)
@@ -55,5 +59,12 @@ describe("BulletHitPlayerListener", function()
     assert.stub(fakePlayerSprite.addEventListener).was_called_with(fakePlayerSprite,
       "sprite",
       PlayerDeadAnimateEndedListener.actionPerformed)
+  end)
+
+  it("should play killed sound", function()
+      BulletHitPlayerListener.actionPerformed(event)
+
+      assert.stub(AudioRepository.get).was_called_with("killed_sfx")
+
   end)
 end)
