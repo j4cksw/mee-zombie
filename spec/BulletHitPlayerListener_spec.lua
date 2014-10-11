@@ -11,6 +11,8 @@ describe("BulletHitPlayerListener", function()
     target = fakeTargetBulletSprite
   }
 
+  local fakeKilledSfx = {}
+
   setup(function()
     stub(fakeTargetBulletSprite, "removeSelf")
 
@@ -34,9 +36,14 @@ describe("BulletHitPlayerListener", function()
     stub(timer, "performWithDelay")
 
     _G.AudioRepository = {
-        get=function()end
+        get=function()
+            return fakeKilledSfx
+        end
     }
     spy.on(AudioRepository, "get")
+
+    _G.audio = {}
+    stub(audio, "play")
 
     BulletHitPlayerListener = require("scripts.BulletHitPlayerListener")
   end)
@@ -65,6 +72,6 @@ describe("BulletHitPlayerListener", function()
       BulletHitPlayerListener.actionPerformed(event)
 
       assert.stub(AudioRepository.get).was_called_with("killed_sfx")
-
+      assert.stub(audio.play).was_called_with(fakeKilledSfx)
   end)
 end)

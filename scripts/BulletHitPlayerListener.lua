@@ -14,7 +14,8 @@ function BulletHitPlayerListener.actionPerformed(event)
       physics.removeBody(event.other)
     end)
     Runtime:removeEventListener("tap", PlayerAttackCommand.execute)
-    AudioRepository.get("killed_sfx")
+
+    audio.play(AudioRepository.get("killed_sfx"))
 
   elseif event.other.type == "slash" then
     event.target:removeSelf()
