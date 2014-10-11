@@ -29,6 +29,9 @@ describe("GameDestroyer", function()
     _G.ItemRepository = {}
     stub(ItemRepository, "removeAll")
 
+    _G.audio = {}
+    stub(audio, "stop")
+
     GameDestroyer = require("scripts.GameDestroyer")
   end)
 
@@ -54,5 +57,11 @@ describe("GameDestroyer", function()
     GameDestroyer.destroy()
 
     assert.stub(ItemRepository.removeAll).was_called()
+  end)
+
+  it("should stop playing bgm", function()
+      GameDestroyer.destroy()
+
+      assert.stub(audio.stop).was_called()
   end)
 end)

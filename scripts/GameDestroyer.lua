@@ -26,6 +26,8 @@ function GameDestroyer.destroy()
   Runtime:removeEventListener("enterFrame", EnemiesRoller.roll)
   Runtime:removeEventListener("enterFrame", ItemRoller.roll)
   Runtime:removeEventListener("enterFrame", BackgroundRoller.roll)
+
+  audio.stop()
 end
 
 return GameDestroyer
