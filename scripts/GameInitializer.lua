@@ -14,9 +14,11 @@ function GameInitializer.initialize()
   physics.setDrawMode(GameInitializeData["game_scene"].physicsDrawMode)
 
   FloorPhysicsInitializer.initialize()
-  
+
   BackgroundInitializer.initialize()
-  
+
+  audio.loadSound("audio/bg.mp3")
+
   GameUIInitializer.initialize()
 end
 

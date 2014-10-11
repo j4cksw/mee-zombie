@@ -26,6 +26,9 @@ describe("GameInitializer", function()
       _G.GameUIInitializer = {}
       stub(GameUIInitializer, "initialize")
 
+      _G.audio = {}
+      stub(audio, "loadSound")
+
       _G.GameInitializer = require("scripts.GameInitializer")
     end)
 
@@ -63,5 +66,11 @@ describe("GameInitializer", function()
       GameInitializer.initialize()
 
       assert.stub(GameUIInitializer.initialize).was_called()
+    end)
+
+    it("should load game background music", function()
+        GameInitializer.initialize()
+
+        assert.stub(audio.loadSound).was_called_with("audio/bg.mp3")
     end)
 end)

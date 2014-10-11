@@ -45,7 +45,7 @@ describe("GameStarter", function()
       assert.stub(FloorBuilder.build).was_called()
     end)
 
-    it("should start enemy", function()
+    it("should start enemy initializer", function()
       GameStarter.start()
 
       assert.stub(EnemyGenerateTimerInitializer.initialize).was_called()
