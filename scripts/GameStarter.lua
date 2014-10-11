@@ -9,9 +9,10 @@ EnemyGenerateTimerInitializer = EnemyGenerateTimerInitializer or require("script
 EnemiesRoller = EnemiesRoller or require("scripts.EnemiesRoller")
 ItemRoller = ItemRoller or require("scripts.ItemRoller")
 BackgroundRoller = BackgroundRoller or require("scripts.BackgroundRoller")
+AudioRepository = AudioRepository or require("scripts.AudioRepository")
 
 function GameStarter.start()
-    audio.play()
+    audio.play(AudioRepository.get("game_bgm"))
   GameRuleInitializer.initialize()
 
   FloorBuilder.build()

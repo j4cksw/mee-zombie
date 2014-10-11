@@ -1,5 +1,7 @@
 describe("GameStarter", function()
 
+    local fakeBackgroundAudio
+
     setup(function()
 
       _G.GameRuleInitializer = {}
@@ -27,13 +29,21 @@ describe("GameStarter", function()
       _G.audio = {}
       stub(audio, "play")
 
+      _G.AudioRepository = {
+          get = function()
+              return fakeBackgroundAudio
+          end
+      }
+      spy.on(AudioRepository, "get")
+
       GameStarter = require("scripts.GameStarter")
     end)
 
     it("should play background audio", function()
         GameStarter.start()
 
-        assert.stub(audio.play).was_called()
+        assert.stub(AudioRepository.get).was_called_with("game_bgm")
+        assert.stub(audio.play).was_called_with(fakeBackgroundAudio)
     end)
 
     it("should initialize game rule", function()
