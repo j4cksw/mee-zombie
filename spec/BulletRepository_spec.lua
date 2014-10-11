@@ -9,10 +9,9 @@ describe("BulletRepository", function()
 
     before_each(function()
         BulletRepository = require("scripts.BulletRepository")
-        
+
       _G.display = {
         newGroup = function()
-            print("calling fakeGroup")
           return fakeGroup
         end
       }
